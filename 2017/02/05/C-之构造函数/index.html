@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="RichardBai's Note">
 <meta property="og:description" content="参考http://blog.csdn.net/tiantang46800/article/details/6938762
 构造函数12345678910class Richard()  &amp;#123;    public:  		Richard()          &amp;#123;            m_val=1;          &amp;#125;  	private:  		int m_val;">
-<meta property="og:updated_time" content="2017-02-05T16:08:18.000Z">
+<meta property="og:updated_time" content="2017-02-08T10:31:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++之构造函数详解">
 <meta name="twitter:description" content="参考http://blog.csdn.net/tiantang46800/article/details/6938762
@@ -332,6 +332,7 @@
       
         <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://blog.csdn.net/tiantang46800/article/details/6938762" target="_blank" rel="external">http://blog.csdn.net/tiantang46800/article/details/6938762</a></p>
 <h1 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">class</span> <span class="title">Richard</span><span class="params">()</span></span></div><div class="line">  &#123;</div><div class="line">    <span class="keyword">public</span>:</div><div class="line">  		Richard()</div><div class="line">          &#123;</div><div class="line">            m_val=<span class="number">1</span>;</div><div class="line">          &#125;</div><div class="line">  	<span class="keyword">private</span>:</div><div class="line">  		<span class="keyword">int</span> m_val;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>当Richard类的对象被创建时，自动调用相应的Richard()构造函数，对成员变量进行初始化，这就是构造函数。</p>
 <h1 id="构造函数的分类"><a href="#构造函数的分类" class="headerlink" title="构造函数的分类"></a>构造函数的分类</h1><p>构造函数可以分为无参数构造函数、一般构造函数、拷贝构造函数、类型转换构造函数。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Complex </div><div class="line">&#123;         </div><div class="line"></div><div class="line"><span class="keyword">private</span> :</div><div class="line">        <span class="keyword">double</span>    m_real;</div><div class="line">        <span class="keyword">double</span>    m_imag;</div><div class="line"><span class="keyword">public</span> :</div><div class="line">		无参数；</div><div class="line">		一般；</div><div class="line">		拷贝构造；</div><div class="line">		类型转换；</div><div class="line">		等号运算符重载(不属于构造函数)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
