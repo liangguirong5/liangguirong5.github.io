@@ -92,7 +92,7 @@
 <meta property="og:url" content="http://github.com/2017/02/20/字符编码/index.html">
 <meta property="og:site_name" content="RichardBai's Note">
 <meta property="og:description" content="计算机中，字符包括字素，类似字素的单元，可书写语言中的字母表、音节表等。例如：字母，从0到9的数字，常用标点符号，空白符，控制符等。中文的你、我、他，日文的に、ほ、ん、ご也都是字符。">
-<meta property="og:updated_time" content="2017-02-20T09:17:00.000Z">
+<meta property="og:updated_time" content="2017-02-20T10:11:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="字符编码以及python中的编码解码问题">
 <meta name="twitter:description" content="计算机中，字符包括字素，类似字素的单元，可书写语言中的字母表、音节表等。例如：字母，从0到9的数字，常用标点符号，空白符，控制符等。中文的你、我、他，日文的に、ほ、ん、ご也都是字符。">
@@ -292,6 +292,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -330,12 +352,14 @@
         <p>计算机中，字符包括字素，类似字素的单元，可书写语言中的字母表、音节表等。例如：字母，从0到9的数字，常用标点符号，空白符，控制符等。中文的你、我、他，日文的に、ほ、ん、ご也都是字符。</p>
 <a id="more"></a>
 <h1 id="仓颉造字ascii码"><a href="#仓颉造字：ASCII码" class="headerlink" title="仓颉造字：ASCII码"></a>仓颉造字：ASCII码</h1><p>我们知道，八位二进制数可以表示256种状态，美国的编码标准——<strong>ASCII</strong>码，根据这一点规定了128个字符的编码，这128个符号的第一位都是0，用后七位进行编码。这128个字符一共包括：</p>
-<pre><code>1. 32个**控制字符**：0~31，如ESC，二进制表示为00011011
-2. **空格(space)**：32，二进制表示为00100000；**DEL**，127，二进制表示为01111111。
-3. **标点以及运算符**：33~47，58~64，91~96，123~126，如&apos;+&apos;表示为00101011。
-4. **数字**：48~57。
-5. **字母**：大写是65~90，小写是97~122。
-</code></pre><h1 id="百家争鸣其他编码"><a href="#百家争鸣：其他编码" class="headerlink" title="百家争鸣：其他编码"></a>百家争鸣：其他编码</h1><p>ASCII码只能表示128个字符，对于其他国家的语言不适用，比如法语中的é就无法用ASCII表示。于是，一些欧洲国家决定充分利用ASCII码中闲置的最高位，这样法语中的é可以编码为10000010。这样，这些欧洲国家的编码体系最多支持2^8=256个字符。</p>
+<ol>
+<li>32个<strong>控制字符</strong>：0~31，如ESC，二进制表示为00011011</li>
+<li><strong>空格(space)</strong>：32，二进制表示为00100000；<strong>DEL</strong>，127，二进制表示为01111111。</li>
+<li><strong>标点以及运算符</strong>：33~47，58~64，91~96，123~126，如’+’表示为00101011。</li>
+<li><strong>数字</strong>：48~57。</li>
+<li><strong>字母</strong>：大写是65~90，小写是97~122。</li>
+</ol>
+<h1 id="百家争鸣其他编码"><a href="#百家争鸣：其他编码" class="headerlink" title="百家争鸣：其他编码"></a>百家争鸣：其他编码</h1><p>ASCII码只能表示128个字符，对于其他国家的语言不适用，比如法语中的é就无法用ASCII表示。于是，一些欧洲国家决定充分利用ASCII码中闲置的最高位，这样法语中的é可以编码为10000010。这样，这些欧洲国家的编码体系最多支持2^8=256个字符。</p>
 <p>但是这样似乎是饮鸩止渴，不同的国家都有不同字符，如果他们都是利用ASCII码的最高位来扩展能表达的字符个数，就会遇见编码相同但代表字符不同的情况。比如法语中编码10000010代表é，而在希伯来语编码中却代表了字母Gimel (ג)，在俄语中又会代表另一个字符。</p>
 <p>另外，许多国家的字符数太过于庞大了，比如汉字就多达10万左右。这个时候必须使用多个字节(一个字节8个bit)。比如，简体中文的常见编码是<strong>GB2312</strong>，使用两个字节表示一个汉字，所以理论上可以表示65536个字符。</p>
 <p>注意：GB类汉字编码与后问的Unicode、UTF-8毫无关系。</p>
@@ -462,11 +486,18 @@
           
 
           
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

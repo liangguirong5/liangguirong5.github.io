@@ -86,19 +86,16 @@
 
 
 
-<meta name="description" content="参考http://blog.csdn.net/tiantang46800/article/details/6938762
-构造函数12345678910class Richard()  &amp;#123;    public:  		Richard()          &amp;#123;            m_val=1;          &amp;#125;  	private:  		int m_val;">
+<meta name="description" content="构造函数当Richard类的对象被创建时，自动调用相应的Richard()构造函数，对成员变量进行初始化，这就是构造函数。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++之构造函数详解">
 <meta property="og:url" content="http://github.com/2017/02/05/C-之构造函数/index.html">
 <meta property="og:site_name" content="RichardBai's Note">
-<meta property="og:description" content="参考http://blog.csdn.net/tiantang46800/article/details/6938762
-构造函数12345678910class Richard()  &amp;#123;    public:  		Richard()          &amp;#123;            m_val=1;          &amp;#125;  	private:  		int m_val;">
-<meta property="og:updated_time" content="2017-02-08T10:31:17.000Z">
+<meta property="og:description" content="构造函数当Richard类的对象被创建时，自动调用相应的Richard()构造函数，对成员变量进行初始化，这就是构造函数。">
+<meta property="og:updated_time" content="2017-02-20T10:14:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++之构造函数详解">
-<meta name="twitter:description" content="参考http://blog.csdn.net/tiantang46800/article/details/6938762
-构造函数12345678910class Richard()  &amp;#123;    public:  		Richard()          &amp;#123;            m_val=1;          &amp;#125;  	private:  		int m_val;">
+<meta name="twitter:description" content="构造函数当Richard类的对象被创建时，自动调用相应的Richard()构造函数，对成员变量进行初始化，这就是构造函数。">
 
 
 
@@ -295,6 +292,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -330,10 +349,9 @@
       
 
       
-        <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://blog.csdn.net/tiantang46800/article/details/6938762" target="_blank" rel="external">http://blog.csdn.net/tiantang46800/article/details/6938762</a></p>
-<h1 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">class</span> <span class="title">Richard</span><span class="params">()</span></span></div><div class="line">  &#123;</div><div class="line">    <span class="keyword">public</span>:</div><div class="line">  		Richard()</div><div class="line">          &#123;</div><div class="line">            m_val=<span class="number">1</span>;</div><div class="line">          &#125;</div><div class="line">  	<span class="keyword">private</span>:</div><div class="line">  		<span class="keyword">int</span> m_val;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+        <h1 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h1><p>当Richard类的对象被创建时，自动调用相应的Richard()构造函数，对成员变量进行初始化，这就是构造函数。</p>
 <a id="more"></a>
-<p>当Richard类的对象被创建时，自动调用相应的Richard()构造函数，对成员变量进行初始化，这就是构造函数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">class</span> <span class="title">Richard</span><span class="params">()</span></span></div><div class="line">  &#123;</div><div class="line">    <span class="keyword">public</span>:</div><div class="line">  		Richard()</div><div class="line">          &#123;</div><div class="line">            m_val=<span class="number">1</span>;</div><div class="line">          &#125;</div><div class="line">  	<span class="keyword">private</span>:</div><div class="line">  		<span class="keyword">int</span> m_val;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
 <h1 id="构造函数的分类"><a href="#构造函数的分类" class="headerlink" title="构造函数的分类"></a>构造函数的分类</h1><p>构造函数可以分为无参数构造函数、一般构造函数、拷贝构造函数、类型转换构造函数。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Complex </div><div class="line">&#123;         </div><div class="line"></div><div class="line"><span class="keyword">private</span> :</div><div class="line">        <span class="keyword">double</span>    m_real;</div><div class="line">        <span class="keyword">double</span>    m_imag;</div><div class="line"><span class="keyword">public</span> :</div><div class="line">		无参数；</div><div class="line">		一般；</div><div class="line">		拷贝构造；</div><div class="line">		类型转换；</div><div class="line">		等号运算符重载(不属于构造函数)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="无参数构造函数"><a href="#无参数构造函数" class="headerlink" title="无参数构造函数"></a>无参数构造函数</h2><p>如果在一个类中没有写明构造函数，系统会自动生成无参数构造函数，函数为空，什么都不做。</p>
@@ -350,6 +368,7 @@
 <p>类型转换构造函数，只能有一个参数，该参数为待转换的类型。下面举一个例子，执行语句</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Complex c2;</div><div class="line">c2 = <span class="number">5.2</span>;</div></pre></td></tr></table></figure>
 <p>第一行调用无参数构造函数；第二行中，先对5.2进行doule到complex的强制转换，也就是调用类型转换构造函数，然后在调用等号赋值。</p>
+<h1 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a>参考阅读</h1><p><a href="http://blog.csdn.net/tiantang46800/article/details/6938762" target="_blank" rel="external">c++类的构造函数详解</a></p>
 
       
     </div>
@@ -475,11 +494,18 @@
           
 
           
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -541,7 +567,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">1.</span> <span class="nav-text">参考</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#构造函数"><span class="nav-number">2.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#构造函数的分类"><span class="nav-number">3.</span> <span class="nav-text">构造函数的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#无参数构造函数"><span class="nav-number">3.1.</span> <span class="nav-text">无参数构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一般构造函数"><span class="nav-number">3.2.</span> <span class="nav-text">一般构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拷贝构造函数"><span class="nav-number">3.3.</span> <span class="nav-text">拷贝构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型转换构造函数"><span class="nav-number">3.4.</span> <span class="nav-text">类型转换构造函数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#构造函数"><span class="nav-number">1.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#构造函数的分类"><span class="nav-number">2.</span> <span class="nav-text">构造函数的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#无参数构造函数"><span class="nav-number">2.1.</span> <span class="nav-text">无参数构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一般构造函数"><span class="nav-number">2.2.</span> <span class="nav-text">一般构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拷贝构造函数"><span class="nav-number">2.3.</span> <span class="nav-text">拷贝构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型转换构造函数"><span class="nav-number">2.4.</span> <span class="nav-text">类型转换构造函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考阅读"><span class="nav-number">3.</span> <span class="nav-text">参考阅读</span></a></li></ol></div>
             
 
           </div>
