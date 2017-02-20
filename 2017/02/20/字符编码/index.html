@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="C++," />
+  <meta name="keywords" content="Python," />
 
 
 
@@ -86,22 +86,16 @@
 
 
 
-<meta name="description" content="参考http://www.cnblogs.com/graphics/archive/2010/07/04/1770900.html
-虚基类实现机制：http://blog.csdn.net/jiangnanyouzi/article/details/3721091
-C++的继承与派生http://www.cnblogs.com/fzhe/archive/2012/12/25/2832250.htm">
+<meta name="description" content="计算机中，字符包括字素，类似字素的单元，可书写语言中的字母表、音节表等。例如：字母，从0到9的数字，常用标点符号，空白符，控制符等。中文的你、我、他，日文的に、ほ、ん、ご也都是字符。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++之初始化列表">
-<meta property="og:url" content="http://github.com/2017/02/03/C-之初始化列表/index.html">
+<meta property="og:title" content="字符编码以及python中的编码解码问题">
+<meta property="og:url" content="http://github.com/2017/02/20/字符编码/index.html">
 <meta property="og:site_name" content="RichardBai's Note">
-<meta property="og:description" content="参考http://www.cnblogs.com/graphics/archive/2010/07/04/1770900.html
-虚基类实现机制：http://blog.csdn.net/jiangnanyouzi/article/details/3721091
-C++的继承与派生http://www.cnblogs.com/fzhe/archive/2012/12/25/2832250.htm">
-<meta property="og:updated_time" content="2017-02-05T14:25:55.000Z">
+<meta property="og:description" content="计算机中，字符包括字素，类似字素的单元，可书写语言中的字母表、音节表等。例如：字母，从0到9的数字，常用标点符号，空白符，控制符等。中文的你、我、他，日文的に、ほ、ん、ご也都是字符。">
+<meta property="og:updated_time" content="2017-02-20T09:17:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++之初始化列表">
-<meta name="twitter:description" content="参考http://www.cnblogs.com/graphics/archive/2010/07/04/1770900.html
-虚基类实现机制：http://blog.csdn.net/jiangnanyouzi/article/details/3721091
-C++的继承与派生http://www.cnblogs.com/fzhe/archive/2012/12/25/2832250.htm">
+<meta name="twitter:title" content="字符编码以及python中的编码解码问题">
+<meta name="twitter:description" content="计算机中，字符包括字素，类似字素的单元，可书写语言中的字母表、音节表等。例如：字母，从0到9的数字，常用标点符号，空白符，控制符等。中文的你、我、他，日文的に、ほ、ん、ご也都是字符。">
 
 
 
@@ -129,13 +123,13 @@ C++的继承与派生http://www.cnblogs.com/fzhe/archive/2012/12/25/2832250.htm"
 
 
 
-  <link rel="canonical" href="http://github.com/2017/02/03/C-之初始化列表/"/>
+  <link rel="canonical" href="http://github.com/2017/02/20/字符编码/"/>
 
 
 
 
 
-  <title> C++之初始化列表 | RichardBai's Note </title>
+  <title> 字符编码以及python中的编码解码问题 | RichardBai's Note </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -248,7 +242,7 @@ C++的继承与派生http://www.cnblogs.com/fzhe/archive/2012/12/25/2832250.htm"
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://github.com/2017/02/03/C-之初始化列表/">
+  <link itemprop="mainEntityOfPage" href="http://github.com/2017/02/20/字符编码/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Richard Bai">
@@ -272,7 +266,7 @@ C++的继承与派生http://www.cnblogs.com/fzhe/archive/2012/12/25/2832250.htm"
             
             
               
-                C++之初始化列表
+                字符编码以及python中的编码解码问题
               
             
           </h1>
@@ -287,8 +281,8 @@ C++的继承与派生http://www.cnblogs.com/fzhe/archive/2012/12/25/2832250.htm"
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-03T15:31:41+08:00">
-                2017-02-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-20T12:20:11+08:00">
+                2017-02-20
               </time>
             
 
@@ -306,8 +300,8 @@ C++的继承与派生http://www.cnblogs.com/fzhe/archive/2012/12/25/2832250.htm"
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/03/C-之初始化列表/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/03/C-之初始化列表/" itemprop="commentCount"></span>
+                <a href="/2017/02/20/字符编码/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/20/字符编码/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -333,21 +327,20 @@ C++的继承与派生http://www.cnblogs.com/fzhe/archive/2012/12/25/2832250.htm"
       
 
       
-        <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://www.cnblogs.com/graphics/archive/2010/07/04/1770900.html" target="_blank" rel="external">http://www.cnblogs.com/graphics/archive/2010/07/04/1770900.html</a></p>
-<p>虚基类实现机制：<a href="http://blog.csdn.net/jiangnanyouzi/article/details/3721091" target="_blank" rel="external">http://blog.csdn.net/jiangnanyouzi/article/details/3721091</a></p>
-<p>C++的继承与派生<a href="http://www.cnblogs.com/fzhe/archive/2012/12/25/2832250.html" target="_blank" rel="external">http://www.cnblogs.com/fzhe/archive/2012/12/25/2832250.html</a></p>
-<p>（1）调用虚函数时，因为是动态绑定，所以根据指针指向的对象的实际类型来决定。</p>
-<p>（2）调用非虚函数，静态决定，所以根据表面山看到的类的类型来决定。</p>
-<h1 id="什么是初始化列表"><a href="#什么是初始化列表" class="headerlink" title="什么是初始化列表"></a>什么是初始化列表</h1><a id="more"></a>
-<p>初始化列表是构造函数的一个组成部分，可以有可以没有，因此构造函数包括：函数体、参数列表、函数名以及初始化列表。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> foo</div><div class="line">  &#123;</div><div class="line">    <span class="built_in">string</span> name;</div><div class="line">  	<span class="keyword">int</span> id;</div><div class="line">  	foo(<span class="built_in">string</span> s, <span class="keyword">int</span> i):name(s),id(i)&#123;&#125;;</div><div class="line">  &#125;;</div><div class="line"><span class="keyword">class</span> C: <span class="keyword">public</span> B2, <span class="keyword">public</span> B1, <span class="keyword">public</span> B3</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    C(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c, <span class="keyword">int</span> d):B1(a), memberB2(d), memberB1(c),B2(b)&#123;&#125;</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    B1 memberB1;</div><div class="line">    B2 memberB2;</div><div class="line">    B3 memberB3;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<h1 id="初始化列表的作用"><a href="#初始化列表的作用" class="headerlink" title="初始化列表的作用"></a>初始化列表的作用</h1><p>初始化列表的作用是对成员变量进行赋值，当然也可以在函数体里面进行赋值操作，但是对于class类型的成员变量，用初始化列表来赋值可以减少一次默认构造的过程，从而提高性能。下面两段代码解释为什么可以减少默认构造。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> Test2</div><div class="line">&#123;</div><div class="line">    Test1 test1 ;</div><div class="line">    Test2(Test1 &amp;t1)</div><div class="line">    &#123;</div><div class="line">        test1 = t1 ;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> Test2</div><div class="line">&#123;</div><div class="line">    Test1 test1 ;</div><div class="line">    Test2(Test1 &amp;t1):test1(t1)&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>分别执行如下代码</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Test1 t1 ;</div><div class="line"><span class="function">Test2 <span class="title">t2</span><span class="params">(t1)</span> </span>;</div></pre></td></tr></table></figure>
-<p>对于第一段代码，要先初始化test1，也就是先调用类Test1的默认构造函数，然后调用赋值构造函数（等号重载）；对于第二段代码，只需要直接调用类Test1的拷贝构造函数，对test2进行初始化，因此初始化列表可以减少一次默认初始化。</p>
-<h1 id="必须使用初始化列表的情况"><a href="#必须使用初始化列表的情况" class="headerlink" title="必须使用初始化列表的情况"></a>必须使用初始化列表的情况</h1><p>同时，根据上面的例子我们可以知道，当Test1类没有默认构造函数时，我们必须采用初始化列表的方式。</p>
+        <p>计算机中，字符包括字素，类似字素的单元，可书写语言中的字母表、音节表等。例如：字母，从0到9的数字，常用标点符号，空白符，控制符等。中文的你、我、他，日文的に、ほ、ん、ご也都是字符。</p>
+<a id="more"></a>
+<h1 id="仓颉造字ascii码"><a href="#仓颉造字：ASCII码" class="headerlink" title="仓颉造字：ASCII码"></a>仓颉造字：ASCII码</h1><p>我们知道，八位二进制数可以表示256种状态，美国的编码标准——<strong>ASCII</strong>码，根据这一点规定了128个字符的编码，这128个符号的第一位都是0，用后七位进行编码。这128个字符一共包括：</p>
+<pre><code>1. 32个**控制字符**：0~31，如ESC，二进制表示为00011011
+2. **空格(space)**：32，二进制表示为00100000；**DEL**，127，二进制表示为01111111。
+3. **标点以及运算符**：33~47，58~64，91~96，123~126，如&apos;+&apos;表示为00101011。
+4. **数字**：48~57。
+5. **字母**：大写是65~90，小写是97~122。
+</code></pre><h1 id="百家争鸣其他编码"><a href="#百家争鸣：其他编码" class="headerlink" title="百家争鸣：其他编码"></a>百家争鸣：其他编码</h1><p>ASCII码只能表示128个字符，对于其他国家的语言不适用，比如法语中的é就无法用ASCII表示。于是，一些欧洲国家决定充分利用ASCII码中闲置的最高位，这样法语中的é可以编码为10000010。这样，这些欧洲国家的编码体系最多支持2^8=256个字符。</p>
+<p>但是这样似乎是饮鸩止渴，不同的国家都有不同字符，如果他们都是利用ASCII码的最高位来扩展能表达的字符个数，就会遇见编码相同但代表字符不同的情况。比如法语中编码10000010代表é，而在希伯来语编码中却代表了字母Gimel (ג)，在俄语中又会代表另一个字符。</p>
+<p>另外，许多国家的字符数太过于庞大了，比如汉字就多达10万左右。这个时候必须使用多个字节(一个字节8个bit)。比如，简体中文的常见编码是<strong>GB2312</strong>，使用两个字节表示一个汉字，所以理论上可以表示65536个字符。</p>
+<p>注意：GB类汉字编码与后问的Unicode、UTF-8毫无关系。</p>
+<h1 id="标准一统unicode"><a href="#标准一统：Unicode" class="headerlink" title="标准一统：Unicode"></a>标准一统：Unicode</h1><p>Unicode是一种统一的编码，囊括了各国所有的字符，因而也会有占用过多字节的问题存在。python中的字符串就是unicode编码，如u‘I am a string’，而我们所认为的str类型实际则是字节串。什么意思呢，如果一个字符串前面不加字母u，会被python按照默认的编码方式进行编码（encode），也叫隐式编码。linux下默认的编码方式是utf-8，windows下不是。具体参见这篇文章<a href="http://selfboot.cn/2016/12/28/py_encode_decode/" target="_blank" rel="external">Python2.x 字符编码终极指南</a>。</p>
+<h1 id="发扬光大utf-8"><a href="#发扬光大：UTF-8" class="headerlink" title="发扬光大：UTF-8"></a>发扬光大：UTF-8</h1><p>utf-8是一种变字长的编码方式，解决了刚才提到的unicode的浪费内存问题，具体编码规则可以参考文章<a href="http://selfboot.cn/2014/08/28/character_encoding/#百花齐放之中文编码" target="_blank" rel="external"><strong>人机交互之字符编码</strong></a>。</p>
 
       
     </div>
@@ -371,7 +364,7 @@ C++的继承与派生http://www.cnblogs.com/fzhe/archive/2012/12/25/2832250.htm"
       
         <div class="post-tags">
           
-            <a href="/tags/C/" rel="tag"># C++</a>
+            <a href="/tags/Python/" rel="tag"># Python</a>
           
         </div>
       
@@ -380,8 +373,8 @@ C++的继承与派生http://www.cnblogs.com/fzhe/archive/2012/12/25/2832250.htm"
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/02/leetcode1-20/" rel="next" title="leetcode1-20">
-                <i class="fa fa-chevron-left"></i> leetcode1-20
+              <a href="/2017/02/05/C-之构造函数/" rel="next" title="C++之构造函数详解">
+                <i class="fa fa-chevron-left"></i> C++之构造函数详解
               </a>
             
           </div>
@@ -389,10 +382,6 @@ C++的继承与派生http://www.cnblogs.com/fzhe/archive/2012/12/25/2832250.htm"
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/05/C-之构造函数/" rel="prev" title="C++之构造函数详解">
-                C++之构造函数详解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -418,8 +407,8 @@ C++的继承与派生http://www.cnblogs.com/fzhe/archive/2012/12/25/2832250.htm"
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/03/C-之初始化列表/"
-           data-title="C++之初始化列表" data-url="http://github.com/2017/02/03/C-之初始化列表/">
+      <div class="ds-thread" data-thread-key="2017/02/20/字符编码/"
+           data-title="字符编码以及python中的编码解码问题" data-url="http://github.com/2017/02/20/字符编码/">
       </div>
     
   </div>
@@ -539,7 +528,7 @@ C++的继承与派生http://www.cnblogs.com/fzhe/archive/2012/12/25/2832250.htm"
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">1.</span> <span class="nav-text">参考</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是初始化列表"><span class="nav-number">2.</span> <span class="nav-text">什么是初始化列表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#初始化列表的作用"><span class="nav-number">3.</span> <span class="nav-text">初始化列表的作用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#必须使用初始化列表的情况"><span class="nav-number">4.</span> <span class="nav-text">必须使用初始化列表的情况</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#仓颉造字ascii码"><span class="nav-number">1.</span> <span class="nav-text">仓颉造字：ASCII码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#百家争鸣其他编码"><span class="nav-number">2.</span> <span class="nav-text">百家争鸣：其他编码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#标准一统unicode"><span class="nav-number">3.</span> <span class="nav-text">标准一统：Unicode</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#发扬光大utf-8"><span class="nav-number">4.</span> <span class="nav-text">发扬光大：UTF-8</span></a></li></ol></div>
             
 
           </div>
