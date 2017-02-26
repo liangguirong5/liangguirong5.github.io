@@ -53,10 +53,9 @@
     <link href="http://github.com/2017/02/20/%E4%BA%94%E5%B9%B4%E6%A2%AF%E5%BA%A6%E4%B8%89%E5%B9%B4%E4%B8%8B%E9%99%8D/"/>
     <id>http://github.com/2017/02/20/五年梯度三年下降/</id>
     <published>2017-02-20T12:29:52.000Z</published>
-    <updated>2017-02-25T04:12:17.000Z</updated>
+    <updated>2017-02-26T05:59:22.000Z</updated>
     
-    <content type="html"><![CDATA[<p>[TOC]</p>
-<p>梯度下降，是当下最常见的神经网络参数调优算法。当我们需要最小化目标函数$J(\theta)$时，只需要沿着目标函数梯度的$\nabla_\theta J(\theta)$反方向去更新$\theta$，就能让目标函数越来越小。如果$J(\theta)$是凸函数（二次导数非负），那最后一定能收敛到全局最小值，否则可能收敛到局部最小值。</p>
+    <content type="html"><![CDATA[<p>梯度下降，是当下最常见的神经网络参数调优算法。当我们需要最小化目标函数$J(\theta)$时，只需要沿着目标函数梯度的$\nabla_\theta J(\theta)$反方向去更新$\theta$，就能让目标函数越来越小。如果$J(\theta)$是凸函数（二次导数非负），那最后一定能收敛到全局最小值，否则可能收敛到局部最小值。</p>
 <a id="more"></a>
 <p>梯度下降的原理，普通高中生也能看懂，不过也可以用泰勒展开加以证明：<br>$$<br>J(\theta+\Delta\theta) \approx J(\theta)+\nabla<em>\theta J(\theta)\Delta\theta<br>$$<br>我们要求每次更新$J$都要减小，所以必然有$J(\theta+\Delta\theta) - J(\theta)&lt;0$，进而要求展式的一阶项恒小于零，可选择令<br>$$<br>\Delta\theta = -\alpha\nabla</em>\theta J(\theta)<br>$$<br>其中，步长$\alpha$是一个小的正常数，这就是梯度下降法。</p>
 <p>如果把上面的泰勒展式写到二阶项：<br>$$<br>J(\theta+\Delta\theta) \approx J(\theta)+\nabla<em>\theta J(\theta)\Delta\theta+\nabla</em>{\theta}^2 J(\theta)\Delta\theta^2<br>$$<br>就可以推导出牛顿法，步长更新是一阶导与二阶导的比值的相反数。</p>
@@ -82,12 +81,11 @@
     
     <summary type="html">
     
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;p&gt;梯度下降，是当下最常见的神经网络参数调优算法。当我们需要最小化目标函数$J(\theta)$时，只需要沿着目标函数梯度的$\nabla_\theta J(\theta)$反方向去更新$\theta$，就能让目标函数越来越小。如果$J(\theta)$是凸函数（二次导数非负），那最后一定能收敛到全局最小值，否则可能收敛到局部最小值。&lt;/p&gt;
+      &lt;p&gt;梯度下降，是当下最常见的神经网络参数调优算法。当我们需要最小化目标函数$J(\theta)$时，只需要沿着目标函数梯度的$\nabla_\theta J(\theta)$反方向去更新$\theta$，就能让目标函数越来越小。如果$J(\theta)$是凸函数（二次导数非负），那最后一定能收敛到全局最小值，否则可能收敛到局部最小值。&lt;/p&gt;
     
     </summary>
     
-      <category term="DL算法" scheme="http://github.com/categories/DL%E7%AE%97%E6%B3%95/"/>
+      <category term="DeepLearning" scheme="http://github.com/categories/DeepLearning/"/>
     
     
       <category term="DeepLearning" scheme="http://github.com/tags/DeepLearning/"/>
