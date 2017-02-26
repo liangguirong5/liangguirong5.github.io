@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="DeepLearning,模型调参," />
 
 
 
@@ -86,12 +86,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="RichardBai's Note">
-<meta property="og:url" content="http://github.com/archives/2017/01/index.html">
+<meta name="description" content="贝叶斯优化可以用于复杂模型的调参过程中，可以自动确定一套表现最优的模型参数。本文是对贝叶斯优化方法的浅层解读，日后填坑~">
+<meta property="og:type" content="article">
+<meta property="og:title" content="贝叶斯优化">
+<meta property="og:url" content="http://github.com/2017/02/26/贝叶斯优化/index.html">
 <meta property="og:site_name" content="RichardBai's Note">
+<meta property="og:description" content="贝叶斯优化可以用于复杂模型的调参过程中，可以自动确定一套表现最优的模型参数。本文是对贝叶斯优化方法的浅层解读，日后填坑~">
+<meta property="og:updated_time" content="2017-02-26T05:56:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RichardBai's Note">
+<meta name="twitter:title" content="贝叶斯优化">
+<meta name="twitter:description" content="贝叶斯优化可以用于复杂模型的调参过程中，可以自动确定一套表现最优的模型参数。本文是对贝叶斯优化方法的浅层解读，日后填坑~">
 
 
 
@@ -119,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://github.com/archives/2017/01/"/>
+  <link rel="canonical" href="http://github.com/2017/02/26/贝叶斯优化/"/>
 
 
 
 
 
-  <title> 归档 | RichardBai's Note </title>
+  <title> 贝叶斯优化 | RichardBai's Note </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -146,7 +150,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -238,66 +242,191 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 7 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
 
-      
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://github.com/2017/02/26/贝叶斯优化/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Richard Bai">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://ok8bcvles.bkt.clouddn.com/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="RichardBai's Note">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="RichardBai's Note" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                贝叶斯优化
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-26T13:52:29+08:00">
+                2017-02-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DeepLearning/" itemprop="url" rel="index">
+                    <span itemprop="name">DeepLearning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/02/26/贝叶斯优化/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/26/贝叶斯优化/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
+        <p>贝叶斯优化可以用于复杂模型的调参过程中，可以自动确定一套表现最优的模型参数。本文是对贝叶斯优化方法的浅层解读，日后填坑~</p>
+<a id="more"></a>
+<h1 id="bayesian-optimization"><a href="#Bayesian-Optimization" class="headerlink" title="Bayesian Optimization"></a>Bayesian Optimization</h1><p>当对目标函数没有封闭形式的表达，但是可以得到目标函数在采样点的观测值时，可以用贝叶斯优化来寻找目标函数的极值。</p>
+<p>优势在于需要较少的采样点，适合观测值costly的对象。</p>
+<p>贝叶斯优化根据下面的acqusition function来选取下一个采样点的位置:<br>$$<br>x<em>t=argmax</em>{x \in D}\mu<em>{t-1}(x)+\beta^{1/2}\sigma</em>{t-1}(x)<br>$$<br>首先用已有观测值构建高斯过程回归模型，并预测输入位置上的未知函数值服从的的高斯分布，得到该点均值和方差，即$\mu<em>{t-1}(x)$和$\sigma</em>{t-1}(x)$。上式的$\beta_t$是一个权重参数，具体设置参见论文：Gaussian Process Optimization in the Bandit Setting: No Regret and Experimental Design.</p>
+<p>这个公式描述的是，如果标准差大，表示我们对该点了解程度小，值得探索(exploration)；如果均值大，表明该点可能就是我们要找的最大值点，值得开发(exploitation)。一开始，我们的采样数据很少，算法会去采样标准差很大的点；当采样的点多了，标准差会降低，算法偏向于去均值大的点，最终收敛到全局最优值。</p>
+<h1 id="gaussian-process-regression"><a href="#Gaussian-Process-Regression" class="headerlink" title="Gaussian Process Regression"></a>Gaussian Process Regression</h1><p>关于高斯过程回归的知识可以参考下面两个链接，互为补充。</p>
+<p><a href="http://blog.sina.com.cn/s/blog_5033f3b40102vts4.html" target="_blank" rel="external">高斯过程回归</a></p>
+<p><a href="http://www.kuqin.com/shuoit/20150508/345958.html" target="_blank" rel="external">说说高斯过程回归</a></p>
+
+      
+    </div>
+
+    <div>
+      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/DeepLearning/" rel="tag"># DeepLearning</a>
+          
+            <a href="/tags/模型调参/" rel="tag"># 模型调参</a>
+          
         </div>
       
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/20/五年梯度三年下降/" rel="next" title="五年梯度三年下降">
+                <i class="fa fa-chevron-left"></i> 五年梯度三年下降
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/01/19/你好，HEXO/" itemprop="url">
-              
-                <span itemprop="name">Hello Hexo!</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-19T19:58:50+08:00"
-              content="2017-01-19" >
-          01-19
-        </time>
-      </div>
-
-    </header>
+      
+    </footer>
   </article>
 
 
 
-    
-
-  </section>
-
-  
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
@@ -305,6 +434,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/26/贝叶斯优化/"
+           data-title="贝叶斯优化" data-url="http://github.com/2017/02/26/贝叶斯优化/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -324,8 +461,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://ok8bcvles.bkt.clouddn.com/avatar.png"
@@ -408,6 +554,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#bayesian-optimization"><span class="nav-number">1.</span> <span class="nav-text">Bayesian Optimization</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gaussian-process-regression"><span class="nav-number">2.</span> <span class="nav-text">Gaussian Process Regression</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
@@ -514,11 +676,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
   
@@ -569,26 +729,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
