@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://github.com/"/>
-  <updated>2017-03-02T01:44:59.000Z</updated>
+  <updated>2017-02-26T06:04:30.000Z</updated>
   <id>http://github.com/</id>
   
   <author>
@@ -16,13 +16,46 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://github.com/2017/03/02/image_caption/"/>
-    <id>http://github.com/2017/03/02/image_caption/</id>
-    <published>2017-03-02T01:44:59.000Z</published>
-    <updated>2017-03-02T01:44:59.000Z</updated>
+    <title>贝叶斯优化</title>
+    <link href="http://github.com/2017/02/26/%E8%B4%9D%E5%8F%B6%E6%96%AF%E4%BC%98%E5%8C%96/"/>
+    <id>http://github.com/2017/02/26/贝叶斯优化/</id>
+    <published>2017-02-26T05:52:29.000Z</published>
+    <updated>2017-02-26T06:04:30.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a><strong>引言</strong></h1><p>第二十二期的PaperWeekly对Image Captioning进行了综述。今天这篇文章中，我们会介绍一些近期的工作。（如果你对Image Captioning这个任务不熟悉的话，请移步二十二期<a href="http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&amp;mid=2247484014&amp;idx=1&amp;sn=4a053986f5dc8abb45097fed169465fa&amp;chksm=96e9ddeea19e54f83b717d63029a12715c238de8d6af261fa64af2d9b949480e685b8c283dda&amp;scene=21#wechat_redirect" target="_blank" rel="external">PaperWeekly 第二十二期—Image Caption任务综述</a>）</p>
+    <content type="html"><![CDATA[<p>贝叶斯优化可以用于复杂模型的调参过程中，可以自动确定一套表现最优的模型参数。本文是对贝叶斯优化方法的浅层解读，日后填坑~</p>
+<a id="more"></a>
+<h1 id="bayesian-optimization"><a href="#Bayesian-Optimization" class="headerlink" title="Bayesian Optimization"></a>Bayesian Optimization</h1><p>当对目标函数没有封闭形式的表达，但是可以得到目标函数在采样点的观测值时，可以用贝叶斯优化来寻找目标函数的极值。</p>
+<p>优势在于需要较少的采样点，适合观测值costly的对象。</p>
+<p>贝叶斯优化根据下面的acqusition function来选取下一个采样点的位置:<br>$$<br>x<em>t=argmax</em>{x \in D}\mu<em>{t-1}(x)+\beta^{1/2}\sigma</em>{t-1}(x)<br>$$<br>首先用已有观测值构建高斯过程回归模型，并预测输入位置上的未知函数值服从的的高斯分布，得到该点均值和方差，即$\mu<em>{t-1}(x)$和$\sigma</em>{t-1}(x)$。上式的$\beta_t$是一个权重参数，具体设置参见论文：Gaussian Process Optimization in the Bandit Setting: No Regret and Experimental Design.</p>
+<p>这个公式描述的是，如果标准差大，表示我们对该点了解程度小，值得探索(exploration)；如果均值大，表明该点可能就是我们要找的最大值点，值得开发(exploitation)。一开始，我们的采样数据很少，算法会去采样标准差很大的点；当采样的点多了，标准差会降低，算法偏向于去均值大的点，最终收敛到全局最优值。</p>
+<h1 id="gaussian-process-regression"><a href="#Gaussian-Process-Regression" class="headerlink" title="Gaussian Process Regression"></a>Gaussian Process Regression</h1><p>关于高斯过程回归的知识可以参考下面两个链接，互为补充。</p>
+<p><a href="http://blog.sina.com.cn/s/blog_5033f3b40102vts4.html" target="_blank" rel="external">高斯过程回归</a></p>
+<p><a href="http://www.kuqin.com/shuoit/20150508/345958.html" target="_blank" rel="external">说说高斯过程回归</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;贝叶斯优化可以用于复杂模型的调参过程中，可以自动确定一套表现最优的模型参数。本文是对贝叶斯优化方法的浅层解读，日后填坑~&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="DeepLearning" scheme="http://github.com/categories/DeepLearning/"/>
+    
+    
+      <category term="DeepLearning" scheme="http://github.com/tags/DeepLearning/"/>
+    
+      <category term="模型调参" scheme="http://github.com/tags/%E6%A8%A1%E5%9E%8B%E8%B0%83%E5%8F%82/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>转载：Image Captioning</title>
+    <link href="http://github.com/2017/02/20/image_caption/"/>
+    <id>http://github.com/2017/02/20/image_caption/</id>
+    <published>2017-02-20T12:29:52.000Z</published>
+    <updated>2017-03-12T01:51:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>第二十二期的PaperWeekly对Image Captioning进行了综述。今天这篇文章中，我们会介绍一些近期的工作。（如果你对Image Captioning这个任务不熟悉的话，请移步二十二期<a href="http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&amp;mid=2247484014&amp;idx=1&amp;sn=4a053986f5dc8abb45097fed169465fa&amp;chksm=96e9ddeea19e54f83b717d63029a12715c238de8d6af261fa64af2d9b949480e685b8c283dda&amp;scene=21#wechat_redirect" target="_blank" rel="external">PaperWeekly 第二十二期—Image Caption任务综述</a>）</p>
 <p>Image Captioning的模型一般是encoder-decoder的模型。模型对$p(S|I)$进行建模，$S$是描述，$I$是图片。模型的训练目标是最大化log似然：$\max_\theta\sum_i \log P(S_i|I_i, \theta)$。</p>
 <p>然而使用最大似然训练有两个问题：</p>
 <p>1、虽然训练时最大化后验概率，但是在评估时使用的测度则为BLEU，METEOR，ROUGE，CIDER等。这里有训练loss和评估方法不统一的问题。而且log似然可以认为对每个单词都给予一样的权重，然而实际上有些单词可能更重要一些（比如说一些表示内容的单词）。</p>
@@ -66,43 +99,14 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;&lt;strong&gt;引言&lt;/strong&gt;&lt;/h1&gt;&lt;p&gt;第二十二期的PaperWeekly对Image Captioning进行了综述。今天这篇文章中，我们会介绍
+      &lt;h1 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h1&gt;&lt;p&gt;第二十二期的PaperWeekly对Image Captioning进行了综述。今天这篇文章中，我们会介绍一些近期的工作。（如果你对Imag
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>贝叶斯优化</title>
-    <link href="http://github.com/2017/02/26/%E8%B4%9D%E5%8F%B6%E6%96%AF%E4%BC%98%E5%8C%96/"/>
-    <id>http://github.com/2017/02/26/贝叶斯优化/</id>
-    <published>2017-02-26T05:52:29.000Z</published>
-    <updated>2017-02-26T06:04:30.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>贝叶斯优化可以用于复杂模型的调参过程中，可以自动确定一套表现最优的模型参数。本文是对贝叶斯优化方法的浅层解读，日后填坑~</p>
-<a id="more"></a>
-<h1 id="bayesian-optimization"><a href="#Bayesian-Optimization" class="headerlink" title="Bayesian Optimization"></a>Bayesian Optimization</h1><p>当对目标函数没有封闭形式的表达，但是可以得到目标函数在采样点的观测值时，可以用贝叶斯优化来寻找目标函数的极值。</p>
-<p>优势在于需要较少的采样点，适合观测值costly的对象。</p>
-<p>贝叶斯优化根据下面的acqusition function来选取下一个采样点的位置:<br>$$<br>x<em>t=argmax</em>{x \in D}\mu<em>{t-1}(x)+\beta^{1/2}\sigma</em>{t-1}(x)<br>$$<br>首先用已有观测值构建高斯过程回归模型，并预测输入位置上的未知函数值服从的的高斯分布，得到该点均值和方差，即$\mu<em>{t-1}(x)$和$\sigma</em>{t-1}(x)$。上式的$\beta_t$是一个权重参数，具体设置参见论文：Gaussian Process Optimization in the Bandit Setting: No Regret and Experimental Design.</p>
-<p>这个公式描述的是，如果标准差大，表示我们对该点了解程度小，值得探索(exploration)；如果均值大，表明该点可能就是我们要找的最大值点，值得开发(exploitation)。一开始，我们的采样数据很少，算法会去采样标准差很大的点；当采样的点多了，标准差会降低，算法偏向于去均值大的点，最终收敛到全局最优值。</p>
-<h1 id="gaussian-process-regression"><a href="#Gaussian-Process-Regression" class="headerlink" title="Gaussian Process Regression"></a>Gaussian Process Regression</h1><p>关于高斯过程回归的知识可以参考下面两个链接，互为补充。</p>
-<p><a href="http://blog.sina.com.cn/s/blog_5033f3b40102vts4.html" target="_blank" rel="external">高斯过程回归</a></p>
-<p><a href="http://www.kuqin.com/shuoit/20150508/345958.html" target="_blank" rel="external">说说高斯过程回归</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;贝叶斯优化可以用于复杂模型的调参过程中，可以自动确定一套表现最优的模型参数。本文是对贝叶斯优化方法的浅层解读，日后填坑~&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="DeepLearning" scheme="http://github.com/categories/DeepLearning/"/>
+      <category term="papers" scheme="http://github.com/categories/papers/"/>
     
     
-      <category term="DeepLearning" scheme="http://github.com/tags/DeepLearning/"/>
-    
-      <category term="模型调参" scheme="http://github.com/tags/%E6%A8%A1%E5%9E%8B%E8%B0%83%E5%8F%82/"/>
+      <category term="caption" scheme="http://github.com/tags/caption/"/>
     
   </entry>
   
