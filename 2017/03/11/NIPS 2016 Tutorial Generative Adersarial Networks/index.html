@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="C++," />
+  <meta name="keywords" content="生成模型,GAN,Tutorial," />
 
 
 
@@ -86,16 +86,24 @@
 
 
 
-<meta name="description" content="构造函数当Richard类的对象被创建时，自动调用相应的Richard()构造函数，对成员变量进行初始化，这就是构造函数。">
+<meta name="description" content="本文是根据NIPS2016的tutorial翻译、总结的中文文档。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++之构造函数详解">
-<meta property="og:url" content="http://github.com/2017/02/05/C-之构造函数/index.html">
+<meta property="og:title" content="NIPS 2016 Tutorial Generative Adersarial Networks">
+<meta property="og:url" content="http://github.com/2017/03/11/NIPS 2016 Tutorial Generative Adersarial Networks/index.html">
 <meta property="og:site_name" content="RichardBai's Note">
-<meta property="og:description" content="构造函数当Richard类的对象被创建时，自动调用相应的Richard()构造函数，对成员变量进行初始化，这就是构造函数。">
-<meta property="og:updated_time" content="2017-02-20T10:14:04.000Z">
+<meta property="og:description" content="本文是根据NIPS2016的tutorial翻译、总结的中文文档。">
+<meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNc79ly1fdhtpqamgkj30v8072gm0.jpg">
+<meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNc79ly1fdhtqgeqp3j30ve0ayjtz.jpg">
+<meta property="og:image" content="https://ww2.sinaimg.cn/large/006tNc79ly1fdhyqbksyaj30vu0ds75s.jpg">
+<meta property="og:image" content="https://ww4.sinaimg.cn/large/006tNc79ly1fdhyuw4uhdj30yq0fgaea.jpg">
+<meta property="og:image" content="https://ww4.sinaimg.cn/large/006tNc79ly1fdhzahf37kj316c0jyjxa.jpg">
+<meta property="og:image" content="https://ww2.sinaimg.cn/large/006tNc79ly1fdi1w0nejej30yy0piq75.jpg">
+<meta property="og:image" content="https://ww2.sinaimg.cn/large/006tNc79ly1fdi29zevfmj30j403udg1.jpg">
+<meta property="og:updated_time" content="2017-03-12T02:00:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++之构造函数详解">
-<meta name="twitter:description" content="构造函数当Richard类的对象被创建时，自动调用相应的Richard()构造函数，对成员变量进行初始化，这就是构造函数。">
+<meta name="twitter:title" content="NIPS 2016 Tutorial Generative Adersarial Networks">
+<meta name="twitter:description" content="本文是根据NIPS2016的tutorial翻译、总结的中文文档。">
+<meta name="twitter:image" content="https://ww3.sinaimg.cn/large/006tNc79ly1fdhtpqamgkj30v8072gm0.jpg">
 
 
 
@@ -123,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://github.com/2017/02/05/C-之构造函数/"/>
+  <link rel="canonical" href="http://github.com/2017/03/11/NIPS 2016 Tutorial Generative Adersarial Networks/"/>
 
 
 
 
 
-  <title> C++之构造函数详解 | RichardBai's Note </title>
+  <title> NIPS 2016 Tutorial Generative Adersarial Networks | RichardBai's Note </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -252,7 +260,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://github.com/2017/02/05/C-之构造函数/">
+  <link itemprop="mainEntityOfPage" href="http://github.com/2017/03/11/NIPS 2016 Tutorial Generative Adersarial Networks/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Richard Bai">
@@ -276,7 +284,7 @@
             
             
               
-                C++之构造函数详解
+                NIPS 2016 Tutorial Generative Adersarial Networks
               
             
           </h1>
@@ -291,8 +299,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-05T22:24:23+08:00">
-                2017-02-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-11T20:29:52+08:00">
+                2017-03-11
               </time>
             
 
@@ -314,8 +322,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C++</span>
+                  <a href="/categories/GAN/" itemprop="url" rel="index">
+                    <span itemprop="name">GAN</span>
                   </a>
                 </span>
 
@@ -332,8 +340,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/05/C-之构造函数/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/05/C-之构造函数/" itemprop="commentCount"></span>
+                <a href="/2017/03/11/NIPS 2016 Tutorial Generative Adersarial Networks/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/11/NIPS 2016 Tutorial Generative Adersarial Networks/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -359,26 +367,50 @@
       
 
       
-        <h1 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h1><p>当Richard类的对象被创建时，自动调用相应的Richard()构造函数，对成员变量进行初始化，这就是构造函数。</p>
+        <p>本文是根据NIPS2016的tutorial翻译、总结的中文文档。</p>
 <a id="more"></a>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">class</span> <span class="title">Richard</span><span class="params">()</span></span></div><div class="line">  &#123;</div><div class="line">    <span class="keyword">public</span>:</div><div class="line">  		Richard()</div><div class="line">          &#123;</div><div class="line">            m_val=<span class="number">1</span>;</div><div class="line">          &#125;</div><div class="line">  	<span class="keyword">private</span>:</div><div class="line">  		<span class="keyword">int</span> m_val;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<h1 id="构造函数的分类"><a href="#构造函数的分类" class="headerlink" title="构造函数的分类"></a>构造函数的分类</h1><p>构造函数可以分为无参数构造函数、一般构造函数、拷贝构造函数、类型转换构造函数。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Complex </div><div class="line">&#123;         </div><div class="line"></div><div class="line"><span class="keyword">private</span> :</div><div class="line">        <span class="keyword">double</span>    m_real;</div><div class="line">        <span class="keyword">double</span>    m_imag;</div><div class="line"><span class="keyword">public</span> :</div><div class="line">		无参数；</div><div class="line">		一般；</div><div class="line">		拷贝构造；</div><div class="line">		类型转换；</div><div class="line">		等号运算符重载(不属于构造函数)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="无参数构造函数"><a href="#无参数构造函数" class="headerlink" title="无参数构造函数"></a>无参数构造函数</h2><p>如果在一个类中没有写明构造函数，系统会自动生成无参数构造函数，函数为空，什么都不做。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Complex()</div><div class="line">&#123;</div><div class="line">	m_real = <span class="number">0.0</span>;</div><div class="line">	m_imag = <span class="number">0.0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="一般构造函数"><a href="#一般构造函数" class="headerlink" title="一般构造函数"></a>一般构造函数</h2><p>一般构造函数可以有各种参数形式，一个类可以有多个一般构造函数，前提是参数的个数或者类型不同（基于c++的重载函数原理）</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Complex(<span class="keyword">double</span> real, <span class="keyword">double</span> imag)</div><div class="line">&#123;</div><div class="line">	m_real = real;</div><div class="line">	m_imag = imag;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="拷贝构造函数"><a href="#拷贝构造函数" class="headerlink" title="拷贝构造函数"></a>拷贝构造函数</h2><p>拷贝构造函数是类对象本身的引用，用于根据一个已存在的对象复制出一个心得该类对象，一般在函数中会将已存在的对象数据成员的值复制一份，到新创建的对象中。</p>
-<p>若果没有显示的写出拷贝构造函数，系统会创建一个默认的，但是这是会造成浅拷贝，如需深拷贝则需自己编写。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Complex(<span class="keyword">const</span> Complex&amp; c)</div><div class="line">  &#123;</div><div class="line">    m_real = c.m_real;</div><div class="line">    m_imag = c.m_imag;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<p>注意：等号运算符重载和拷贝构造函数是有区别的，将=右边的本类对象的值复制给等号左边的对象，它不属于构造函数，等号左右两边的对象必须已经被创建。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Complex&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Complex&amp; rhs)</div><div class="line">  &#123;</div><div class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>==&amp;rhs)</div><div class="line">      &#123;</div><div class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</div><div class="line">      &#125;</div><div class="line">  	<span class="keyword">this</span>-&gt;m_real = rhs.m_real;</div><div class="line">  	<span class="keyword">this</span>-&gt;m_imag = rhs.m_imag;</div><div class="line">  	<span class="keyword">return</span> *<span class="keyword">this</span></div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<h2 id="类型转换构造函数"><a href="#类型转换构造函数" class="headerlink" title="类型转换构造函数"></a>类型转换构造函数</h2><p>根据一个指定的类型的对象创建一个本类的对象，例如：下面将根据一个double类型的对象创建了一个Complex对象。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Complex(<span class="keyword">double</span> r)</div><div class="line">&#123;</div><div class="line">    m_real = r;</div><div class="line">    m_imag = <span class="number">0.0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>类型转换构造函数，只能有一个参数，该参数为待转换的类型。下面举一个例子，执行语句</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Complex c2;</div><div class="line">c2 = <span class="number">5.2</span>;</div></pre></td></tr></table></figure>
-<p>第一行调用无参数构造函数；第二行中，先对5.2进行doule到complex的强制转换，也就是调用类型转换构造函数，然后在调用等号赋值。</p>
-<h1 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a>参考阅读</h1><p><a href="http://blog.csdn.net/tiantang46800/article/details/6938762" target="_blank" rel="external">c++类的构造函数详解</a></p>
+<p>主要包括以下几个方面：</p>
+<ol>
+<li>生成模型的研究价值</li>
+<li>生成模型的原理以及GAN同其他生成模型的区别</li>
+<li>GAN的工作原理</li>
+<li>GAN的前沿进展</li>
+</ol>
+<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>GAN是生成模型的一种，本文所指的生成模型，是根据服从$P<em>{data}$分布的样本集合，学习出这种分布的估计。学出来的分布称为$P</em>{model}$，也就是我们模型学出来的分布。一种生成模型的训练目标是去尽可能“精确”地估计数据的分布，如下图。</p>
+<p><img src="https://ww3.sinaimg.cn/large/006tNc79ly1fdhtpqamgkj30v8072gm0.jpg" alt=""></p>
+<p>另一种则是学着数据样本（按照$P_{model}$）去产生新的“样本”，我们的GAN模型倾向于执行这种任务。</p>
+<p><img src="https://ww3.sinaimg.cn/large/006tNc79ly1fdhtqgeqp3j30ve0ayjtz.jpg" alt=""></p>
+<h1 id="1生成模型的研究价值"><a href="#1-生成模型的研究价值" class="headerlink" title="1.生成模型的研究价值"></a>1.生成模型的研究价值</h1><p>为什么要研究生成模型呢？特别是那种只能产生更多样本的，毕竟，世界上从来不缺少更多的图片。</p>
+<p>其实，生成模型的重要性有以下几点：</p>
+<ol>
+<li><p>训练生成模型或是从生成模型采样，有助于评价我们表示、操作高维概率分布的能力，而这种能力恰恰是许多科学的基础。（私以为这点有点虚。。。）</p>
+</li>
+<li><p>生成模型可以被正整合强化学习当中（关键应用）</p>
+<p>强化学习可以分为有模型和无模型的两类，有模型的就有一个生成模型，它生成的时序数据可以用于模拟未来，进而进行决策。具体来讲，给定当前状态和采取的动作，由生成模型去预测下一时刻状态的条件概率分布。我们的agent可以给生成模型几个候选的动作去查询，进而选择一个产生能期望状态且概率最大的动作去执行。</p>
+<p>生成模型还可以被用于生成一个虚拟的环境供强化学习训练、指导RL的exploration，GAN可以用于inverse RL。</p>
+</li>
+<li><p>生成模型可以用缺失的数据训练，也能用有缺失的数据作为输入进行概率预测。GAN用于半监督学习就是典型的例子。</p>
+</li>
+<li><p>生成模型，特别是GANs，适合于multi-modal输出，也是就一个输入对应于多个正确答案。</p>
+<p><img src="https://ww2.sinaimg.cn/large/006tNc79ly1fdhyqbksyaj30vu0ds75s.jpg" alt=""></p>
+</li>
+<li><p>许多任务的内在，都是需要产生样本的真实分布。例如下图最左面的一张为高分辨率原图，经过下采样可以产生低分辨率图像。不同的方法去对低分辨率图像进行还原，右面三张依次是插值法、神经网络MSE训练、GAN网络的效果。GAN的效果比MSE好，是因为它知道这个答案有多个解，只选其一即可，而MSE一般是取平均。</p>
+<p><img src="https://ww4.sinaimg.cn/large/006tNc79ly1fdhyuw4uhdj30yq0fgaea.jpg" alt=""></p>
+</li>
+<li><p>辅助艺术创作、image to image translation，不多说，上图：</p>
+<p><img src="https://ww4.sinaimg.cn/large/006tNc79ly1fdhzahf37kj316c0jyjxa.jpg" alt=""></p>
+</li>
+</ol>
+<h1 id="2生成模型的原理以及gan同其他生成模型的区别"><a href="#2-生成模型的原理以及GAN同其他生成模型的区别" class="headerlink" title="2.生成模型的原理以及GAN同其他生成模型的区别"></a>2.生成模型的原理以及GAN同其他生成模型的区别</h1><h2 id="21-最大似然估计"><a href="#2-1-最大似然估计" class="headerlink" title="2.1 最大似然估计"></a>2.1 最大似然估计</h2><p>$$<br>θ^* =argmax<em>\theta\Sigma log p</em>{model}(x^{(i)};\theta)<br>$$</p>
+<h2 id="22-生成模型分类树"><a href="#2-2-生成模型分类树" class="headerlink" title="2.2 生成模型分类树"></a>2.2 生成模型分类树</h2><p><img src="https://ww2.sinaimg.cn/large/006tNc79ly1fdi1w0nejej30yy0piq75.jpg" alt=""></p>
+<h2 id="23-explicit-desity-models"><a href="#2-3-explicit-desity-models" class="headerlink" title="2.3 explicit desity models"></a>2.3 explicit desity models</h2><p>这是一种直接最大化似然函数的模型，只需要把样本带入到概率公式中然后取似然相加求和，通过梯度法最大化即可。存在一个难点：保证computational tractability.</p>
+<h3 id="231-tractable-explicit-models"><a href="#2-3-1-Tractable-explicit-models" class="headerlink" title="2.3.1 Tractable explicit models"></a>2.3.1 Tractable explicit models</h3><ol>
+<li><p>Fully visible belief networks</p>
+<p><img src="https://ww2.sinaimg.cn/large/006tNc79ly1fdi29zevfmj30j403udg1.jpg" alt=""></p>
+</li>
+<li><p>Nonlinear independent components analysis</p>
+</li>
+</ol>
 
       
     </div>
@@ -402,7 +434,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/C/" rel="tag"># C++</a>
+            <a href="/tags/生成模型/" rel="tag"># 生成模型</a>
+          
+            <a href="/tags/GAN/" rel="tag"># GAN</a>
+          
+            <a href="/tags/Tutorial/" rel="tag"># Tutorial</a>
           
         </div>
       
@@ -411,8 +447,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/03/C-之初始化列表/" rel="next" title="C++之初始化列表">
-                <i class="fa fa-chevron-left"></i> C++之初始化列表
+              <a href="/2017/03/01/image_caption/" rel="next" title="转载：Image Captioning">
+                <i class="fa fa-chevron-left"></i> 转载：Image Captioning
               </a>
             
           </div>
@@ -420,10 +456,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/20/字符编码/" rel="prev" title="字符编码以及python中的编码解码问题">
-                字符编码以及python中的编码解码问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -449,8 +481,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/05/C-之构造函数/"
-           data-title="C++之构造函数详解" data-url="http://github.com/2017/02/05/C-之构造函数/">
+      <div class="ds-thread" data-thread-key="2017/03/11/NIPS 2016 Tutorial Generative Adersarial Networks/"
+           data-title="NIPS 2016 Tutorial Generative Adersarial Networks" data-url="http://github.com/2017/03/11/NIPS 2016 Tutorial Generative Adersarial Networks/">
       </div>
     
   </div>
@@ -577,7 +609,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#构造函数"><span class="nav-number">1.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#构造函数的分类"><span class="nav-number">2.</span> <span class="nav-text">构造函数的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#无参数构造函数"><span class="nav-number">2.1.</span> <span class="nav-text">无参数构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一般构造函数"><span class="nav-number">2.2.</span> <span class="nav-text">一般构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拷贝构造函数"><span class="nav-number">2.3.</span> <span class="nav-text">拷贝构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型转换构造函数"><span class="nav-number">2.4.</span> <span class="nav-text">类型转换构造函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考阅读"><span class="nav-number">3.</span> <span class="nav-text">参考阅读</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1生成模型的研究价值"><span class="nav-number">2.</span> <span class="nav-text">1.生成模型的研究价值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2生成模型的原理以及gan同其他生成模型的区别"><span class="nav-number">3.</span> <span class="nav-text">2.生成模型的原理以及GAN同其他生成模型的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#21-最大似然估计"><span class="nav-number">3.1.</span> <span class="nav-text">2.1 最大似然估计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-生成模型分类树"><span class="nav-number">3.2.</span> <span class="nav-text">2.2 生成模型分类树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#23-explicit-desity-models"><span class="nav-number">3.3.</span> <span class="nav-text">2.3 explicit desity models</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#231-tractable-explicit-models"><span class="nav-number">3.3.1.</span> <span class="nav-text">2.3.1 Tractable explicit models</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
