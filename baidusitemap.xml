@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://github.com/2017/03/01/image_caption/</loc>
+    <lastmod>2017-03-12T02:27:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>转载：Image Captioning</title>
+        <pubTime>2017-03-01T12:29:52.000Z</pubTime>
+        
+        <tag>caption</tag>
+         
+         
+           
+             
+              <breadCrumb title="papers" url="http://github.com/categories/papers/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://github.com/2017/03/11/NIPS%202016%20Tutorial%20Generative%20Adersarial%20Networks/</loc>
     <lastmod>2017-03-12T02:00:13.000Z</lastmod>
     <data>
@@ -41,26 +61,6 @@
            
              
               <breadCrumb title="DeepLearning" url="http://github.com/categories/DeepLearning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://github.com/2017/03/01/image_caption/</loc>
-    <lastmod>2017-03-12T01:54:24.000Z</lastmod>
-    <data>
-        <display>
-        <title>转载：Image Captioning</title>
-        <pubTime>2017-03-01T12:29:52.000Z</pubTime>
-        
-        <tag>caption</tag>
-         
-         
-           
-             
-              <breadCrumb title="papers" url="http://github.com/categories/papers/"/>
           
         </display>
     </data>
