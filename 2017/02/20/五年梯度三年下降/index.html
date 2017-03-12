@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="RichardBai's Note">
 <meta property="og:description" content="梯度下降，是当下最常见的神经网络参数调优算法。当我们需要最小化目标函数$J(\theta)$时，只需要沿着目标函数梯度的$\nabla_\theta J(\theta)$反方向去更新$\theta$，就能让目标函数越来越小。如果$J(\theta)$是凸函数（二次导数非负），那最后一定能收敛到全局最小值，否则可能收敛到局部最小值。">
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/f/f3/Stogra.png">
-<meta property="og:updated_time" content="2017-02-26T05:59:22.000Z">
+<meta property="og:updated_time" content="2017-02-28T07:33:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="五年梯度三年下降">
 <meta name="twitter:description" content="梯度下降，是当下最常见的神经网络参数调优算法。当我们需要最小化目标函数$J(\theta)$时，只需要沿着目标函数梯度的$\nabla_\theta J(\theta)$反方向去更新$\theta$，就能让目标函数越来越小。如果$J(\theta)$是凸函数（二次导数非负），那最后一定能收敛到全局最小值，否则可能收敛到局部最小值。">
@@ -376,14 +376,7 @@
 <h2 id="mini-batch-gradient-descent"><a href="#Mini-batch-gradient-descent" class="headerlink" title="Mini-batch gradient descent"></a>Mini-batch gradient descent</h2><p>随机多样本梯度下降，集合了上面两种方法的特点，更新公式如下：<br>$$<br>θ=θ−η⋅∇θJ(θ;x^{(i:i+n)};y^{(i:i+n)})<br>$$<br>这种更新方式，不像SGD一样每次更新的幅度很大，从而更易于收敛。常见的batchsize是50~256。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(nb_epochs):</div><div class="line">  np.random.shuffle(data)</div><div class="line">  <span class="keyword">for</span> batch <span class="keyword">in</span> get_batches(data, batch_size=<span class="number">50</span>):</div><div class="line">    params_grad = evaluate_gradient(loss_function, batch, params)</div><div class="line">    params = params - learning_rate * params_grad</div></pre></td></tr></table></figure>
 <h2 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h2><p>学习率很难选取，太大难以收敛，太小收敛慢；变学习率的变化规则也难以适应所有数据集；此外，所有的特征不一定需要同一个学习率；最后，马鞍面产生的0梯度问题，SGD也没法解决。</p>
-<h1 id="改进算法"><a href="#改进算法" class="headerlink" title="改进算法"></a>改进算法</h1><p>这三篇文章使用的是REINFORCE算法，属于增强学习中Policy Gradient的一种。我们需要将deterministic的策略形式 $a=\pi(s,\theta)$转化为概率形式，$p(a) = \pi(a|s, \theta)$。Policy Gradient就是对参数$\theta$求梯度的方法。</p>
-<p>直观的想，如果我们希望最后的决策能获得更高的reward，最简单的就是使得高reward的行为有高概率，低reward的行为有低概率。所以REINFORCE的更新目标为</p>
-<p>$$\max_{\theta} \sum R(a,s)\log \pi(a|s, \theta)$$</p>
-<p>$R(s,a)​$是回报函数。有了目标，我们可以通过随机梯度下降来更新$\theta​$来获得更大的回报。</p>
-<p>然而这个方法有一个问题，训练时梯度的方差过大，导致训练不稳定。我们可以思考一下，如果reward的值为100到120之间，现在的方法虽然能更大地提高reward为120的行为的概率，但是也还是会提升低reward的行为的概率。所以为了克服这个问题，又有了REINFORCE with baseline。</p>
-<p>$$\max_{\theta} \sum (R(a,s) - b(s))\log \pi(a|s, \theta)$$</p>
-<p>$b(s)$在这里就是baseline，目的是通过给回报一个基准来减少方差。假设还是100到120的回报，我们将baseline设为110，那么只有100回报的行为就会被降低概率，而120回报的行为则会被提升概率。</p>
-
+<h1 id="改进算法"><a href="#改进算法" class="headerlink" title="改进算法"></a>改进算法</h1>
       
     </div>
 
@@ -501,7 +494,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
