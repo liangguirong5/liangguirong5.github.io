@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://github.com/"/>
-  <updated>2017-03-12T02:00:13.000Z</updated>
+  <updated>2017-03-15T16:26:41.000Z</updated>
   <id>http://github.com/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ImageCaption从入门到放弃之三_ 强化学习</title>
+    <link href="http://github.com/2017/03/16/ImageCaption%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83%E4%B9%8B%E4%B8%89-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://github.com/2017/03/16/ImageCaption从入门到放弃之三-强化学习/</id>
+    <published>2017-03-15T16:22:51.000Z</published>
+    <updated>2017-03-15T16:26:41.000Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a>
+<h1 id="sequence-level-training-with-recurrent-neural-networks"><a href="#Sequence-Level-Training-with-Recurrent-Neural-Networks" class="headerlink" title="Sequence Level Training with Recurrent Neural Networks"></a>Sequence Level Training with Recurrent Neural Networks</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;sequence-level-training-with-recurrent-neural-networks&quot;&gt;&lt;a href=&quot;#Sequence-Level-Training-with-Recurrent-Neural-Ne
+    
+    </summary>
+    
+      <category term="Caption" scheme="http://github.com/categories/Caption/"/>
+    
+    
+      <category term="caption" scheme="http://github.com/tags/caption/"/>
+    
+      <category term="RL" scheme="http://github.com/tags/RL/"/>
+    
+  </entry>
   
   <entry>
     <title>NIPS 2016 Tutorial Generative Adersarial Networks</title>
@@ -86,11 +112,11 @@
   </entry>
   
   <entry>
-    <title>转载：Image Captioning</title>
-    <link href="http://github.com/2017/03/01/image_caption/"/>
-    <id>http://github.com/2017/03/01/image_caption/</id>
+    <title>ImageCaption从入门到放弃之一_任务综述</title>
+    <link href="http://github.com/2017/03/01/ImageCaption%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83%E4%B9%8B%E4%B8%80_%E4%BB%BB%E5%8A%A1%E7%BB%BC%E8%BF%B0/"/>
+    <id>http://github.com/2017/03/01/ImageCaption从入门到放弃之一_任务综述/</id>
     <published>2017-03-01T12:29:52.000Z</published>
-    <updated>2017-03-12T02:27:36.000Z</updated>
+    <updated>2017-03-15T16:25:11.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>第二十二期的PaperWeekly对Image Captioning进行了综述。今天这篇文章中，我们会介绍一些近期的工作。（如果你对Image Captioning这个任务不熟悉的话，请移步二十二期<a href="http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&amp;mid=2247484014&amp;idx=1&amp;sn=4a053986f5dc8abb45097fed169465fa&amp;chksm=96e9ddeea19e54f83b717d63029a12715c238de8d6af261fa64af2d9b949480e685b8c283dda&amp;scene=21#wechat_redirect" target="_blank" rel="external">PaperWeekly 第二十二期—Image Caption任务综述</a>）</p>
 <a id="more"></a>
@@ -141,7 +167,7 @@
     
     </summary>
     
-      <category term="papers" scheme="http://github.com/categories/papers/"/>
+      <category term="Caption" scheme="http://github.com/categories/Caption/"/>
     
     
       <category term="caption" scheme="http://github.com/tags/caption/"/>
