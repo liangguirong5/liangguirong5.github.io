@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="caption,RL," />
+  <meta name="keywords" content="caption,seq2seq," />
 
 
 
@@ -86,16 +86,28 @@
 
 
 
-<meta name="description" content="Sequence Level Training with Recurrent Neural Networks">
+<meta name="description" content="前一篇文章ImageCaption从入门到放弃之一_任务综述介绍了传统的基于seq2seq的caption模型，这个模型来自机器翻译，因此机器翻译中的attetion机制在我们的caption任务中也可以借鉴，很多论文就是围绕这个attention该怎么加而展开的，我们主要介绍下面两篇比较有代表性的论文：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ImageCaption从入门到放弃之三_ 强化学习">
-<meta property="og:url" content="http://github.com/2017/03/16/ImageCaption从入门到放弃之三-强化学习/index.html">
+<meta property="og:title" content="ImageCaption从入门到放弃之二_attention机制">
+<meta property="og:url" content="http://github.com/2017/03/12/ImageCaption从入门到放弃之二_attention机制/index.html">
 <meta property="og:site_name" content="RichardBai's Note">
-<meta property="og:description" content="Sequence Level Training with Recurrent Neural Networks">
-<meta property="og:updated_time" content="2017-03-15T16:26:41.000Z">
+<meta property="og:description" content="前一篇文章ImageCaption从入门到放弃之一_任务综述介绍了传统的基于seq2seq的caption模型，这个模型来自机器翻译，因此机器翻译中的attetion机制在我们的caption任务中也可以借鉴，很多论文就是围绕这个attention该怎么加而展开的，我们主要介绍下面两篇比较有代表性的论文：">
+<meta property="og:image" content="https://ww2.sinaimg.cn/large/006tNc79ly1fdkdc2lxybj31gq0o6afg.jpg">
+<meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNc79ly1fdl6m491kuj30j006iq3i.jpg">
+<meta property="og:image" content="https://ww2.sinaimg.cn/large/006tNc79ly1fdl6qs71mwj30ik060dgf.jpg">
+<meta property="og:image" content="https://ww2.sinaimg.cn/large/006tNc79ly1fdl6xtphfcj30km05qq3q.jpg">
+<meta property="og:image" content="https://ww2.sinaimg.cn/large/006tNc79gy1fdl870l391j30h602wq35.jpg">
+<meta property="og:image" content="https://ww2.sinaimg.cn/large/006tNc79ly1fdlpl501wbj30so0cuab1.jpg">
+<meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNc79ly1fdlpncja9kj30om0e4abg.jpg">
+<meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNc79ly1fdm4wfurm8j30ga03q74l.jpg">
+<meta property="og:image" content="https://ww4.sinaimg.cn/large/006tNc79ly1fdm59gq97lj30nm02uq3b.jpg">
+<meta property="og:image" content="https://ww4.sinaimg.cn/large/006tNc79ly1fdmgtyl5b4j30bc02mwek.jpg">
+<meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNc79ly1fdm5f6tytxj30d802cmx7.jpg">
+<meta property="og:updated_time" content="2017-03-16T01:18:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ImageCaption从入门到放弃之三_ 强化学习">
-<meta name="twitter:description" content="Sequence Level Training with Recurrent Neural Networks">
+<meta name="twitter:title" content="ImageCaption从入门到放弃之二_attention机制">
+<meta name="twitter:description" content="前一篇文章ImageCaption从入门到放弃之一_任务综述介绍了传统的基于seq2seq的caption模型，这个模型来自机器翻译，因此机器翻译中的attetion机制在我们的caption任务中也可以借鉴，很多论文就是围绕这个attention该怎么加而展开的，我们主要介绍下面两篇比较有代表性的论文：">
+<meta name="twitter:image" content="https://ww2.sinaimg.cn/large/006tNc79ly1fdkdc2lxybj31gq0o6afg.jpg">
 
 
 
@@ -123,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://github.com/2017/03/16/ImageCaption从入门到放弃之三-强化学习/"/>
+  <link rel="canonical" href="http://github.com/2017/03/12/ImageCaption从入门到放弃之二_attention机制/"/>
 
 
 
 
 
-  <title> ImageCaption从入门到放弃之三_ 强化学习 | RichardBai's Note </title>
+  <title> ImageCaption从入门到放弃之二_attention机制 | RichardBai's Note </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -252,7 +264,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://github.com/2017/03/16/ImageCaption从入门到放弃之三-强化学习/">
+  <link itemprop="mainEntityOfPage" href="http://github.com/2017/03/12/ImageCaption从入门到放弃之二_attention机制/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Richard Bai">
@@ -276,7 +288,7 @@
             
             
               
-                ImageCaption从入门到放弃之三_ 强化学习
+                ImageCaption从入门到放弃之二_attention机制
               
             
           </h1>
@@ -291,8 +303,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-16T00:22:51+08:00">
-                2017-03-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-12T20:55:43+08:00">
+                2017-03-12
               </time>
             
 
@@ -332,8 +344,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/16/ImageCaption从入门到放弃之三-强化学习/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/16/ImageCaption从入门到放弃之三-强化学习/" itemprop="commentCount"></span>
+                <a href="/2017/03/12/ImageCaption从入门到放弃之二_attention机制/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/12/ImageCaption从入门到放弃之二_attention机制/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -359,8 +371,43 @@
       
 
       
-        <a id="more"></a>
-<h1 id="sequence-level-training-with-recurrent-neural-networks"><a href="#Sequence-Level-Training-with-Recurrent-Neural-Networks" class="headerlink" title="Sequence Level Training with Recurrent Neural Networks"></a>Sequence Level Training with Recurrent Neural Networks</h1>
+        <p>前一篇文章<a href="https://liangguirong5.github.io/2017/03/01/image_caption/" target="_blank" rel="external">ImageCaption从入门到放弃之一_任务综述</a>介绍了传统的基于seq2seq的caption模型，这个模型来自机器翻译，因此机器翻译中的attetion机制在我们的caption任务中也可以借鉴，很多论文就是围绕这个attention该怎么加而展开的，我们主要介绍下面两篇比较有代表性的论文：</p>
+<a id="more"></a>
+<p>Xu, K., &amp; Bengio, Y. (2016, April 20). Show, Attend and Tell: Neural Image Caption Generation with Visual Attention. <em>arXiv.org</em>.</p>
+<p>Lu, J., &amp; Socher, R. (2016, December 7). Knowing When to Look: Adaptive Attention via A Visual Sentinel for Image Captioning. <em>arXiv.org</em>.</p>
+<h1 id="neural-image-caption-generation-with-visual-attention"><a href="#Neural-Image-Caption-Generation-with-Visual-Attention" class="headerlink" title="Neural Image Caption Generation with Visual Attention"></a>Neural Image Caption Generation with Visual Attention</h1><p>第一篇论文是Bengio课题组的一份工作，主要是在seq2seq进行image caption的基础上，引入attention机制，强调生成caption时，不同时刻的关注点应该在不同的图像区域。 下图是模型的整体框架。</p>
+<p><img src="https://ww2.sinaimg.cn/large/006tNc79ly1fdkdc2lxybj31gq0o6afg.jpg" alt=""></p>
+<p>其中，encoder部分是一个卷积网络，目的是获取原图像的L个特征，每个特征是一个D维的向量，用以表示原图的某一部分。<br>$$<br>a={a_1,…,a_L}, a_i\in R^D<br>$$<br>decoder部分是一个LSTM，叠加使用了attention机制。本文的分别使用了hard和soft两种attention。</p>
+<h2 id="stochastic-hard-attention"><a href="#Stochastic-“Hard”-attention" class="headerlink" title="Stochastic “Hard” attention"></a>Stochastic “Hard” attention</h2><p>用t表示生成第t个词的时刻，$s_{t,i}$是一个布尔量，表示第t时刻第i个图像特征$a<em>i$是否为注意力特征，服从多元伯努利分布，如下式所示<br>$$<br>p(s</em>{t,i}=1|s<em>{j&lt;t},a)=\alpha</em>{t,i}<br>$$</p>
+<p>$$<br>z_t = \sum<em>is</em>{t,i}a_i<br>$$</p>
+<p>其中，$z_t$表示经过attention机制后融合图像特征，作为LSTM的输入。</p>
+<p>我们要优化的是$log\ p(y|a)$，想让它尽可能的大，那可以通过构造一个和$s$有关的下界$L_s$，最大化$L_s$即可最大化$log\ p(y|a)$，<br>$$<br>L_s = \Sigma_sp(s|a)log\ p(y|s,a)&lt;=log\Sigma_sp(s|a)p(y|s,a)=log\ p(y|a)<br>$$<br>这样反传的时候，求导数就有</p>
+<p><img src="https://ww3.sinaimg.cn/large/006tNc79ly1fdl6m491kuj30j006iq3i.jpg" alt=""></p>
+<p>这里面s服从多元伯努利分布，<br>$$<br>s_t \sim Multinoulli_L({\alpha_i})<br>$$<br>因此前面的导数公式可以用N次蒙特卡洛采样近似，即</p>
+<p><img src="https://ww2.sinaimg.cn/large/006tNc79ly1fdl6qs71mwj30ik060dgf.jpg" alt=""></p>
+<p>最后，引入了一个平均阈值项b和多元伯努利分布的熵项H，来减小上面梯度计算的方差，最终的公式为</p>
+<p><img src="https://ww2.sinaimg.cn/large/006tNc79ly1fdl6xtphfcj30km05qq3q.jpg" alt=""></p>
+<p>$\lambda_r$和$\lambda_e$分别是交叉验证的参数。（此处黑人问号，待参考：Multiple object recognition with visual attention）</p>
+<h2 id="deterministic-soft-attention"><a href="#Deterministic-“Soft”-Attention" class="headerlink" title="Deterministic “Soft” Attention"></a>Deterministic “Soft” Attention</h2><p>所谓soft，就是不引入上面的s来决定哪个图像特征需要被关注，而是每个图像特征都按照原本的被关注的概率进行期望求和，得到我们需要的输入Z。<br>$$<br>z_t = \sum<em>i^L\alpha</em>{t,i}a_i<br>$$<br>值得注意的是，$\sum<em>i\alpha</em>{ti}=1$是不会变的，因为我们是通过softmax得到的$\alpha$。我们再令$\sum<em>t\alpha</em>{ti}\approx1$，这是为了鼓励模型在整个句子生成的期间内，虽然每个特征被注意的时刻不同，但是每个特征总有一些时刻被着重注意了，也就是每个特征都有用，不能从头到尾都和生成的词无关。</p>
+<p>又引入了一个scalar $\beta$，使$z_t =\beta \sum<em>i^L\alpha</em>{t,i}a_i$，$\beta<em>t=\sigma(f</em>\beta(h_{t-1}))$，没什么理由，只是单纯实验发现这样做能让注意力集中在图像中的目标上。</p>
+<p>最后，最小化下面的带惩罚项的损失函数。</p>
+<p><img src="https://ww2.sinaimg.cn/large/006tNc79gy1fdl870l391j30h602wq35.jpg" alt=""></p>
+<h1 id="knowing-when-to-look-adaptive-attention-via-a-visual-sentinel-for-image-captioning"><a href="#Knowing-When-to-Look-Adaptive-Attention-via-A-Visual-Sentinel-for-Image-Captioning" class="headerlink" title="Knowing When to Look: Adaptive Attention via A Visual Sentinel for Image Captioning"></a>Knowing When to Look: Adaptive Attention via A Visual Sentinel for Image Captioning</h1><p>这篇文章是上一篇的改进，出发点在于不需要没个词的生成都对应一个attetion，一些介词和连词并不需要图像中的信息，因此，本文提出attention的时间和空间的概念。</p>
+<p><img src="https://ww2.sinaimg.cn/large/006tNc79ly1fdlpl501wbj30so0cuab1.jpg" alt=""></p>
+<p>原始的模型如上图（a），这个模型就是刚刚那篇论文的模型。本文对其首先进行如图（b）的改进，使得每次的attention根据当前的h而不是上一时刻的h来生成。其中，$x<em>t$是$y</em>{t-1}$的词向量。</p>
+<p><img src="https://ww3.sinaimg.cn/large/006tNc79ly1fdlpncja9kj30om0e4abg.jpg" alt=""></p>
+<p>其次，引入了visual sentinel视觉哨兵，什么意思呢？</p>
+<p>原始的经过CNN提取到的特征是$v_1….v_L$，每次计算attention权重$\alpha$的时候，我们用下面的公式<br>$$<br>z_t = w_h^Ttanh(W_vV+W_gh_tI^T)\\alpha_t = softmax(z_t)<br>$$</p>
+<p>其中，V是d*k维，表示k个图像特征；$h_t$是第t时刻的decoder的隐状态输出，是d*1维，$w_h是k*1维的参数，两个W是k*d维的参数。</p>
+<p>当引入视觉哨兵时，看上面的图，除了L个v向量，多了一个s向量，这个s的定义是</p>
+<p><img src="https://ww3.sinaimg.cn/large/006tNc79ly1fdm4wfurm8j30ga03q74l.jpg" alt=""></p>
+<p>可以看出，g是一个门系数，他由上一时刻的隐状态和当前的输入（前一个单词）决定，这个g控制当前的记忆m，记忆就是LSTM的记忆门输出，他包含了截止到目前的语义信息和图像信息。 上面的两个公式可以理解为：根据前一时刻的状态和输入，对当前的记忆进行加工（点乘），加工后的向量称作哨兵信息。</p>
+<p>这个哨兵信息作为和CNN的图像特征v一起，进行attention计算，如果attention的重点在s哨兵，说明当前不需要关注图像信息，当前的输出单词可能是介词、连词之类的词。所以，新的attention系数公式如下。</p>
+<p><img src="https://ww4.sinaimg.cn/large/006tNc79ly1fdm59gq97lj30nm02uq3b.jpg" alt=""></p>
+<p><img src="https://ww4.sinaimg.cn/large/006tNc79ly1fdmgtyl5b4j30bc02mwek.jpg" alt=""></p>
+<p><img src="https://ww3.sinaimg.cn/large/006tNc79ly1fdm5f6tytxj30d802cmx7.jpg" alt=""></p>
+<p>从而得到新的context信息。</p>
+
       
     </div>
 
@@ -385,7 +432,7 @@
           
             <a href="/tags/caption/" rel="tag"># caption</a>
           
-            <a href="/tags/RL/" rel="tag"># RL</a>
+            <a href="/tags/seq2seq/" rel="tag"># seq2seq</a>
           
         </div>
       
@@ -394,8 +441,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/12/ImageCaption从入门到放弃之二_attention机制/" rel="next" title="ImageCaption从入门到放弃之二_attention机制">
-                <i class="fa fa-chevron-left"></i> ImageCaption从入门到放弃之二_attention机制
+              <a href="/2017/03/11/NIPS 2016 Tutorial Generative Adersarial Networks/" rel="next" title="NIPS 2016 Tutorial Generative Adersarial Networks">
+                <i class="fa fa-chevron-left"></i> NIPS 2016 Tutorial Generative Adersarial Networks
               </a>
             
           </div>
@@ -403,6 +450,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/16/ImageCaption从入门到放弃之三-强化学习/" rel="prev" title="ImageCaption从入门到放弃之三_ 强化学习">
+                ImageCaption从入门到放弃之三_ 强化学习 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -428,8 +479,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/16/ImageCaption从入门到放弃之三-强化学习/"
-           data-title="ImageCaption从入门到放弃之三_ 强化学习" data-url="http://github.com/2017/03/16/ImageCaption从入门到放弃之三-强化学习/">
+      <div class="ds-thread" data-thread-key="2017/03/12/ImageCaption从入门到放弃之二_attention机制/"
+           data-title="ImageCaption从入门到放弃之二_attention机制" data-url="http://github.com/2017/03/12/ImageCaption从入门到放弃之二_attention机制/">
       </div>
     
   </div>
@@ -556,7 +607,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sequence-level-training-with-recurrent-neural-networks"><span class="nav-number">1.</span> <span class="nav-text">Sequence Level Training with Recurrent Neural Networks</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#neural-image-caption-generation-with-visual-attention"><span class="nav-number">1.</span> <span class="nav-text">Neural Image Caption Generation with Visual Attention</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#stochastic-hard-attention"><span class="nav-number">1.1.</span> <span class="nav-text">Stochastic “Hard” attention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deterministic-soft-attention"><span class="nav-number">1.2.</span> <span class="nav-text">Deterministic “Soft” Attention</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#knowing-when-to-look-adaptive-attention-via-a-visual-sentinel-for-image-captioning"><span class="nav-number">2.</span> <span class="nav-text">Knowing When to Look: Adaptive Attention via A Visual Sentinel for Image Captioning</span></a></li></ol></div>
             
 
           </div>
@@ -721,6 +772,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
