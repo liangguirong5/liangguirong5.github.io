@@ -103,7 +103,7 @@
 <meta property="og:image" content="https://ww4.sinaimg.cn/large/006tNc79ly1fdm59gq97lj30nm02uq3b.jpg">
 <meta property="og:image" content="https://ww4.sinaimg.cn/large/006tNc79ly1fdmgtyl5b4j30bc02mwek.jpg">
 <meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNc79ly1fdm5f6tytxj30d802cmx7.jpg">
-<meta property="og:updated_time" content="2017-03-16T01:18:06.000Z">
+<meta property="og:updated_time" content="2017-03-20T02:24:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ImageCaption从入门到放弃之二_attention机制">
 <meta name="twitter:description" content="前一篇文章ImageCaption从入门到放弃之一_任务综述介绍了传统的基于seq2seq的caption模型，这个模型来自机器翻译，因此机器翻译中的attetion机制在我们的caption任务中也可以借鉴，很多论文就是围绕这个attention该怎么加而展开的，我们主要介绍下面两篇比较有代表性的论文：">
@@ -375,6 +375,7 @@
 <a id="more"></a>
 <p>Xu, K., &amp; Bengio, Y. (2016, April 20). Show, Attend and Tell: Neural Image Caption Generation with Visual Attention. <em>arXiv.org</em>.</p>
 <p>Lu, J., &amp; Socher, R. (2016, December 7). Knowing When to Look: Adaptive Attention via A Visual Sentinel for Image Captioning. <em>arXiv.org</em>.</p>
+<p>注意：这个两篇文章的符号不统一，请注意区分。</p>
 <h1 id="neural-image-caption-generation-with-visual-attention"><a href="#Neural-Image-Caption-Generation-with-Visual-Attention" class="headerlink" title="Neural Image Caption Generation with Visual Attention"></a>Neural Image Caption Generation with Visual Attention</h1><p>第一篇论文是Bengio课题组的一份工作，主要是在seq2seq进行image caption的基础上，引入attention机制，强调生成caption时，不同时刻的关注点应该在不同的图像区域。 下图是模型的整体框架。</p>
 <p><img src="https://ww2.sinaimg.cn/large/006tNc79ly1fdkdc2lxybj31gq0o6afg.jpg" alt=""></p>
 <p>其中，encoder部分是一个卷积网络，目的是获取原图像的L个特征，每个特征是一个D维的向量，用以表示原图的某一部分。<br>$$<br>a={a_1,…,a_L}, a_i\in R^D<br>$$<br>decoder部分是一个LSTM，叠加使用了attention机制。本文的分别使用了hard和soft两种attention。</p>
@@ -392,7 +393,7 @@
 <p>又引入了一个scalar $\beta$，使$z_t =\beta \sum<em>i^L\alpha</em>{t,i}a_i$，$\beta<em>t=\sigma(f</em>\beta(h_{t-1}))$，没什么理由，只是单纯实验发现这样做能让注意力集中在图像中的目标上。</p>
 <p>最后，最小化下面的带惩罚项的损失函数。</p>
 <p><img src="https://ww2.sinaimg.cn/large/006tNc79gy1fdl870l391j30h602wq35.jpg" alt=""></p>
-<h1 id="knowing-when-to-look-adaptive-attention-via-a-visual-sentinel-for-image-captioning"><a href="#Knowing-When-to-Look-Adaptive-Attention-via-A-Visual-Sentinel-for-Image-Captioning" class="headerlink" title="Knowing When to Look: Adaptive Attention via A Visual Sentinel for Image Captioning"></a>Knowing When to Look: Adaptive Attention via A Visual Sentinel for Image Captioning</h1><p>这篇文章是上一篇的改进，出发点在于不需要没个词的生成都对应一个attetion，一些介词和连词并不需要图像中的信息，因此，本文提出attention的时间和空间的概念。</p>
+<h1 id="knowing-when-to-look-adaptive-attention-via-a-visual-sentinel-for-image-captioning"><a href="#Knowing-When-to-Look-Adaptive-Attention-via-A-Visual-Sentinel-for-Image-Captioning" class="headerlink" title="Knowing When to Look: Adaptive Attention via A Visual Sentinel for Image Captioning"></a>Knowing When to Look: Adaptive Attention via A Visual Sentinel for Image Captioning</h1><p>这篇文章是上一篇的改进，出发点在于不需要每个词的生成都对应一个attetion，一些介词和连词并不需要图像中的信息，因此，本文提出attention的时间和空间的概念。</p>
 <p><img src="https://ww2.sinaimg.cn/large/006tNc79ly1fdlpl501wbj30so0cuab1.jpg" alt=""></p>
 <p>原始的模型如上图（a），这个模型就是刚刚那篇论文的模型。本文对其首先进行如图（b）的改进，使得每次的attention根据当前的h而不是上一时刻的h来生成。其中，$x<em>t$是$y</em>{t-1}$的词向量。</p>
 <p><img src="https://ww3.sinaimg.cn/large/006tNc79ly1fdlpncja9kj30om0e4abg.jpg" alt=""></p>
@@ -407,6 +408,7 @@
 <p><img src="https://ww4.sinaimg.cn/large/006tNc79ly1fdmgtyl5b4j30bc02mwek.jpg" alt=""></p>
 <p><img src="https://ww3.sinaimg.cn/large/006tNc79ly1fdm5f6tytxj30d802cmx7.jpg" alt=""></p>
 <p>从而得到新的context信息。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这两篇论文都是对attention进行研究和改进，本质上还是没有解决exposure bias问题，而且原始的seq2seq用每一步生成单词的概率进行连乘，作为整个序列的概率，这一点也可以改进，下一文会介绍如何用强化学习来解决这两个问题。</p>
 
       
     </div>
@@ -441,7 +443,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/11/NIPS 2016 Tutorial Generative Adersarial Networks/" rel="next" title="NIPS 2016 Tutorial Generative Adersarial Networks">
+              <a href="/2017/03/09/NIPS 2016 Tutorial Generative Adersarial Networks/" rel="next" title="NIPS 2016 Tutorial Generative Adersarial Networks">
                 <i class="fa fa-chevron-left"></i> NIPS 2016 Tutorial Generative Adersarial Networks
               </a>
             
@@ -607,7 +609,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#neural-image-caption-generation-with-visual-attention"><span class="nav-number">1.</span> <span class="nav-text">Neural Image Caption Generation with Visual Attention</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#stochastic-hard-attention"><span class="nav-number">1.1.</span> <span class="nav-text">Stochastic “Hard” attention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deterministic-soft-attention"><span class="nav-number">1.2.</span> <span class="nav-text">Deterministic “Soft” Attention</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#knowing-when-to-look-adaptive-attention-via-a-visual-sentinel-for-image-captioning"><span class="nav-number">2.</span> <span class="nav-text">Knowing When to Look: Adaptive Attention via A Visual Sentinel for Image Captioning</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#neural-image-caption-generation-with-visual-attention"><span class="nav-number">1.</span> <span class="nav-text">Neural Image Caption Generation with Visual Attention</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#stochastic-hard-attention"><span class="nav-number">1.1.</span> <span class="nav-text">Stochastic “Hard” attention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deterministic-soft-attention"><span class="nav-number">1.2.</span> <span class="nav-text">Deterministic “Soft” Attention</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#knowing-when-to-look-adaptive-attention-via-a-visual-sentinel-for-image-captioning"><span class="nav-number">2.</span> <span class="nav-text">Knowing When to Look: Adaptive Attention via A Visual Sentinel for Image Captioning</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>

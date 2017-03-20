@@ -361,10 +361,15 @@
 
       
         
-          
-            <a id="more"></a>
-<h1 id="sequence-level-training-with-recurrent-neural-networks"><a href="#Sequence-Level-Training-with-Recurrent-Neural-Networks" class="headerlink" title="Sequence Level Training with Recurrent Neural Networks"></a>Sequence Level Training with Recurrent Neural Networks</h1>
-          
+          <p>因为传统的seq2seq模型存在exposure bias（训练的时候，不论前一时刻的生成词是什么，总把期望的标签词作为当前时刻的输入；而测试时，使用前一时刻的生成词作为当前时刻的输入，这种现象就是exposure bias），而且优化的也不是整个序列的出现概率，而是每个词的出现概率，参见：<a href="https://liangguirong5.github.io/2017/03/12/ImageCaption从入门到放弃之二_attention机制/">ImageCaption从入门到放弃之二_attention机制</a></p>
+<p>因此第一篇文章提出用强化学习直接优化最终的生成序列的metrix分数，避免了上面的两个问题；第二篇文章是对第一篇的改进，目前在MSCOCO上的caption评测分数最高。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/16/ImageCaption从入门到放弃之三-强化学习/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -556,7 +561,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://github.com/2017/03/11/NIPS 2016 Tutorial Generative Adersarial Networks/">
+  <link itemprop="mainEntityOfPage" href="http://github.com/2017/03/09/NIPS 2016 Tutorial Generative Adersarial Networks/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Richard Bai">
@@ -581,7 +586,7 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/11/NIPS 2016 Tutorial Generative Adersarial Networks/" itemprop="url">
+                <a class="post-title-link" href="/2017/03/09/NIPS 2016 Tutorial Generative Adersarial Networks/" itemprop="url">
                   NIPS 2016 Tutorial Generative Adersarial Networks
                 </a>
               
@@ -598,8 +603,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-11T20:29:52+08:00">
-                2017-03-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-09T20:29:52+08:00">
+                2017-03-09
               </time>
             
 
@@ -639,8 +644,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/11/NIPS 2016 Tutorial Generative Adersarial Networks/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/11/NIPS 2016 Tutorial Generative Adersarial Networks/" itemprop="commentCount"></span>
+                <a href="/2017/03/09/NIPS 2016 Tutorial Generative Adersarial Networks/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/09/NIPS 2016 Tutorial Generative Adersarial Networks/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -670,7 +675,7 @@
           <p>本文是根据NIPS2016的tutorial翻译、总结的中文文档。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/03/11/NIPS 2016 Tutorial Generative Adersarial Networks/#more" rel="contents">
+            <a class="btn" href="/2017/03/09/NIPS 2016 Tutorial Generative Adersarial Networks/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

@@ -92,7 +92,7 @@
 <meta property="og:url" content="http://github.com/2017/02/26/贝叶斯优化/index.html">
 <meta property="og:site_name" content="RichardBai's Note">
 <meta property="og:description" content="贝叶斯优化可以用于复杂模型的调参过程中，可以自动确定一套表现最优的模型参数。本文是对贝叶斯优化方法的浅层解读，日后填坑~">
-<meta property="og:updated_time" content="2017-02-26T06:04:30.000Z">
+<meta property="og:updated_time" content="2017-03-18T09:31:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="贝叶斯优化">
 <meta name="twitter:description" content="贝叶斯优化可以用于复杂模型的调参过程中，可以自动确定一套表现最优的模型参数。本文是对贝叶斯优化方法的浅层解读，日后填坑~">
@@ -733,6 +733,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
