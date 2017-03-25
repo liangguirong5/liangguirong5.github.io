@@ -67,7 +67,7 @@
     <link href="http://github.com/2017/03/12/ImageCaption%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83%E4%B9%8B%E4%BA%8C_attention%E6%9C%BA%E5%88%B6/"/>
     <id>http://github.com/2017/03/12/ImageCaption从入门到放弃之二_attention机制/</id>
     <published>2017-03-12T12:55:43.000Z</published>
-    <updated>2017-03-25T02:39:02.000Z</updated>
+    <updated>2017-03-25T02:41:31.000Z</updated>
     
     <content type="html"><![CDATA[<p>前一篇文章<a href="https://liangguirong5.github.io/2017/03/01/image_caption/" target="_blank" rel="external">ImageCaption从入门到放弃之一_任务综述</a>中引向paperweekly的链接，介绍了传统的基于seq2seq的caption模型，这个模型来自机器翻译，因此机器翻译中的attetion机制在我们的caption任务中也可以借鉴，很多论文就是围绕这个attention该怎么加而展开的，我们主要介绍下面两篇比较有代表性的论文：</p>
 <a id="more"></a>
@@ -80,7 +80,7 @@
 <h2 id="stochastic-hard-attention"><a href="#Stochastic-“Hard”-attention" class="headerlink" title="Stochastic “Hard” attention"></a>Stochastic “Hard” attention</h2><p>用t表示生成第t个词的时刻，$s_{t,i}$是一个布尔量，表示第t时刻第i个图像特征$a<em>i$是否为注意力特征，服从多元伯努利分布，如下式所示<br>$$<br>p(s</em>{t,i}=1|s<em>{j&lt;t},a)=\alpha</em>{t,i}<br>$$</p>
 <p>$$<br>z_t = \sum<em>is</em>{t,i}a_i<br>$$</p>
 <p>其中，$z_t$表示经过attention机制后融合图像特征，作为LSTM的输入。</p>
-<p>我们要优化的是$log\ p(y|a)$，想让它尽可能的大，那可以通过构造一个和$s$有关的下界$L_s$，最大化$L_s$即可最大化$log\ p(y|a)$，<br>$$<br>L_s = \Sigma_sp(s|a)log\ p(y|s,a)&lt;=log\Sigma_sp(s|a)p(y|s,a)=log\ p(y|a)<br>$$<br>这样反传的时候，求导数就有</p>
+<p>我们要优化的是$log\ p(y|a)​$，想让它尽可能的大，那可以通过构造一个和$s​$有关的下界$L_s​$，最大化$L_s​$即可最大化$log\ p(y|a)​$，<br>$$<br>L_s = \Sigma_sp(s|a)log\ p(y|s,a)&lt;=log\Sigma_sp(s|a)p(y|s,a)=log\ p(y|a)<br>$$<br>这样反传的时候，求导数就有</p>
 <p><img src="https://ww3.sinaimg.cn/large/006tNc79ly1fdl6m491kuj30j006iq3i.jpg" alt=""></p>
 <p>这里面s服从多元伯努利分布，<br>$$<br>s_t \sim Multinoulli_L({\alpha_i})<br>$$<br>因此前面的导数公式可以用N次蒙特卡洛采样近似，即</p>
 <p><img src="https://ww2.sinaimg.cn/large/006tNc79ly1fdl6qs71mwj30ik060dgf.jpg" alt=""></p>
