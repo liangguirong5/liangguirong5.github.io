@@ -100,7 +100,7 @@
 <meta property="og:image" content="https://ww1.sinaimg.cn/large/006tNc79ly1fdp1v5gpb4j30z009egmz.jpg">
 <meta property="og:image" content="https://ww4.sinaimg.cn/large/006tNc79ly1fdtd1qyovcj312y0jcadn.jpg">
 <meta property="og:image" content="https://ww4.sinaimg.cn/large/006tNc79ly1fdtepb6turj30qa0agabz.jpg">
-<meta property="og:updated_time" content="2017-03-20T08:58:31.000Z">
+<meta property="og:updated_time" content="2017-03-20T15:55:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ImageCaption从入门到放弃之三_ 强化学习">
 <meta name="twitter:description" content="因为传统的seq2seq模型存在exposure bias（训练的时候，不论前一时刻的生成词是什么，总把期望的标签词作为当前时刻的输入；而测试时，使用前一时刻的生成词作为当前时刻的输入，这种现象就是exposure bias），而且优化的也不是整个序列的出现概率，而是每个词的出现概率，参见：ImageCaption从入门到放弃之二_attention机制
@@ -390,7 +390,7 @@
 <p><img src="https://ww4.sinaimg.cn/large/006tNc79ly1fdtd1qyovcj312y0jcadn.jpg" alt=""></p>
 <p>效果图</p>
 <p><img src="https://ww4.sinaimg.cn/large/006tNc79ly1fdtepb6turj30qa0agabz.jpg" alt=""></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>SCST是目前表现最好的模型，他每一次的标准reward是由相似的模型解码得到的，是不是可以用GAN来进行改进呢？此外，能不能设计一个模型，生成每一步的reward呢？这样不仅能加快训练，效果肯定也有提升。最后，关于DQN和PG的优劣，可能会单独发一篇博文来好好整理一下。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>SCST是目前表现最好的模型，也是ImageCaption从入门到放弃的最后一期。思考了几个问题，SCST每一次的标准reward是由相似的模型解码得到的，是不是可以用GAN来进行改进呢？此外，能不能设计一个模型，生成每一步的reward呢？这样不仅能加快训练，效果肯定也有提升。最后，关于DQN和PG的优劣，可能会单独发一篇博文来好好整理一下。</p>
 
       
     </div>
