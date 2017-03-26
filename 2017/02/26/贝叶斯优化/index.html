@@ -363,7 +363,7 @@
 <a id="more"></a>
 <h1 id="bayesian-optimization"><a href="#Bayesian-Optimization" class="headerlink" title="Bayesian Optimization"></a>Bayesian Optimization</h1><p>当对目标函数没有封闭形式的表达，但是可以得到目标函数在采样点的观测值时，可以用贝叶斯优化来寻找目标函数的极值。</p>
 <p>优势在于需要较少的采样点，适合观测值costly的对象。</p>
-<p>贝叶斯优化根据下面的acqusition function来选取下一个采样点的位置:<br>$$<br>x<em>t=argmax</em>{x \in D}\mu<em>{t-1}(x)+\beta^{1/2}\sigma</em>{t-1}(x)<br>$$<br>首先用已有观测值构建高斯过程回归模型，并预测输入位置上的未知函数值服从的的高斯分布，得到该点均值和方差，即$\mu<em>{t-1}(x)$和$\sigma</em>{t-1}(x)$。上式的$\beta_t$是一个权重参数，具体设置参见论文：Gaussian Process Optimization in the Bandit Setting: No Regret and Experimental Design.</p>
+<p>贝叶斯优化根据下面的acqusition function来选取下一个采样点的位置:<br>$$<br>x_t=argmax_{x \in D}\mu_{t-1}(x)+\beta^{1/2}\sigma_{t-1}(x)<br>$$<br>首先用已有观测值构建高斯过程回归模型，并预测输入位置上的未知函数值服从的的高斯分布，得到该点均值和方差，即$\mu_{t-1}(x)$和$\sigma_{t-1}(x)$。上式的$\beta_t$是一个权重参数，具体设置参见论文：Gaussian Process Optimization in the Bandit Setting: No Regret and Experimental Design.</p>
 <p>这个公式描述的是，如果标准差大，表示我们对该点了解程度小，值得探索(exploration)；如果均值大，表明该点可能就是我们要找的最大值点，值得开发(exploitation)。一开始，我们的采样数据很少，算法会去采样标准差很大的点；当采样的点多了，标准差会降低，算法偏向于去均值大的点，最终收敛到全局最优值。</p>
 <h1 id="gaussian-process-regression"><a href="#Gaussian-Process-Regression" class="headerlink" title="Gaussian Process Regression"></a>Gaussian Process Regression</h1><p>关于高斯过程回归的知识可以参考下面两个链接，互为补充。</p>
 <p><a href="http://blog.sina.com.cn/s/blog_5033f3b40102vts4.html" target="_blank" rel="external">高斯过程回归</a></p>

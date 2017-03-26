@@ -376,7 +376,7 @@
 <li>GAN的工作原理</li>
 <li>GAN的前沿进展</li>
 </ol>
-<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>GAN是生成模型的一种，本文所指的生成模型，是根据服从$P<em>{data}$分布的样本集合，学习出这种分布的估计。学出来的分布称为$P</em>{model}$，也就是我们模型学出来的分布。一种生成模型的训练目标是去尽可能“精确”地估计数据的分布，如下图。</p>
+<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>GAN是生成模型的一种，本文所指的生成模型，是根据服从$P_{data}$分布的样本集合，学习出这种分布的估计。学出来的分布称为$P_{model}$，也就是我们模型学出来的分布。一种生成模型的训练目标是去尽可能“精确”地估计数据的分布，如下图。</p>
 <p><img src="https://ww3.sinaimg.cn/large/006tNc79ly1fdhtpqamgkj30v8072gm0.jpg" alt=""></p>
 <p>另一种则是学着数据样本（按照$P_{model}$）去产生新的“样本”，我们的GAN模型倾向于执行这种任务。</p>
 <p><img src="https://ww3.sinaimg.cn/large/006tNc79ly1fdhtqgeqp3j30ve0ayjtz.jpg" alt=""></p>
@@ -401,7 +401,7 @@
 <p><img src="https://ww4.sinaimg.cn/large/006tNc79ly1fdhzahf37kj316c0jyjxa.jpg" alt=""></p>
 </li>
 </ol>
-<h1 id="2生成模型的原理以及gan同其他生成模型的区别"><a href="#2-生成模型的原理以及GAN同其他生成模型的区别" class="headerlink" title="2.生成模型的原理以及GAN同其他生成模型的区别"></a>2.生成模型的原理以及GAN同其他生成模型的区别</h1><h2 id="21-最大似然估计"><a href="#2-1-最大似然估计" class="headerlink" title="2.1 最大似然估计"></a>2.1 最大似然估计</h2><p>$$<br>θ^* =argmax<em>\theta\Sigma log p</em>{model}(x^{(i)};\theta)<br>$$</p>
+<h1 id="2生成模型的原理以及gan同其他生成模型的区别"><a href="#2-生成模型的原理以及GAN同其他生成模型的区别" class="headerlink" title="2.生成模型的原理以及GAN同其他生成模型的区别"></a>2.生成模型的原理以及GAN同其他生成模型的区别</h1><h2 id="21-最大似然估计"><a href="#2-1-最大似然估计" class="headerlink" title="2.1 最大似然估计"></a>2.1 最大似然估计</h2><p>$$<br>θ^* =argmax_\theta\Sigma log p_{model}(x^{(i)};\theta)<br>$$</p>
 <h2 id="22-生成模型分类树"><a href="#2-2-生成模型分类树" class="headerlink" title="2.2 生成模型分类树"></a>2.2 生成模型分类树</h2><p><img src="https://ww2.sinaimg.cn/large/006tNc79ly1fdi1w0nejej30yy0piq75.jpg" alt=""></p>
 <h2 id="23-explicit-desity-models"><a href="#2-3-explicit-desity-models" class="headerlink" title="2.3 explicit desity models"></a>2.3 explicit desity models</h2><p>这是一种直接最大化似然函数的模型，只需要把样本带入到概率公式中然后取似然相加求和，通过梯度法最大化即可。存在一个难点：保证computational tractability.</p>
 <h3 id="231-tractable-explicit-models"><a href="#2-3-1-Tractable-explicit-models" class="headerlink" title="2.3.1 Tractable explicit models"></a>2.3.1 Tractable explicit models</h3><ol>
