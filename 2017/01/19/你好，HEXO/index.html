@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="RichardBai's Note">
 <meta property="og:description" content="你好，欢迎来到我的技术博客，下面是本文的目录。">
 <meta property="og:image" content="https://ww1.sinaimg.cn/large/006y8lValy1fbzuaste9aj30j60asjsc.jpg">
-<meta property="og:updated_time" content="2017-02-02T04:28:18.000Z">
+<meta property="og:updated_time" content="2017-03-26T06:24:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello Hexo!">
 <meta name="twitter:description" content="你好，欢迎来到我的技术博客，下面是本文的目录。">
@@ -375,6 +375,7 @@
 </tbody>
 </table>
 <h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>哈哈</p>
+<p>MIXER：这是本文提出的方法，mix XENT and RL的简写，强化学习的模型agent是decoder，状态s是当前的输入$x<em>t$和$h</em>{t-1}$，policy则是RNN内部的各个参数，action是每次预测出来的词，reward是计算出来的metrix分值。因为最后用一整串词来计算metrix分数，例如BLEU值，因此需要用policy gradient来进行模型的学习，损失函数如下：<br>$$<br>L<em>\theta=-\sum</em>{w_1^g,…,w<em>T^g}p</em>\theta(w_1^g,…,w_T^g)r(w_1^g,…,w<em>T^g)=-E</em>{[w_1^g,…,w_T^g]\sim p(\theta)}r(w_1^g,…,w<em>T^g)<br>$$<br>也就是生成序列长度为T，他的概率乘上对应的回报需要最大化，对应于上面的损失函数最小化。然后涉及到对这个函数进行求导，参考前人的工作得到<br>$$<br>\frac{\partial L</em>\theta}{\partial \theta}=\sum<em>t\frac{\partial L</em>\theta}{\partial o_t}\frac{\partial o_t}{\partial \theta}<br>$$</p>
 
       
     </div>
