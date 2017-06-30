@@ -1,0 +1,874 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Algorithm," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="RichardBai's Note" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="赛题详情是对腾讯的社交广告进行cvr预测，决赛第一名有30万奖金，作为第18名的渣渣只能拿到一个腾讯的绿色通道。
+下面讲一下我们两只萌新是怎么从进行赛题求解的。
+PS: 结尾有彩蛋。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tecent第一届社交广告高校算法大赛——萌新经验分享">
+<meta property="og:url" content="http://github.com/2017/07/01/Tecent第一节社交广告算法竞赛——萌新经验分享/index.html">
+<meta property="og:site_name" content="RichardBai's Note">
+<meta property="og:description" content="赛题详情是对腾讯的社交广告进行cvr预测，决赛第一名有30万奖金，作为第18名的渣渣只能拿到一个腾讯的绿色通道。
+下面讲一下我们两只萌新是怎么从进行赛题求解的。
+PS: 结尾有彩蛋。">
+<meta property="og:updated_time" content="2017-06-30T17:22:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tecent第一届社交广告高校算法大赛——萌新经验分享">
+<meta name="twitter:description" content="赛题详情是对腾讯的社交广告进行cvr预测，决赛第一名有30万奖金，作为第18名的渣渣只能拿到一个腾讯的绿色通道。
+下面讲一下我们两只萌新是怎么从进行赛题求解的。
+PS: 结尾有彩蛋。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://github.com/2017/07/01/Tecent第一节社交广告算法竞赛——萌新经验分享/"/>
+
+
+
+
+
+  <title> Tecent第一届社交广告高校算法大赛——萌新经验分享 | RichardBai's Note </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">RichardBai's Note</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">NLP水硕在读 | 白塔庵zj的日常</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://github.com/2017/07/01/Tecent第一节社交广告算法竞赛——萌新经验分享/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Richard Bai">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://ok8bcvles.bkt.clouddn.com/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="RichardBai's Note">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="RichardBai's Note" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Tecent第一届社交广告高校算法大赛——萌新经验分享
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-01T00:38:37+08:00">
+                2017-07-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Competition/" itemprop="url" rel="index">
+                    <span itemprop="name">Competition</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/01/Tecent第一节社交广告算法竞赛——萌新经验分享/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/01/Tecent第一节社交广告算法竞赛——萌新经验分享/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="http://algo.tpai.qq.com/home/information/index.html" target="_blank" rel="external">赛题详情</a>是对腾讯的社交广告进行cvr预测，决赛第一名有30万奖金，作为第18名的渣渣只能拿到一个腾讯的绿色通道。</p>
+<p>下面讲一下我们两只萌新是怎么从进行赛题求解的。</p>
+<p>PS: 结尾有彩蛋。</p>
+<a id="more"></a>
+<h2 id="1-数据分析与预处理"><a href="#1-数据分析与预处理" class="headerlink" title="1. 数据分析与预处理"></a>1. 数据分析与预处理</h2><p>首先我们对数据进行原始特征的分析，发现不同日期虽然点击量不同，但是转化率大致接近，除了最后几天因为回流时间的影响，导致转化率偏低，因此时间特征我们抛弃了日期，而选择了小时。同时，我们对26-30这几天的数据进行了数据清洗，清洗标准是，统计不同广告主报回流的平均时间，然后用这个时间加上当前数据的点击时间，来预计回流时间，对回流时间超过30号24点的数据进行清洗，这样可以去除肯定错误的一些数据。处理后发现，这样的数据主要集中在30号，因为大部分广告主的回流时间都在集中在24小时内，只有30号受此影响较大。</p>
+<h2 id="2-特征工程与特征选择"><a href="#2-特征工程与特征选择" class="headerlink" title="2. 特征工程与特征选择"></a>2. 特征工程与特征选择</h2><h3 id="21-特征工程"><a href="#2-1-特征工程" class="headerlink" title="2.1 特征工程"></a>2.1 特征工程</h3><p>在自己构造的特征方面，我们主要列出以下几个有明显提升的特征：</p>
+<table>
+<thead>
+<tr>
+<th>特征名</th>
+<th>特征描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tfidf</td>
+<td>对用户安装列表统计user-app的tfidf值</td>
+</tr>
+<tr>
+<td>exptv_A_B</td>
+<td>A和B两个特征的联合转化率（tilltoday），采用均值平滑</td>
+</tr>
+<tr>
+<td>exptv_A_B_C</td>
+<td>ABC三个特征的联合转化率（tilltoday），采用均值平滑</td>
+</tr>
+<tr>
+<td>dup_non</td>
+<td>非重复数据</td>
+</tr>
+<tr>
+<td>dup_first(mid/last)</td>
+<td>重复数据的第一条（中间/最后一条）</td>
+</tr>
+<tr>
+<td>cnttv_A_B</td>
+<td>A和B两个特征的联合点击数（tilltoday）</td>
+</tr>
+<tr>
+<td>user_clickCreat_cnt</td>
+<td>截止到当前用户对某个creativeID的点击数目</td>
+</tr>
+<tr>
+<td>user_conver_history</td>
+<td>用户截止到当前的转化历史，用01统计然后Hash处理</td>
+</tr>
+<tr>
+<td>time_diff</td>
+<td>前向时间差，用户距离上一次点击的时间差</td>
+</tr>
+<tr>
+<td>next_time_diff</td>
+<td>后向时间差，用户距离下一次点击的时间差</td>
+</tr>
+<tr>
+<td>X_time_diff</td>
+<td>用户距离上一次点击相同X的时间差</td>
+</tr>
+<tr>
+<td>next_X_time_diff</td>
+<td>用户距离下一次点击相同X的时间差</td>
+</tr>
+</tbody>
+</table>
+<p>其中，关键的几个点是重复数据要采用onehot方式构造特征，exptv转化率统计的是今天之前的所有数据，且采用的平滑方法是(x+k*means)/(1+k)，k是自己设置的参数，这一方法借鉴的是owenzhang的开源代码，而user_conver_history则是参考台大的开源代码。其实还有构造很多其他特征，但是最终的最优模型没有采用，所以没有一一列出。</p>
+<h3 id="22-特征选择"><a href="#2-2-特征选择" class="headerlink" title="2.2 特征选择"></a>2.2 特征选择</h3><p>特征选择方面，我们的最优特征组合是</p>
+<p>features = [‘tfidf’,’user_clickApp_tillnow’,’user_clickCreat_cnt’, ‘user_conver_history’,’creativeID’,’advertiserID’,’adID’,’appID’,’education’,’clickHour’,’gender’,’connectionType’,’telecomsOperator’, ‘exptv_pos_connect’,’exptv_advertiser_pos’,’exptv_creative_pos’,’exptv_age_marriage’, ‘exptv_user_appPlatform’,’exptv_user_positionType’,’exptv_age_camgaign’,’exptv_userID_connectionType’,’exptv_userID_appCategory’,’exptv_telecomsOperator_clickHour_connectionType’,’exptv_sitesetID_connectionType_appID’, ‘dup_non’,’dup_first’,’dup_last’,’dup_mid’,’app_time_diff’,’positionID_time_diff’,’appCategory_time_diff’,’next_time_diff’ ‘next_app_time_diff’,’next_creativeID_time_diff’,’next_appCategory_time_diff’,’next_positionID_time_diff’, ‘cnttv_advertiser_pos’,’cnttv_age_pos’,’cnttv_creative_pos’,’cnttv_pos_connect’]</p>
+<p>其中，联合转化率中包含user的几个是复赛中新加入的，在初赛中没有效果，但在复赛中产生的很好的提升，我们分析原因是31号的数据中有大量之前从未出现过的用户，如果在训练时加入用户特征那么在预测的时候就能有提升，相当于一定程度的进行冷启动训练。</p>
+<p>其他联合转化率大多是与positionID的组合，效果都还可以；通过前向后向时间差这种leakage特征也带来了较大的提升；用户对于app的tfidf给在决赛中给模型带来了一定的提升，这个提升在初赛中是没有显现出来的；重复数据的trick提升有限，且一定要转化成onehot特征，不过聊胜于无。最后，很多原始特征也是不能删去的，加入和不加入区别较大。</p>
+<h2 id="3-建模方法"><a href="#3-建模方法" class="headerlink" title="3. 建模方法"></a>3. 建模方法</h2><p>我们的模型主要是XGB和LGB两个，CNN和FFM只是参与average进行submission文件融合，RF主要是进行Stacking，stacking我们使用了随机森林、XGB、LGB三种模型，这三种模型进行小数据集训练、半随机特征群训练，能构造近十种基模型，stacking后提升明显。</p>
+<h3 id="31-单模型"><a href="#3-1-单模型" class="headerlink" title="3.1 单模型"></a>3.1 单模型</h3><p>首先是单模型，我们最好的单模型是采用了LGB的gbdt模型，采用上面列出的40个左右特征，以及经过清洗后的全集数据，30号作为验证集，单模型LGB效果可以达到0.1024，而单模型XGB用同样的特征只能达到0.1029，单模型FFM和单模型CNN线上预估均在0.1034左右，他们的作用是后来可以进行average，提升最后提交文件的分数。</p>
+<h3 id="32-ensemble"><a href="#3-2-Ensemble" class="headerlink" title="3.2 Ensemble"></a>3.2 Ensemble</h3><p>然后是ensemble，我们的模型融合采用了两种方法，分别是stacking和average，均带来了3-4个万分点的提升，但是average具有一定的不稳定性，下面具体展开。</p>
+<h4 id="321-stacking"><a href="#3-2-1-Stacking" class="headerlink" title="3.2.1 Stacking"></a>3.2.1 Stacking</h4><p>我们的stacking采用了以下几种训练基模型的方法：</p>
+<ol>
+<li><p>首先是训练集合多样性：</p>
+<p>​采用20-24号五折交叉，对25-29进行预测。</p>
+<p>​采用25-29号五折交叉，对25-29进行预测。</p>
+<p>​全集17-29号五折交叉，对17-29进行预测，不过最后使用的是25-29的数据。</p>
+</li>
+<li><p>然后是训练模型多样性：</p>
+<p>​LGB</p>
+<p>​XGB</p>
+<p>​RF    </p>
+</li>
+<li><p>最后是特征多样性：</p>
+<p>​固定23维很重要的特征，再从特征群中随机采样其他特征，训练单模型XGB。</p>
+</li>
+</ol>
+<p>这样可以组合出很多种基模型，我们的stacking主要采用了lgb2024，lgb2529，xgb2024，xgb2529，RF2024，RF2529， lgb_all，xgb_all，RF_all这9列特征进行第二层LGB的训练，结果比单模型提升了近四个万分点。</p>
+<p>然后我们又采用特征多样性来进行stacking，也就是固定23维重要特征，然后从特征群中采样另外30维特征，进行基模型训练，这样得到了10维特征进行stacking，这个stacking的结果虽然只有0.1025，但是在下面的average中产生了很好的效果。</p>
+<h4 id="322-average"><a href="#3-2-2-Average" class="headerlink" title="3.2.2 Average"></a>3.2.2 Average</h4><p>average是直接对历史提交文件进行人工加权融合，我们发现数据分布差异性较大的但是分数相近的submission文件，进行加权融合会产生很大的提升，例如把stacking结果和最好的单模型进行融合，可以提升三个万分点；把CNN和FFM这两个表现不是很好的模型再和单模型XGB的结果进行融合，也比单模型XGB要提升3个万分点。</p>
+<p>我们最终把stacking的最好结果去和最好的单模型LGB以及之前提交过的一些文件进行加权融合，达到了0.1017的成绩，而融合之前的表现最好的单个文件在0.1020左右，最后一天把随机特征stacking又加进去，以及提升后的xgb的submission文件，提升到了最终的分数。</p>
+<h2 id="4-算法运行环境"><a href="#4-算法运行环境" class="headerlink" title="4. 算法运行环境"></a>4. 算法运行环境</h2><p>我们的模型基本都是在17-29进行训练，30验证，31测试，运行环境是中科院自动化所模式识别实验室的公用计算集群，在不同的cpu节点、gpu节点都跑过，所以代码运行时间没有一个准确的估计，需要根据具体的运行环境决定。</p>
+<p>代码至少需要60G的运行内存，CNN是基于tensorflow实现的，所以需要在CPU上进行embedding，在GPU上进行模型训练，其他模型均只占用CPU资源。</p>
+<h2 id="5-其他观察和思考"><a href="#5-其他观察和思考" class="headerlink" title="5. 其他观察和思考"></a>5. 其他观察和思考</h2><p>关于比赛，最大的遗憾就是没有精力做FFM这个大家都很推崇的模型，因为我们队伍只有两个人在做，且是两个萌新，初赛收尾才开始做特征工程也是没谁了，所以初赛只能排到195压线进复赛，后来进入复赛开始做特征、调模型、做stacking忙的不可开交，分数也一直上升，就没想着去重新构造出FFM适用的一些类别特征和离散化的数值特征，导致FFM分数只能在1030开外，想做的时候发现已经抽不出人手了。感觉要是能把FFM做好，stacking分数会提升不少，且之后的average也会有很大的提升。</p>
+<p>要说为什么是两个人在做，真是。。。心塞。</p>
+<p>我们初赛不光要和题斗，和其他队伍斗，还要和队友斗。因为我和死党组了一个也要做比赛但是不认识的丑破天际的妹s子b，因为她是计算所的，长得又丑，很屌丝，很码农，想来也不会太差。不曾想，给她负责的部分，总是拖了又拖，然后得出效果很差的结论，再或是不去做讨论时候她应该负责的，而是去做重复的工作，做我们两个做过的，然后各种不会来问我们怎么做的，我说了无数次这个已经做完了，她还是要坚持重复做完。</p>
+<p>我和死党每天在自习室搞到半夜，她经常去上课、考试、做作业等理由不来，有一天在吃饭路上碰到，居然指责我们说：你们每天在干嘛？你俩知道咱们都掉到多少名了吗！当时我真是ri le gou 了。后来初赛200多名，因为前面很多小号退水，我们才进前两百名压边进入决赛，她都不知道我们进决赛了，我也在初赛最后一天把她拉黑了，我们俩自从没有她的存在，就一路前进，最后排名是18名。有趣的人，这个人在决赛截止的倒数第二天，忽然发消息给我那个没拉黑她的队友，说她今天看了榜单才知道我们还在做，说我们在这边打的热火朝天的，她能怎么办，她是全天下最无辜的。我只能说两个字：恶心。</p>
+<p>所以，重点来了，敲黑板敲黑板：这种比赛宁可一个人做也不要和不认识且接触几天发现不靠谱的人去做，因为初始一个人做，之后做出一定成果也很容易找到其他水平相当的未满员队伍，能产生强强联手的效果。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/16/ImageCaption从入门到放弃之三-强化学习/" rel="next" title="ImageCaption从入门到放弃之三_ 强化学习">
+                <i class="fa fa-chevron-left"></i> ImageCaption从入门到放弃之三_ 强化学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/07/01/Tecent第一节社交广告算法竞赛——萌新经验分享/"
+           data-title="Tecent第一届社交广告高校算法大赛——萌新经验分享" data-url="http://github.com/2017/07/01/Tecent第一节社交广告算法竞赛——萌新经验分享/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://ok8bcvles.bkt.clouddn.com/avatar.png"
+               alt="Richard Bai" />
+          <p class="site-author-name" itemprop="name">Richard Bai</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/liangguirong5" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/baishuxuan" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-数据分析与预处理"><span class="nav-number">1.</span> <span class="nav-text">1. 数据分析与预处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-特征工程与特征选择"><span class="nav-number">2.</span> <span class="nav-text">2. 特征工程与特征选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#21-特征工程"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 特征工程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-特征选择"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 特征选择</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-建模方法"><span class="nav-number">3.</span> <span class="nav-text">3. 建模方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#31-单模型"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 单模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#32-ensemble"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 Ensemble</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#321-stacking"><span class="nav-number">3.2.1.</span> <span class="nav-text">3.2.1 Stacking</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#322-average"><span class="nav-number">3.2.2.</span> <span class="nav-text">3.2.2 Average</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-算法运行环境"><span class="nav-number">4.</span> <span class="nav-text">4. 算法运行环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-其他观察和思考"><span class="nav-number">5.</span> <span class="nav-text">5. 其他观察和思考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Richard Bai</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"liangguirong5"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
