@@ -361,7 +361,7 @@
 
       
         
-          <p>因为传统的seq2seq模型存在exposure bias（训练的时候，不论前一时刻的生成词是什么，总把期望的标签词作为当前时刻的输入；而测试时，使用前一时刻的生成词作为当前时刻的输入，这种现象就是exposure bias），而且优化的也不是整个序列的出现概率，而是每个词的出现概率，参见：<a href="https://liangguirong5.github.io/2017/03/12/ImageCaption从入门到放弃之二_attention机制/">ImageCaption从入门到放弃之二_attention机制</a></p>
+          <p>因为传统的seq2seq模型存在exposure bias（训练的时候，不论前一时刻的生成词是什么，总把期望的标签词作为当前时刻的输入；而测试时，使用前一时刻的生成词作为当前时刻的输入，这种现象就是exposure bias），而且优化的也不是整个序列的出现概率，而是每个词出现的条件概率，参见：<a href="https://liangguirong5.github.io/2017/03/12/ImageCaption从入门到放弃之二_attention机制/">ImageCaption从入门到放弃之二_attention机制</a></p>
 <p>因此第一篇文章提出用强化学习直接优化最终的生成序列的metric分数，避免了上面的两个问题；第二篇文章是对第一篇的改进，目前在MSCOCO上的caption评测分数最高。</p>
           <!--noindex-->
           <div class="post-button text-center">
