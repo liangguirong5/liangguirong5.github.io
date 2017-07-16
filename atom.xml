@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://github.com/"/>
-  <updated>2017-07-01T01:53:06.000Z</updated>
+  <updated>2017-07-16T07:43:15.000Z</updated>
   <id>http://github.com/</id>
   
   <author>
@@ -14,6 +14,53 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>end-to-end memory network</title>
+    <link href="http://github.com/2017/07/15/end-to-end-memory-network/"/>
+    <id>http://github.com/2017/07/15/end-to-end-memory-network/</id>
+    <published>2017-07-15T12:21:42.000Z</published>
+    <updated>2017-07-16T07:43:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>这是一个<a href="http://blog.csdn.net/u011274209/article/details/53384232?ref=myread" target="_blank" rel="external">memory network</a>的改进版本，用于端到端的生成任务，前面的链接有讲memory network的工作原理，本文主要解释MemN2N的结构和一些细节。</p>
+<p>Sukhbaatar, S. (2015). End-To-End Memory Networks, 1–11.</p>
+<a id="more"></a>
+<h1 id="memn2n"><a href="#MemN2N" class="headerlink" title="MemN2N"></a>MemN2N</h1><p>end-to-end memory network，简称MemN2N，下面左右两图分别是单层和多层的MemN2N。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fhku2l9qchj319w0jen0o.jpg" alt=""></p>
+<h2 id="单层"><a href="#单层" class="headerlink" title="单层"></a>单层</h2><p>先拿单层进行说明，我们有一系列的$x_i$作为输出，构建记忆模块$m_i$，构建方法是用embedding矩阵$A$对$x_i$进行向量化表示；然后再用矩阵$B$对输入$q$向量化，表示为$u$，然后通过内积求出输入与记忆的关联：<br>$$<br>p_i = Softmax(u^Tm_i)<br>$$<br>$x_i$还要通过矩阵C向量化得到输出模块$c_i$，输出$o$可以表示为<br>$$<br>o=\sum_ip_ic_i<br>$$<br>最终的输出是<br>$$<br>\hat{a}=Softmax(W(o+u))<br>$$</p>
+<h2 id="多层"><a href="#多层" class="headerlink" title="多层"></a>多层</h2><p>如果扩展到多层，则参考图(b)，下一层的输入是<br>$$<br>u^{k+1}=u^k+o^k<br>$$<br>每一层都有自己的$A^k$和$C^k$，用于对x向量化。文章提出了两种权重设置：</p>
+<ul>
+<li>邻接：$A^{k+1}=C^k$, $W^{T}=C^k$, $B=A^1$</li>
+<li>层级：$A^1=…=A^k$, $C^1=…=C^k$, $u^{k+1}=Hu^k+o^k$</li>
+</ul>
+<h2 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h2><ul>
+<li>不想忽略句子中单词顺序，因而加入位置信息</li>
+</ul>
+<p>$$<br>m_i = \sum_jl_j•Ax_{ij}<br>$$</p>
+<p>其中j表示第i句第j个词，$l_{kj} = (1-j/J)-(k/d)(1-2j/J)$, 其中$J$是句子长度，$d$是$l$的维度</p>
+<ul>
+<li>同时，不同句子之间的先后顺序也不能忽略，那么加入时序信息</li>
+</ul>
+<p>$$<br>m_i = \sum_jAx_{ij}+T_A(i)<br>$$</p>
+<p>$T_A(i)$是$T_A$的第i行，$T_c$同理</p>
+<ul>
+<li>加入一些噪声（10%的空白）记忆</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这是一个&lt;a href=&quot;http://blog.csdn.net/u011274209/article/details/53384232?ref=myread&quot;&gt;memory network&lt;/a&gt;的改进版本，用于端到端的生成任务，前面的链接有讲memory network的工作原理，本文主要解释MemN2N的结构和一些细节。&lt;/p&gt;
+&lt;p&gt;Sukhbaatar, S. (2015). End-To-End Memory Networks, 1–11.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="DeepLearning" scheme="http://github.com/categories/DeepLearning/"/>
+    
+    
+      <category term="DeepLearning" scheme="http://github.com/tags/DeepLearning/"/>
+    
+  </entry>
   
   <entry>
     <title>Tecent第一届社交广告高校算法大赛——萌新经验分享</title>

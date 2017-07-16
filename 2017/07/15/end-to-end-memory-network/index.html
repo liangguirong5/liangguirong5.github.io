@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="DeepLearning," />
 
 
 
@@ -95,12 +95,21 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="RichardBai's Note">
-<meta property="og:url" content="http://github.com/tags/Python/index.html">
+<meta name="description" content="这是一个memory network的改进版本，用于端到端的生成任务，前面的链接有讲memory network的工作原理，本文主要解释MemN2N的结构和一些细节。
+Sukhbaatar, S. (2015). End-To-End Memory Networks, 1–11.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="end-to-end memory network">
+<meta property="og:url" content="http://github.com/2017/07/15/end-to-end-memory-network/index.html">
 <meta property="og:site_name" content="RichardBai's Note">
+<meta property="og:description" content="这是一个memory network的改进版本，用于端到端的生成任务，前面的链接有讲memory network的工作原理，本文主要解释MemN2N的结构和一些细节。
+Sukhbaatar, S. (2015). End-To-End Memory Networks, 1–11.">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fhku2l9qchj319w0jen0o.jpg">
+<meta property="og:updated_time" content="2017-07-16T07:43:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RichardBai's Note">
+<meta name="twitter:title" content="end-to-end memory network">
+<meta name="twitter:description" content="这是一个memory network的改进版本，用于端到端的生成任务，前面的链接有讲memory network的工作原理，本文主要解释MemN2N的结构和一些细节。
+Sukhbaatar, S. (2015). End-To-End Memory Networks, 1–11.">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fhku2l9qchj319w0jen0o.jpg">
 
 
 
@@ -128,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="http://github.com/tags/Python/"/>
+  <link rel="canonical" href="http://github.com/2017/07/15/end-to-end-memory-network/"/>
 
 
 
 
 
-  <title>标签: Python | RichardBai's Note</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>end-to-end memory network | RichardBai's Note</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -159,7 +168,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left  ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -253,44 +262,208 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>Python<small>标签</small>
-      </h1>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2017/07/15/end-to-end-memory-network/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Richard Bai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ok8bcvles.bkt.clouddn.com/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RichardBai's Note">
+    </span>
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">end-to-end memory network</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-15T20:21:42+08:00">
+                2017-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DeepLearning/" itemprop="url" rel="index">
+                    <span itemprop="name">DeepLearning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/15/end-to-end-memory-network/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/07/15/end-to-end-memory-network/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>这是一个<a href="http://blog.csdn.net/u011274209/article/details/53384232?ref=myread" target="_blank" rel="external">memory network</a>的改进版本，用于端到端的生成任务，前面的链接有讲memory network的工作原理，本文主要解释MemN2N的结构和一些细节。</p>
+<p>Sukhbaatar, S. (2015). End-To-End Memory Networks, 1–11.</p>
+<a id="more"></a>
+<h1 id="memn2n"><a href="#MemN2N" class="headerlink" title="MemN2N"></a>MemN2N</h1><p>end-to-end memory network，简称MemN2N，下面左右两图分别是单层和多层的MemN2N。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fhku2l9qchj319w0jen0o.jpg" alt=""></p>
+<h2 id="单层"><a href="#单层" class="headerlink" title="单层"></a>单层</h2><p>先拿单层进行说明，我们有一系列的$x_i$作为输出，构建记忆模块$m_i$，构建方法是用embedding矩阵$A$对$x_i$进行向量化表示；然后再用矩阵$B$对输入$q$向量化，表示为$u$，然后通过内积求出输入与记忆的关联：<br>$$<br>p_i = Softmax(u^Tm_i)<br>$$<br>$x_i$还要通过矩阵C向量化得到输出模块$c_i$，输出$o$可以表示为<br>$$<br>o=\sum_ip_ic_i<br>$$<br>最终的输出是<br>$$<br>\hat{a}=Softmax(W(o+u))<br>$$</p>
+<h2 id="多层"><a href="#多层" class="headerlink" title="多层"></a>多层</h2><p>如果扩展到多层，则参考图(b)，下一层的输入是<br>$$<br>u^{k+1}=u^k+o^k<br>$$<br>每一层都有自己的$A^k$和$C^k$，用于对x向量化。文章提出了两种权重设置：</p>
+<ul>
+<li>邻接：$A^{k+1}=C^k$, $W^{T}=C^k$, $B=A^1$</li>
+<li>层级：$A^1=…=A^k$, $C^1=…=C^k$, $u^{k+1}=Hu^k+o^k$</li>
+</ul>
+<h2 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h2><ul>
+<li>不想忽略句子中单词顺序，因而加入位置信息</li>
+</ul>
+<p>$$<br>m_i = \sum_jl_j•Ax_{ij}<br>$$</p>
+<p>其中j表示第i句第j个词，$l_{kj} = (1-j/J)-(k/d)(1-2j/J)$, 其中$J$是句子长度，$d$是$l$的维度</p>
+<ul>
+<li>同时，不同句子之间的先后顺序也不能忽略，那么加入时序信息</li>
+</ul>
+<p>$$<br>m_i = \sum_jAx_{ij}+T_A(i)<br>$$</p>
+<p>$T_A(i)$是$T_A$的第i行，$T_c$同理</p>
+<ul>
+<li>加入一些噪声（10%的空白）记忆</li>
+</ul>
 
-      <h2 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/02/20/字符编码/" itemprop="url">
-              
-                <span itemprop="name">字符编码以及python中的编码解码问题</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-02-20T12:20:11+08:00"
-              content="2017-02-20" >
-          02-20
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/DeepLearning/" rel="tag"># DeepLearning</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/01/Tecent第一节社交广告算法竞赛——萌新经验分享/" rel="next" title="Tecent第一届社交广告高校算法大赛——萌新经验分享">
+                <i class="fa fa-chevron-left"></i> Tecent第一届社交广告高校算法大赛——萌新经验分享
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -298,6 +471,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -317,8 +501,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://ok8bcvles.bkt.clouddn.com/avatar.png"
@@ -407,6 +600,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#memn2n"><span class="nav-number">1.</span> <span class="nav-text">MemN2N</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#单层"><span class="nav-number">1.1.</span> <span class="nav-text">单层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多层"><span class="nav-number">1.2.</span> <span class="nav-text">多层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#细节"><span class="nav-number">1.3.</span> <span class="nav-text">细节</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -550,10 +759,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
@@ -571,6 +780,18 @@
       <script id="dsq-count-scr" src="https://richardbai.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://github.com/2017/07/15/end-to-end-memory-network/';
+          this.page.identifier = '2017/07/15/end-to-end-memory-network/';
+          this.page.title = 'end-to-end memory network';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://richardbai.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
