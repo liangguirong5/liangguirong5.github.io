@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://github.com/"/>
-  <updated>2017-07-19T11:52:37.000Z</updated>
+  <updated>2017-07-22T11:52:37.000Z</updated>
   <id>http://github.com/</id>
   
   <author>
@@ -20,9 +20,10 @@
     <link href="http://github.com/2017/07/18/BOT%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E4%B8%8D%E6%94%BE%E5%BC%83%E4%B9%8Bseq2seq/"/>
     <id>http://github.com/2017/07/18/BOT从入门到不放弃之seq2seq/</id>
     <published>2017-07-18T01:47:39.000Z</published>
-    <updated>2017-07-19T11:52:37.000Z</updated>
+    <updated>2017-07-22T11:52:37.000Z</updated>
     
-    <content type="html"><![CDATA[<a id="more"></a>
+    <content type="html"><![CDATA[<p>基于翻译模型的对话系统，一般都是非任务型、数据驱动、闲聊式，第一篇文章用强化学习解决无限环，2、3两文在encoder和decoder之间维护了另一个RNN，3则是还引入了一个隐变量z，思想是来自VAE。4则是使用了他们组之前的一个工作：前后向seq2seq模型。</p>
+<a id="more"></a>
 <h1 id="1-deep-reinforcement-learning-for-dialogue-generation"><a href="#1-Deep-reinforcement-learning-for-dialogue-generation" class="headerlink" title="1. Deep reinforcement learning for dialogue generation"></a>1. Deep reinforcement learning for dialogue generation</h1><p>Li, J., &amp; Monroe, W. (2016). Deep Reinforcement Learning for Dialogue Generation, 1–11.</p>
 <p>传统的seq2seq倾向于回复generic response，也就是无意义的安全回答，li 2015提出可以最大化互信息(MMI)来解决这一问题，但是仍不能解决多轮对话中的infinite loop问题，如下图</p>
 <p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fhmv0sauq5j31ds0nik0g.jpg" alt=""></p>
@@ -60,15 +61,14 @@
     
     <summary type="html">
     
-      &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h1 id=&quot;1-deep-reinforcement-learning-for-dialogue-generation&quot;&gt;&lt;a href=&quot;#1-Deep-reinforcement-learning-for-dialogue-genera
+      &lt;p&gt;基于翻译模型的对话系统，一般都是非任务型、数据驱动、闲聊式，第一篇文章用强化学习解决无限环，2、3两文在encoder和decoder之间维护了另一个RNN，3则是还引入了一个隐变量z，思想是来自VAE。4则是使用了他们组之前的一个工作：前后向seq2seq模型。&lt;/p&gt;
     
     </summary>
     
-      <category term="DeepLearning" scheme="http://github.com/categories/DeepLearning/"/>
+      <category term="bot" scheme="http://github.com/categories/bot/"/>
     
     
-      <category term="DeepLearning" scheme="http://github.com/tags/DeepLearning/"/>
+      <category term="bot" scheme="http://github.com/tags/bot/"/>
     
   </entry>
   
@@ -77,11 +77,12 @@
     <link href="http://github.com/2017/07/15/end-to-end-memory-network/"/>
     <id>http://github.com/2017/07/15/end-to-end-memory-network/</id>
     <published>2017-07-15T12:21:42.000Z</published>
-    <updated>2017-07-20T07:51:30.000Z</updated>
+    <updated>2017-07-22T12:09:41.000Z</updated>
     
     <content type="html"><![CDATA[<p>end2end类型的对话系统，给定一句输入，输出端进行answer selection。</p>
+<p>本文首先在第一部分介绍了end2end memory网络结构，文章2是在MemN2N网络的基础上，引入了三种学习方式：模仿学习、强化学习、提前预测式学习；文章3提出了一种交互式的对话方法，让bot进行反问，学习什么时候该反问，论证了反问会带来效果提升；文章4是我目前没发觉到值得学习之处的一篇ICLR2017；文章5是google提出的加入用户模型（画像）的一种bot；文章6提出了一个比较严谨的任务型bot框架，采用深度学习和强化学习结合的方法训练。</p>
 <a id="more"></a>
-<h1 id="memn2n"><a href="#MemN2N" class="headerlink" title="MemN2N"></a>MemN2N</h1><p>Sukhbaatar, S. (2015). End-To-End Memory Networks, 1–11.</p>
+<h1 id="1-memn2n"><a href="#1-MemN2N" class="headerlink" title="1. MemN2N"></a>1. MemN2N</h1><p>Sukhbaatar, S. (2015). End-To-End Memory Networks, 1–11.</p>
 <p>这是一个<a href="http://blog.csdn.net/u011274209/article/details/53384232?ref=myread" target="_blank" rel="external">memory network</a>的改进版本，用于端到端的生成任务，前面的链接有讲memory network的工作原理，本文主要解释MemN2N的结构和一些细节。</p>
 <p>end-to-end memory network，简称MemN2N，下面左右两图分别是单层和多层的MemN2N。</p>
 <p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fhku2l9qchj319w0jen0o.jpg" alt=""></p>
@@ -104,7 +105,7 @@
 <ul>
 <li>加入一些噪声（10%的空白）记忆</li>
 </ul>
-<h1 id="1-dialog-based-language-learning"><a href="#1-Dialog-based-Language-Learning" class="headerlink" title="1. Dialog-based Language Learning"></a>1. Dialog-based Language Learning</h1><p>Weston, J. (2016, April 21). Dialog-based Language Learning. <em>arXiv.org</em>.</p>
+<h1 id="2-dialog-based-language-learning"><a href="#2-Dialog-based-Language-Learning" class="headerlink" title="2. Dialog-based Language Learning"></a>2. Dialog-based Language Learning</h1><p>Weston, J. (2016, April 21). Dialog-based Language Learning. <em>arXiv.org</em>.</p>
 <p>本文在<a href="https://liangguirong5.github.io/2017/07/15/end-to-end-memory-network/" target="_blank" rel="external">MemN2N</a>的基础上，提出了10种对话任务(见下图)，和三种训练方式：imitation learning，reward-based imitation，forward prediction。</p>
 <p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fhls2xviifj30h10ie43a.jpg" alt=""></p>
 <h2 id="数据集构建"><a href="#数据集构建" class="headerlink" title="数据集构建"></a>数据集构建</h2><p>文中的试验数据集是bAbI和MovieQA, 下载地址<a href="http://fb.ai/babi。" target="_blank" rel="external">http://fb.ai/babi。</a></p>
@@ -132,7 +133,7 @@
 </ul>
 <h2 id="results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhm1m2cqpfj30tn0c643u.jpg" alt=""></p>
 <p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fhm1mm5dw0j30t90bjdkm.jpg" alt=""></p>
-<h1 id="2learning-through-dialogue-interactions-by-asking-questions"><a href="#2-LEARNING-THROUGH-DIALOGUE-INTERACTIONS-BY-ASKING-QUESTIONS" class="headerlink" title="2.LEARNING THROUGH DIALOGUE INTERACTIONS BY ASKING QUESTIONS"></a>2.LEARNING THROUGH DIALOGUE INTERACTIONS BY ASKING QUESTIONS</h1><p>Li, J., &amp; Weston, J. (2017). LEARNING THROUGH DIALOGUE INTERACTIONS BY ASKING QUESTIONS, 1–16.</p>
+<h1 id="3learning-through-dialogue-interactions-by-asking-questions"><a href="#3-LEARNING-THROUGH-DIALOGUE-INTERACTIONS-BY-ASKING-QUESTIONS" class="headerlink" title="3.LEARNING THROUGH DIALOGUE INTERACTIONS BY ASKING QUESTIONS"></a>3.LEARNING THROUGH DIALOGUE INTERACTIONS BY ASKING QUESTIONS</h1><p>Li, J., &amp; Weston, J. (2017). LEARNING THROUGH DIALOGUE INTERACTIONS BY ASKING QUESTIONS, 1–16.</p>
 <p>代码 <a href="https://github.com/facebook/MemNN/tree/master/AskingQuestions">https://github.com/facebook/MemNN/tree/master/AskingQuestions</a></p>
 <p>本文研究了基于交互的生成式对话方法，证明了bot在反问后，聊天质量明显提升。</p>
 <p>主要借鉴的是前面的    Jason Weston. Dialog-based language learning. arXiv preprint arXiv:1604.06045, 2016.</p>
@@ -153,20 +154,20 @@
 <p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fhkhr74qc5j30qa04gt9e.jpg" alt=""></p>
 <p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fhmmk0skvjj30eb028mxd.jpg" alt=""></p>
 <p>其中，$a_1$表示是否提问，$a_2$表示最终的回答。</p>
-<h1 id="3learning-end-to-end-goal-oriented-dialog"><a href="#3-Learning-End-to-End-Goal-Oriented-Dialog" class="headerlink" title="3.Learning End-to-End Goal-Oriented Dialog"></a>3.Learning End-to-End Goal-Oriented Dialog</h1><p>Bordes, A., &amp; Weston, J. (2017). Learning End-to-End Goal-Oriented Dialog (pp. 1–15). Presented at the ICLR.</p>
+<h1 id="4-learning-end-to-end-goal-oriented-dialog"><a href="#4-Learning-End-to-End-Goal-Oriented-Dialog" class="headerlink" title="4. Learning End-to-End Goal-Oriented Dialog"></a>4. Learning End-to-End Goal-Oriented Dialog</h1><p>Bordes, A., &amp; Weston, J. (2017). Learning End-to-End Goal-Oriented Dialog (pp. 1–15). Presented at the ICLR.</p>
 <p>借用<a href="http://blog.csdn.net/abcjennifer/article/details/53428053#end-to-end-generative-dialogue" target="_blank" rel="external">另一篇博文</a>的话来评论本文：</p>
 <blockquote>
 <p>评论：数据较弱，方法不实用。</p>
 <p>本文就是End-to-End Memory Network的一个应用，基于End-to-End Memory Network的实验，最终也是answer selection(而不是answer generation). 数据为以餐馆预订为目的地bAbI数据集，模型定义得非常个性化，难以迁移。</p>
 </blockquote>
-<h1 id="4-conversational-contextual-cues-the-case-of-personalization-and-history-for-response-ranking"><a href="#4-Conversational-Contextual-Cues-The-Case-of-Personalization-and-History-for-Response-Ranking" class="headerlink" title="4. Conversational Contextual Cues: The Case of Personalization and History for Response Ranking"></a>4. Conversational Contextual Cues: The Case of Personalization and History for Response Ranking</h1><p>Al-Rfou, R. (2016). Conversational Contextual Cues: The Case of Personalization and History for Response Ranking, 1–10.</p>
+<h1 id="5-conversational-contextual-cues-the-case-of-personalization-and-history-for-response-ranking"><a href="#5-Conversational-Contextual-Cues-The-Case-of-Personalization-and-History-for-Response-Ranking" class="headerlink" title="5. Conversational Contextual Cues: The Case of Personalization and History for Response Ranking"></a>5. Conversational Contextual Cues: The Case of Personalization and History for Response Ranking</h1><p>Al-Rfou, R. (2016). Conversational Contextual Cues: The Case of Personalization and History for Response Ranking, 1–10.</p>
 <p>网络结构如下图所示，并不是生成式的，而是answer selection的方法，对Reddit 上1.33亿个conversation进行模型训练，输入的几项分别是：</p>
 <p>input: dialog[i], context: dialog[0:i-1], author: 该评论的作者</p>
 <p>正样本：response=dialog[i+1]</p>
 <p>负样本：response=随机其他comment</p>
 <p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fhnxgdo4vuj31he0lygpf.jpg" alt=""></p>
 <p>另外，文章还提出了multi-loss的方法，旨在度量以上网络中每个feature的有效性。分别对组合{response, input}, {response, context}, {response, author}求一个hidden layer, 将这3个hiddenlayer{h1, h2, h3} concatenate成一个总hidden layer h4, 将{h1, h2, h3, h4}分别得到的分类loss加和作为网络总loss进行优化，但最后prediction的时候只采用h4的输出结果。</p>
-<h1 id="5-end-to-end-lstm-based-dialog-control-optimized-with-supervised-and-reinforcement-learning"><a href="#5-End-to-end-LSTM-based-dialog-control-optimized-with-supervised-and-reinforcement-learning" class="headerlink" title="5. End-to-end LSTM-based dialog control optimized with supervised and reinforcement learning"></a>5. End-to-end LSTM-based dialog control optimized with supervised and reinforcement learning</h1><p>Williams, J. D., &amp; Zweig, G. (2016, June 4). End-to-end LSTM-based dialog control optimized with supervised and reinforcement learning. <em>arXiv.org</em>.</p>
+<h1 id="6-end-to-end-lstm-based-dialog-control-optimized-with-supervised-and-reinforcement-learning"><a href="#6-End-to-end-LSTM-based-dialog-control-optimized-with-supervised-and-reinforcement-learning" class="headerlink" title="6. End-to-end LSTM-based dialog control optimized with supervised and reinforcement learning"></a>6. End-to-end LSTM-based dialog control optimized with supervised and reinforcement learning</h1><p>Williams, J. D., &amp; Zweig, G. (2016, June 4). End-to-end LSTM-based dialog control optimized with supervised and reinforcement learning. <em>arXiv.org</em>.</p>
 <p>本文用dl和rl训练下图模型，模型其实非常简单，先对query进行NER，然后存储下识别好的entity，同事送给lstm以entity的type和values，lstm的输出是所有回复的模板的概率分布，用RL就从中采样，用DL就取最大，得到的answer模板是没有填充实体value的，这时候需要用写好的规则去填充，然后判断是回复给对话者还是进行api call。</p>
 <p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhq9t47j9lj31go0istc3.jpg" alt=""></p>
 <p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fhqegimc0mj30pq05iq3o.jpg" alt=""></p>
@@ -175,6 +176,7 @@
     <summary type="html">
     
       &lt;p&gt;end2end类型的对话系统，给定一句输入，输出端进行answer selection。&lt;/p&gt;
+&lt;p&gt;本文首先在第一部分介绍了end2end memory网络结构，文章2是在MemN2N网络的基础上，引入了三种学习方式：模仿学习、强化学习、提前预测式学习；文章3提出了一种交互式的对话方法，让bot进行反问，学习什么时候该反问，论证了反问会带来效果提升；文章4是我目前没发觉到值得学习之处的一篇ICLR2017；文章5是google提出的加入用户模型（画像）的一种bot；文章6提出了一个比较严谨的任务型bot框架，采用深度学习和强化学习结合的方法训练。&lt;/p&gt;
     
     </summary>
     
