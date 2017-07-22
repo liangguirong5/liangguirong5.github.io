@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="caption,seq2seq," />
+  <meta name="keywords" content="DeepLearning," />
 
 
 
@@ -95,31 +95,31 @@
 
 
 
-<meta name="description" content="前一篇文章ImageCaption从入门到放弃之一_任务综述中引向paperweekly的链接，介绍了传统的基于seq2seq的caption模型，这个模型来自机器翻译，因此机器翻译中的attetion机制在我们的caption任务中也可以借鉴，很多论文就是围绕这个attention该怎么加而展开的，我们主要介绍下面两篇比较有代表性的论文：">
+<meta name="description" content="1. Deep reinforcement learning for dialogue generationLi, J., &amp;amp; Monroe, W. (2016). Deep Reinforcement Learning for Dialogue Generation, 1–11.
+传统的seq2seq倾向于回复generic response，也就是无意义的安全回答，li 2015提出">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ImageCaption从入门到放弃之二_attention机制">
-<meta property="og:url" content="http://github.com/2017/03/12/ImageCaption从入门到放弃之二_attention机制/index.html">
+<meta property="og:title" content="BOT从入门到不放弃之seq2seq">
+<meta property="og:url" content="http://github.com/2017/07/18/BOT从入门到不放弃之seq2seq/index.html">
 <meta property="og:site_name" content="RichardBai's Note">
-<meta property="og:description" content="前一篇文章ImageCaption从入门到放弃之一_任务综述中引向paperweekly的链接，介绍了传统的基于seq2seq的caption模型，这个模型来自机器翻译，因此机器翻译中的attetion机制在我们的caption任务中也可以借鉴，很多论文就是围绕这个attention该怎么加而展开的，我们主要介绍下面两篇比较有代表性的论文：">
-<meta property="og:image" content="https://ww2.sinaimg.cn/large/006tNc79ly1fdkdc2lxybj31gq0o6afg.jpg">
-<meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNc79ly1fdl6m491kuj30j006iq3i.jpg">
-<meta property="og:image" content="https://ww2.sinaimg.cn/large/006tNc79ly1fdl6qs71mwj30ik060dgf.jpg">
-<meta property="og:image" content="https://ww2.sinaimg.cn/large/006tNbRwly1fearlia3acj30pq040wet.jpg">
-<meta property="og:image" content="https://ww2.sinaimg.cn/large/006tNc79ly1fdl6xtphfcj30km05qq3q.jpg">
-<meta property="og:image" content="https://ww2.sinaimg.cn/large/006tNc79gy1fdl870l391j30h602wq35.jpg">
-<meta property="og:image" content="https://ww4.sinaimg.cn/large/006tNbRwly1fear7o1a7uj31c60lkn4k.jpg">
-<meta property="og:image" content="https://ww2.sinaimg.cn/large/006tNc79ly1fdlpl501wbj30so0cuab1.jpg">
-<meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNc79ly1fdlpncja9kj30om0e4abg.jpg">
-<meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNc79ly1fdm4wfurm8j30ga03q74l.jpg">
-<meta property="og:image" content="https://ww4.sinaimg.cn/large/006tNc79ly1fdm59gq97lj30nm02uq3b.jpg">
-<meta property="og:image" content="https://ww4.sinaimg.cn/large/006tNc79ly1fdmgtyl5b4j30bc02mwek.jpg">
-<meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNc79ly1fdm5f6tytxj30d802cmx7.jpg">
-<meta property="og:image" content="https://ww2.sinaimg.cn/large/006tNbRwly1feasdshgrrj31gk0ec79s.jpg">
-<meta property="og:updated_time" content="2017-04-04T09:43:13.000Z">
+<meta property="og:description" content="1. Deep reinforcement learning for dialogue generationLi, J., &amp;amp; Monroe, W. (2016). Deep Reinforcement Learning for Dialogue Generation, 1–11.
+传统的seq2seq倾向于回复generic response，也就是无意义的安全回答，li 2015提出">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1fhmv0sauq5j31ds0nik0g.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fhmv6tfy4kj30i004gglu.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1fhmv8y83sej30is03st8z.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fhmvc49kwij30ne02qaah.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1fhmvdfipevj30ig02cweo.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fhn19kmxigj31j80nyaea.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1fhmzkck9crj30lg02ymxi.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fhmzru8mbej30pi04udgc.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fhnzcd6p83j30u10fi0un.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fho0oianddj30sx0fjmyt.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fhoyq6bnjsj31000o6gow.jpg">
+<meta property="og:updated_time" content="2017-07-19T11:52:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ImageCaption从入门到放弃之二_attention机制">
-<meta name="twitter:description" content="前一篇文章ImageCaption从入门到放弃之一_任务综述中引向paperweekly的链接，介绍了传统的基于seq2seq的caption模型，这个模型来自机器翻译，因此机器翻译中的attetion机制在我们的caption任务中也可以借鉴，很多论文就是围绕这个attention该怎么加而展开的，我们主要介绍下面两篇比较有代表性的论文：">
-<meta name="twitter:image" content="https://ww2.sinaimg.cn/large/006tNc79ly1fdkdc2lxybj31gq0o6afg.jpg">
+<meta name="twitter:title" content="BOT从入门到不放弃之seq2seq">
+<meta name="twitter:description" content="1. Deep reinforcement learning for dialogue generationLi, J., &amp;amp; Monroe, W. (2016). Deep Reinforcement Learning for Dialogue Generation, 1–11.
+传统的seq2seq倾向于回复generic response，也就是无意义的安全回答，li 2015提出">
+<meta name="twitter:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1fhmv0sauq5j31ds0nik0g.jpg">
 
 
 
@@ -147,13 +147,13 @@
 
 
 
-  <link rel="canonical" href="http://github.com/2017/03/12/ImageCaption从入门到放弃之二_attention机制/"/>
+  <link rel="canonical" href="http://github.com/2017/07/18/BOT从入门到不放弃之seq2seq/"/>
 
 
 
 
 
-  <title>ImageCaption从入门到放弃之二_attention机制 | RichardBai's Note</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>BOT从入门到不放弃之seq2seq | RichardBai's Note</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -282,7 +282,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://github.com/2017/03/12/ImageCaption从入门到放弃之二_attention机制/">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2017/07/18/BOT从入门到不放弃之seq2seq/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Richard Bai">
@@ -298,7 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ImageCaption从入门到放弃之二_attention机制</h1>
+          <h1 class="post-title" itemprop="name headline">BOT从入门到不放弃之seq2seq</h1>
         
 
         <div class="post-meta">
@@ -310,8 +310,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T20:55:43+08:00">
-                2017-03-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-18T09:47:39+08:00">
+                2017-07-18
               </time>
             
 
@@ -333,8 +333,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Caption/" itemprop="url" rel="index">
-                    <span itemprop="name">Caption</span>
+                  <a href="/categories/DeepLearning/" itemprop="url" rel="index">
+                    <span itemprop="name">DeepLearning</span>
                   </a>
                 </span>
 
@@ -351,9 +351,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/12/ImageCaption从入门到放弃之二_attention机制/#comments" itemprop="discussionUrl">
+                <a href="/2017/07/18/BOT从入门到不放弃之seq2seq/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/03/12/ImageCaption从入门到放弃之二_attention机制/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/07/18/BOT从入门到不放弃之seq2seq/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -383,49 +383,40 @@
       
 
       
-        <p>前一篇文章<a href="https://liangguirong5.github.io/2017/03/01/image_caption/" target="_blank" rel="external">ImageCaption从入门到放弃之一_任务综述</a>中引向paperweekly的链接，介绍了传统的基于seq2seq的caption模型，这个模型来自机器翻译，因此机器翻译中的attetion机制在我们的caption任务中也可以借鉴，很多论文就是围绕这个attention该怎么加而展开的，我们主要介绍下面两篇比较有代表性的论文：</p>
-<a id="more"></a>
-<p>Xu, K., &amp; Bengio, Y. (2016, April 20). Show, Attend and Tell: Neural Image Caption Generation with Visual Attention. <em>arXiv.org</em>.</p>
-<p>Lu, J., &amp; Socher, R. (2016, December 7). Knowing When to Look: Adaptive Attention via A Visual Sentinel for Image Captioning. <em>arXiv.org</em>.</p>
-<p>注意：这个两篇文章的符号不统一，请注意区分。</p>
-<h1 id="neural-image-caption-generation-with-visual-attention"><a href="#Neural-Image-Caption-Generation-with-Visual-Attention" class="headerlink" title="Neural Image Caption Generation with Visual Attention"></a>Neural Image Caption Generation with Visual Attention</h1><p>第一篇论文是Bengio课题组的一份工作，主要是在seq2seq进行image caption的基础上，引入attention机制，强调生成caption时，不同时刻的关注点应该在不同的图像区域。 下图是模型的整体框架。</p>
-<p><img src="https://ww2.sinaimg.cn/large/006tNc79ly1fdkdc2lxybj31gq0o6afg.jpg" alt=""></p>
-<p>其中，encoder部分是一个卷积网络，目的是获取原图像的L个特征，每个特征是一个D维的向量，用以表示原图的某一部分。<br>$$<br>a={a_1,…,a_L}, a_i\in R^D<br>$$<br>原文采用VGG网络的第四层卷积结果作为这些特征向量，共有512个14*14的feature map，flatten成512个196维的特征。</p>
-<p>decoder部分是一个LSTM，叠加使用了attention机制。本文的分别使用了hard和soft两种attention。</p>
-<h2 id="stochastic-hard-attention"><a href="#Stochastic-“Hard”-attention" class="headerlink" title="Stochastic “Hard” attention"></a>Stochastic “Hard” attention</h2><p>用t表示生成第t个词的时刻，$s_{t,i}$是一个布尔量，表示第t时刻第i个图像特征$a_i$是否为注意力特征，服从多元伯努利分布，如下式所示<br>$$<br>p(s_{t,i}=1|s_{j&lt;t},a)=\alpha_{t,i}<br>$$</p>
-<p>$$<br>z_t = \sum_is_{t,i}a_i<br>$$</p>
-<p>其中，$z_t$表示经过attention机制后融合图像特征，作为LSTM的输入。</p>
-<p>我们要优化的是$log p(y|a)$，想让它尽可能的大，那可以通过构造一个和$s$有关的下界$L_s$，最大化$L_s$即可最大化$log p(y|a)$，<br>$$<br>L_s = \Sigma_sp(s|a)log p(y|s,a)&lt;=log\Sigma_sp(s|a)p(y|s,a)=log p(y|a)<br>$$<br>这样反传的时候，求导数就有</p>
-<p><img src="https://ww3.sinaimg.cn/large/006tNc79ly1fdl6m491kuj30j006iq3i.jpg" alt=""></p>
-<p>这里面s服从多元伯努利分布，<br>$$<br>s_t \sim Multinoulli_L({\alpha_i})<br>$$<br>因此前面的导数公式可以用N次蒙特卡洛采样近似，即</p>
-<p><img src="https://ww2.sinaimg.cn/large/006tNc79ly1fdl6qs71mwj30ik060dgf.jpg" alt=""></p>
-<p>最后，引入了一个平均阈值项b和多元伯努利分布的熵项H，来减小上面梯度计算的方差，</p>
-<p><img src="https://ww2.sinaimg.cn/large/006tNbRwly1fearlia3acj30pq040wet.jpg" alt=""></p>
-<p>最终的公式为</p>
-<p><img src="https://ww2.sinaimg.cn/large/006tNc79ly1fdl6xtphfcj30km05qq3q.jpg" alt=""></p>
-<p>$\lambda_r$和$\lambda_e$分别是需要交叉验证来确定的参数。（此处黑人问号，待参考：Multiple object recognition with visual attention）</p>
-<h2 id="deterministic-soft-attention"><a href="#Deterministic-“Soft”-Attention" class="headerlink" title="Deterministic “Soft” Attention"></a>Deterministic “Soft” Attention</h2><p>所谓soft，就是不引入上面的s来决定哪个图像特征需要被关注，而是每个图像特征都按照原本的被关注的概率进行期望求和，得到我们需要的输入Z。<br>$$<br>z_t = \sum_i^L\alpha_{t,i}a_i<br>$$<br>值得注意的是，$\sum_i\alpha_{ti}=1$是不会变的，因为我们是通过softmax得到的$\alpha$。我们再令$\sum_t\alpha_{ti}\approx1$，这是为了鼓励模型在整个句子生成的期间内，虽然每个特征被注意的时刻不同，但是每个特征总有一些时刻被着重注意了，也就是每个特征都有用，不能从头到尾都和生成的词无关。</p>
-<p>又引入了一个scalar $\beta$，使$z_t =\beta \sum_i^L\alpha_{t,i}a_i$，$\beta_t=\sigma(f_\beta(h_{t-1}))$，没什么理由，只是单纯实验发现这样做能让注意力集中在图像中的目标上。</p>
-<p>最后，最小化下面的带惩罚项的损失函数。</p>
-<p><img src="https://ww2.sinaimg.cn/large/006tNc79gy1fdl870l391j30h602wq35.jpg" alt=""></p>
-<h2 id="results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><p><img src="https://ww4.sinaimg.cn/large/006tNbRwly1fear7o1a7uj31c60lkn4k.jpg" alt=""></p>
-<h1 id="knowing-when-to-look-adaptive-attention-via-a-visual-sentinel-for-image-captioning"><a href="#Knowing-When-to-Look-Adaptive-Attention-via-A-Visual-Sentinel-for-Image-Captioning" class="headerlink" title="Knowing When to Look: Adaptive Attention via A Visual Sentinel for Image Captioning"></a>Knowing When to Look: Adaptive Attention via A Visual Sentinel for Image Captioning</h1><p>这篇文章是上一篇的改进，出发点在于不需要每个词的生成都对应一个attetion，一些介词和连词并不需要图像中的信息，因此，本文提出attention的时间和空间的概念。</p>
-<p><img src="https://ww2.sinaimg.cn/large/006tNc79ly1fdlpl501wbj30so0cuab1.jpg" alt=""></p>
-<p>原始的模型如上图（a），这个模型就是刚刚那篇论文的模型。本文对其首先进行如图（b）的改进，使得每次的attention根据当前的h而不是上一时刻的h来生成。其中，$x_t$是$y_{t-1}$的词向量。</p>
-<p><img src="https://ww3.sinaimg.cn/large/006tNc79ly1fdlpncja9kj30om0e4abg.jpg" alt=""></p>
-<p>其次，引入了visual sentinel视觉哨兵，什么意思呢？</p>
-<p>原始的经过CNN提取到的特征是$v_1….v_L$，每次计算attention权重$\alpha$的时候，我们用下面的公式<br>$$<br>z_t = w_h^Ttanh(W_vV+W_gh_tI^T)\\\alpha_t = softmax(z_t)<br>$$</p>
-<p>其中，V是d*k维，表示k个图像特征；$h_t$是第t时刻的decoder的隐状态输出，是d*1维，$w_h$是k*1维的参数，两个W是k*d维的参数。</p>
-<p>当引入视觉哨兵时，看上面的图，除了L个v向量，多了一个s向量，这个s的定义是</p>
-<p><img src="https://ww3.sinaimg.cn/large/006tNc79ly1fdm4wfurm8j30ga03q74l.jpg" alt=""></p>
-<p>可以看出，g是一个门系数，他由上一时刻的隐状态和当前的输入（前一个单词）决定，这个g控制当前的记忆m，记忆就是LSTM的记忆门输出，他包含了截止到目前的语义信息和图像信息。 上面的两个公式可以理解为：根据前一时刻的状态和输入，对当前的记忆进行加工（点乘），加工后的向量称作哨兵信息。</p>
-<p>这个哨兵信息作为和CNN的图像特征v一起，进行attention计算，如果attention的重点在s哨兵，说明当前不需要关注图像信息，当前的输出单词可能是介词、连词之类的词。所以，新的attention系数公式如下。</p>
-<p><img src="https://ww4.sinaimg.cn/large/006tNc79ly1fdm59gq97lj30nm02uq3b.jpg" alt=""></p>
-<p><img src="https://ww4.sinaimg.cn/large/006tNc79ly1fdmgtyl5b4j30bc02mwek.jpg" alt=""></p>
-<p><img src="https://ww3.sinaimg.cn/large/006tNc79ly1fdm5f6tytxj30d802cmx7.jpg" alt=""></p>
-<p>从而得到新的context信息。</p>
-<h2 id="results"><a href="#Results-1" class="headerlink" title="Results"></a>Results</h2><p><img src="https://ww2.sinaimg.cn/large/006tNbRwly1feasdshgrrj31gk0ec79s.jpg" alt=""></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这两篇论文都是对attention进行研究和改进，本质上还是没有解决exposure bias问题，而且原始的seq2seq用每一步生成单词的概率进行连乘，作为整个序列的概率，这一点也可以改进，下一文会介绍如何用强化学习来解决这两个问题。</p>
+        <a id="more"></a>
+<h1 id="1-deep-reinforcement-learning-for-dialogue-generation"><a href="#1-Deep-reinforcement-learning-for-dialogue-generation" class="headerlink" title="1. Deep reinforcement learning for dialogue generation"></a>1. Deep reinforcement learning for dialogue generation</h1><p>Li, J., &amp; Monroe, W. (2016). Deep Reinforcement Learning for Dialogue Generation, 1–11.</p>
+<p>传统的seq2seq倾向于回复generic response，也就是无意义的安全回答，li 2015提出可以最大化互信息(MMI)来解决这一问题，但是仍不能解决多轮对话中的infinite loop问题，如下图</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fhmv0sauq5j31ds0nik0g.jpg" alt=""></p>
+<p>为此，作者提出了加入RL的seq2seq模型，状态是前两轮的对话pi和qi，动作是本轮产生的回答，policy就是seq2seq网络，reward有三部分：</p>
+<ul>
+<li>易于回答：不想让bot成为话题终结者，因此人工构造了枯燥回复集S，定义</li>
+</ul>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhmv6tfy4kj30i004gglu.jpg" alt=""></p>
+<ul>
+<li><p>信息流：不想产生无限环，因此要让同一个agent接连两次的回复尽可能不相似， 不能总是同一句话反复说。</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fhmv8y83sej30is03st8z.jpg" alt=""></p>
+</li>
+<li><p>语义连贯：当前agent的回复应该和另一agent的提问紧密相关，这样不仅能做到所答即所问，还能避免产生I don’t know等安全回复。做法是计算互信息，作为reward</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhmvc49kwij30ne02qaah.jpg" alt=""></p>
+</li>
+</ul>
+<p>最终的reward是</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fhmvdfipevj30ig02cweo.jpg" alt=""></p>
+<h2 id="simulation"><a href="#simulation" class="headerlink" title="simulation"></a>simulation</h2><p>本文作者训练了两个agent，进行你问我答的对话生成，</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhn19kmxigj31j80nyaea.jpg" alt=""></p>
+<p>首先用有监督的方法预训练模型，借鉴<a href="https://liangguirong5.github.io/2017/03/16/ImageCaption从入门到放弃之三-强化学习/" target="_blank" rel="external">sequence level training with recurrent neural network</a>那篇文章的思想，把reward设置为互信息的大小，然后退火的方式训练模型，最终梯度的更新公式如下</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fhmzkck9crj30lg02ymxi.jpg" alt=""></p>
+<p>PS: 我觉得这里等号右边缺少了求期望操作，或者等号变成约等号。</p>
+<p>前面是模型预训练，接下来是用之前构造的reward进行强化学习训练，梯度更新公式如下</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhmzru8mbej30pi04udgc.jpg" alt=""></p>
+<h1 id="2-building-end-to-end-dialogue-systems-using-generative-hierarchical-neural-network-models"><a href="#2-Building-End-To-End-Dialogue-Systems-Using-Generative-Hierarchical-Neural-Network-Models" class="headerlink" title="2. Building End-To-End Dialogue Systems Using Generative Hierarchical Neural Network Models"></a>2. Building End-To-End Dialogue Systems Using Generative Hierarchical Neural Network Models</h1><p>Iulian V Serban, A. S. Y. B. A. C. J. P. (2016). Building End-To-End Dialogue Systems Using Generative Hierarchical Neural Network Models (pp. 1–8).</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fhnzcd6p83j30u10fi0un.jpg" alt=""></p>
+<h1 id="3-a-hierarchical-latent-variable-encoder-decoder-model-for-generating-dialogues"><a href="#3-A-Hierarchical-Latent-Variable-Encoder-Decoder-Model-for-Generating-Dialogues" class="headerlink" title="3. A Hierarchical Latent Variable Encoder-Decoder Model for Generating Dialogues"></a>3. A Hierarchical Latent Variable Encoder-Decoder Model for Generating Dialogues</h1><p>Serban, I. V., Sordoni, A., Lowe, R., Charlin, L., Pineau, J., Courville, A., &amp; Bengio, Y. (2016, May 20). A Hierarchical Latent Variable Encoder-Decoder Model for Generating Dialogues. <em>arXiv.org</em>.</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fho0oianddj30sx0fjmyt.jpg" alt=""></p>
+<h1 id="4sequence-to-backward-and-forward-sequences-a-content-introducing-approach-to-generative-short-text-conversation"><a href="#4-Sequence-to-Backward-and-Forward-Sequences-A-Content-Introducing-Approach-to-Generative-Short-Text-Conversation" class="headerlink" title="4.Sequence to Backward and Forward Sequences: A Content-Introducing Approach to Generative Short-Text Conversation"></a>4.Sequence to Backward and Forward Sequences: A Content-Introducing Approach to Generative Short-Text Conversation</h1><p>Mou, L., Song, Y., Yan, R., Jin, Z., Zhang, L., &amp; Li, G. (2016). Sequence to Backward and Forward Sequences: A Content-Introducing Approach to Generative Short-Text Conversation (pp. 1–10). Presented at the COLING.</p>
+<p>本文提出，先用PMI方法从query中抽取一个关键词，本文特指名词，然后利用这个关键词和seq2BF模型，去生成回复。seq2BF是指从句子中间的某个位置向两侧生成，最终得到完整的句子，而不是seq2seq那种从初始到末尾的生成。如下图所示</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fhoyq6bnjsj31000o6gow.jpg" alt=""></p>
+<p>这样的好处在于，一方面能针对query中的重点信息生成回复，避免了无意义回答，同时seq式的语言生成模块能保证语句的流畅可理解。</p>
 
       
     </div>
@@ -455,9 +446,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/caption/" rel="tag"># caption</a>
-          
-            <a href="/tags/seq2seq/" rel="tag"># seq2seq</a>
+            <a href="/tags/DeepLearning/" rel="tag"># DeepLearning</a>
           
         </div>
       
@@ -470,8 +459,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/09/NIPS 2016 Tutorial Generative Adersarial Networks/" rel="next" title="NIPS 2016 Tutorial Generative Adersarial Networks">
-                <i class="fa fa-chevron-left"></i> NIPS 2016 Tutorial Generative Adersarial Networks
+              <a href="/2017/07/15/end-to-end-memory-network/" rel="next" title="BOT从入门到不放弃之end2end">
+                <i class="fa fa-chevron-left"></i> BOT从入门到不放弃之end2end
               </a>
             
           </div>
@@ -479,10 +468,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/16/ImageCaption从入门到放弃之三-强化学习/" rel="prev" title="ImageCaption从入门到放弃之三_ 强化学习">
-                ImageCaption从入门到放弃之三_ 强化学习 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -645,7 +630,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#neural-image-caption-generation-with-visual-attention"><span class="nav-number">1.</span> <span class="nav-text">Neural Image Caption Generation with Visual Attention</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#stochastic-hard-attention"><span class="nav-number">1.1.</span> <span class="nav-text">Stochastic “Hard” attention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deterministic-soft-attention"><span class="nav-number">1.2.</span> <span class="nav-text">Deterministic “Soft” Attention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#results"><span class="nav-number">1.3.</span> <span class="nav-text">Results</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#knowing-when-to-look-adaptive-attention-via-a-visual-sentinel-for-image-captioning"><span class="nav-number">2.</span> <span class="nav-text">Knowing When to Look: Adaptive Attention via A Visual Sentinel for Image Captioning</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#results"><span class="nav-number">2.1.</span> <span class="nav-text">Results</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-deep-reinforcement-learning-for-dialogue-generation"><span class="nav-number">1.</span> <span class="nav-text">1. Deep reinforcement learning for dialogue generation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#simulation"><span class="nav-number">1.1.</span> <span class="nav-text">simulation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-building-end-to-end-dialogue-systems-using-generative-hierarchical-neural-network-models"><span class="nav-number">2.</span> <span class="nav-text">2. Building End-To-End Dialogue Systems Using Generative Hierarchical Neural Network Models</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-a-hierarchical-latent-variable-encoder-decoder-model-for-generating-dialogues"><span class="nav-number">3.</span> <span class="nav-text">3. A Hierarchical Latent Variable Encoder-Decoder Model for Generating Dialogues</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4sequence-to-backward-and-forward-sequences-a-content-introducing-approach-to-generative-short-text-conversation"><span class="nav-number">4.</span> <span class="nav-text">4.Sequence to Backward and Forward Sequences: A Content-Introducing Approach to Generative Short-Text Conversation</span></a></li></ol></div>
             
 
           </div>
@@ -818,9 +803,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://github.com/2017/03/12/ImageCaption从入门到放弃之二_attention机制/';
-          this.page.identifier = '2017/03/12/ImageCaption从入门到放弃之二_attention机制/';
-          this.page.title = 'ImageCaption从入门到放弃之二_attention机制';
+          this.page.url = 'http://github.com/2017/07/18/BOT从入门到不放弃之seq2seq/';
+          this.page.identifier = '2017/07/18/BOT从入门到不放弃之seq2seq/';
+          this.page.title = 'BOT从入门到不放弃之seq2seq';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://richardbai.disqus.com/embed.js';

@@ -265,6 +265,183 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2017/07/18/BOT从入门到不放弃之seq2seq/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Richard Bai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ok8bcvles.bkt.clouddn.com/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RichardBai's Note">
+    </span>
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/18/BOT从入门到不放弃之seq2seq/" itemprop="url">BOT从入门到不放弃之seq2seq</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-18T09:47:39+08:00">
+                2017-07-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DeepLearning/" itemprop="url" rel="index">
+                    <span itemprop="name">DeepLearning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/18/BOT从入门到不放弃之seq2seq/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/07/18/BOT从入门到不放弃之seq2seq/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<h1 id="1-deep-reinforcement-learning-for-dialogue-generation"><a href="#1-Deep-reinforcement-learning-for-dialogue-generation" class="headerlink" title="1. Deep reinforcement learning for dialogue generation"></a>1. Deep reinforcement learning for dialogue generation</h1><p>Li, J., &amp; Monroe, W. (2016). Deep Reinforcement Learning for Dialogue Generation, 1–11.</p>
+<p>传统的seq2seq倾向于回复generic response，也就是无意义的安全回答，li 2015提出可以最大化互信息(MMI)来解决这一问题，但是仍不能解决多轮对话中的infinite loop问题，如下图</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fhmv0sauq5j31ds0nik0g.jpg" alt=""></p>
+<p>为此，作者提出了加入RL的seq2seq模型，状态是前两轮的对话pi和qi，动作是本轮产生的回答，policy就是seq2seq网络，reward有三部分：</p>
+<ul>
+<li>易于回答：不想让bot成为话题终结者，因此人工构造了枯燥回复集S，定义</li>
+</ul>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhmv6tfy4kj30i004gglu.jpg" alt=""></p>
+<ul>
+<li><p>信息流：不想产生无限环，因此要让同一个agent接连两次的回复尽可能不相似， 不能总是同一句话反复说。</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fhmv8y83sej30is03st8z.jpg" alt=""></p>
+</li>
+<li><p>语义连贯：当前agent的回复应该和另一agent的提问紧密相关，这样不仅能做到所答即所问，还能避免产生I don’t know等安全回复。做法是计算互信息，作为reward</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhmvc49kwij30ne02qaah.jpg" alt=""></p>
+</li>
+</ul>
+<p>最终的reward是</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fhmvdfipevj30ig02cweo.jpg" alt=""></p>
+<h2 id="simulation"><a href="#simulation" class="headerlink" title="simulation"></a>simulation</h2><p>本文作者训练了两个agent，进行你问我答的对话生成，</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhn19kmxigj31j80nyaea.jpg" alt=""></p>
+<p>首先用有监督的方法预训练模型，借鉴<a href="https://liangguirong5.github.io/2017/03/16/ImageCaption从入门到放弃之三-强化学习/" target="_blank" rel="external">sequence level training with recurrent neural network</a>那篇文章的思想，把reward设置为互信息的大小，然后退火的方式训练模型，最终梯度的更新公式如下</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fhmzkck9crj30lg02ymxi.jpg" alt=""></p>
+<p>PS: 我觉得这里等号右边缺少了求期望操作，或者等号变成约等号。</p>
+<p>前面是模型预训练，接下来是用之前构造的reward进行强化学习训练，梯度更新公式如下</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhmzru8mbej30pi04udgc.jpg" alt=""></p>
+<h1 id="2-building-end-to-end-dialogue-systems-using-generative-hierarchical-neural-network-models"><a href="#2-Building-End-To-End-Dialogue-Systems-Using-Generative-Hierarchical-Neural-Network-Models" class="headerlink" title="2. Building End-To-End Dialogue Systems Using Generative Hierarchical Neural Network Models"></a>2. Building End-To-End Dialogue Systems Using Generative Hierarchical Neural Network Models</h1><p>Iulian V Serban, A. S. Y. B. A. C. J. P. (2016). Building End-To-End Dialogue Systems Using Generative Hierarchical Neural Network Models (pp. 1–8).</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fhnzcd6p83j30u10fi0un.jpg" alt=""></p>
+<h1 id="3-a-hierarchical-latent-variable-encoder-decoder-model-for-generating-dialogues"><a href="#3-A-Hierarchical-Latent-Variable-Encoder-Decoder-Model-for-Generating-Dialogues" class="headerlink" title="3. A Hierarchical Latent Variable Encoder-Decoder Model for Generating Dialogues"></a>3. A Hierarchical Latent Variable Encoder-Decoder Model for Generating Dialogues</h1><p>Serban, I. V., Sordoni, A., Lowe, R., Charlin, L., Pineau, J., Courville, A., &amp; Bengio, Y. (2016, May 20). A Hierarchical Latent Variable Encoder-Decoder Model for Generating Dialogues. <em>arXiv.org</em>.</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fho0oianddj30sx0fjmyt.jpg" alt=""></p>
+<h1 id="4sequence-to-backward-and-forward-sequences-a-content-introducing-approach-to-generative-short-text-conversation"><a href="#4-Sequence-to-Backward-and-Forward-Sequences-A-Content-Introducing-Approach-to-Generative-Short-Text-Conversation" class="headerlink" title="4.Sequence to Backward and Forward Sequences: A Content-Introducing Approach to Generative Short-Text Conversation"></a>4.Sequence to Backward and Forward Sequences: A Content-Introducing Approach to Generative Short-Text Conversation</h1><p>Mou, L., Song, Y., Yan, R., Jin, Z., Zhang, L., &amp; Li, G. (2016). Sequence to Backward and Forward Sequences: A Content-Introducing Approach to Generative Short-Text Conversation (pp. 1–10). Presented at the COLING.</p>
+<p>本文提出，先用PMI方法从query中抽取一个关键词，本文特指名词，然后利用这个关键词和seq2BF模型，去生成回复。seq2BF是指从句子中间的某个位置向两侧生成，最终得到完整的句子，而不是seq2seq那种从初始到末尾的生成。如下图所示</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fhoyq6bnjsj31000o6gow.jpg" alt=""></p>
+<p>这样的好处在于，一方面能针对query中的重点信息生成回复，避免了无意义回答，同时seq式的语言生成模块能保证语句的流畅可理解。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://github.com/2017/07/15/end-to-end-memory-network/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -283,7 +460,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/15/end-to-end-memory-network/" itemprop="url">end-to-end memory network</a></h1>
+                <a class="post-title-link" href="/2017/07/15/end-to-end-memory-network/" itemprop="url">BOT从入门到不放弃之end2end</a></h1>
         
 
         <div class="post-meta">
@@ -318,8 +495,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DeepLearning/" itemprop="url" rel="index">
-                    <span itemprop="name">DeepLearning</span>
+                  <a href="/categories/bot/" itemprop="url" rel="index">
+                    <span itemprop="name">bot</span>
                   </a>
                 </span>
 
@@ -364,8 +541,7 @@
 
       
         
-          <p>这是一个<a href="http://blog.csdn.net/u011274209/article/details/53384232?ref=myread">memory network</a>的改进版本，用于端到端的生成任务，前面的链接有讲memory network的工作原理，本文主要解释MemN2N的结构和一些细节。</p>
-<p>Sukhbaatar, S. (2015). End-To-End Memory Networks, 1–11.</p>
+          <p>end2end类型的对话系统，给定一句输入，输出端进行answer selection。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/07/15/end-to-end-memory-network/#more" rel="contents">
@@ -1592,154 +1768,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://github.com/2017/02/05/C-之构造函数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Richard Bai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ok8bcvles.bkt.clouddn.com/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="RichardBai's Note">
-    </span>
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/02/05/C-之构造函数/" itemprop="url">C++之构造函数详解</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-05T22:24:23+08:00">
-                2017-02-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C++</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/02/05/C-之构造函数/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/02/05/C-之构造函数/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h1><p>当Richard类的对象被创建时，自动调用相应的Richard()构造函数，对成员变量进行初始化，这就是构造函数。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/05/C-之构造函数/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1789,7 +1817,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1800,7 +1828,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1811,7 +1839,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

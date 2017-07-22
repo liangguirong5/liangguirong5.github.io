@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://github.com/"/>
-  <updated>2017-07-16T07:43:15.000Z</updated>
+  <updated>2017-07-19T11:52:37.000Z</updated>
   <id>http://github.com/</id>
   
   <author>
@@ -16,16 +16,74 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>end-to-end memory network</title>
+    <title>BOT从入门到不放弃之seq2seq</title>
+    <link href="http://github.com/2017/07/18/BOT%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E4%B8%8D%E6%94%BE%E5%BC%83%E4%B9%8Bseq2seq/"/>
+    <id>http://github.com/2017/07/18/BOT从入门到不放弃之seq2seq/</id>
+    <published>2017-07-18T01:47:39.000Z</published>
+    <updated>2017-07-19T11:52:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a>
+<h1 id="1-deep-reinforcement-learning-for-dialogue-generation"><a href="#1-Deep-reinforcement-learning-for-dialogue-generation" class="headerlink" title="1. Deep reinforcement learning for dialogue generation"></a>1. Deep reinforcement learning for dialogue generation</h1><p>Li, J., &amp; Monroe, W. (2016). Deep Reinforcement Learning for Dialogue Generation, 1–11.</p>
+<p>传统的seq2seq倾向于回复generic response，也就是无意义的安全回答，li 2015提出可以最大化互信息(MMI)来解决这一问题，但是仍不能解决多轮对话中的infinite loop问题，如下图</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fhmv0sauq5j31ds0nik0g.jpg" alt=""></p>
+<p>为此，作者提出了加入RL的seq2seq模型，状态是前两轮的对话pi和qi，动作是本轮产生的回答，policy就是seq2seq网络，reward有三部分：</p>
+<ul>
+<li>易于回答：不想让bot成为话题终结者，因此人工构造了枯燥回复集S，定义</li>
+</ul>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhmv6tfy4kj30i004gglu.jpg" alt=""></p>
+<ul>
+<li><p>信息流：不想产生无限环，因此要让同一个agent接连两次的回复尽可能不相似， 不能总是同一句话反复说。</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fhmv8y83sej30is03st8z.jpg" alt=""></p>
+</li>
+<li><p>语义连贯：当前agent的回复应该和另一agent的提问紧密相关，这样不仅能做到所答即所问，还能避免产生I don’t know等安全回复。做法是计算互信息，作为reward</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhmvc49kwij30ne02qaah.jpg" alt=""></p>
+</li>
+</ul>
+<p>最终的reward是</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fhmvdfipevj30ig02cweo.jpg" alt=""></p>
+<h2 id="simulation"><a href="#simulation" class="headerlink" title="simulation"></a>simulation</h2><p>本文作者训练了两个agent，进行你问我答的对话生成，</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhn19kmxigj31j80nyaea.jpg" alt=""></p>
+<p>首先用有监督的方法预训练模型，借鉴<a href="https://liangguirong5.github.io/2017/03/16/ImageCaption从入门到放弃之三-强化学习/" target="_blank" rel="external">sequence level training with recurrent neural network</a>那篇文章的思想，把reward设置为互信息的大小，然后退火的方式训练模型，最终梯度的更新公式如下</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fhmzkck9crj30lg02ymxi.jpg" alt=""></p>
+<p>PS: 我觉得这里等号右边缺少了求期望操作，或者等号变成约等号。</p>
+<p>前面是模型预训练，接下来是用之前构造的reward进行强化学习训练，梯度更新公式如下</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhmzru8mbej30pi04udgc.jpg" alt=""></p>
+<h1 id="2-building-end-to-end-dialogue-systems-using-generative-hierarchical-neural-network-models"><a href="#2-Building-End-To-End-Dialogue-Systems-Using-Generative-Hierarchical-Neural-Network-Models" class="headerlink" title="2. Building End-To-End Dialogue Systems Using Generative Hierarchical Neural Network Models"></a>2. Building End-To-End Dialogue Systems Using Generative Hierarchical Neural Network Models</h1><p>Iulian V Serban, A. S. Y. B. A. C. J. P. (2016). Building End-To-End Dialogue Systems Using Generative Hierarchical Neural Network Models (pp. 1–8).</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fhnzcd6p83j30u10fi0un.jpg" alt=""></p>
+<h1 id="3-a-hierarchical-latent-variable-encoder-decoder-model-for-generating-dialogues"><a href="#3-A-Hierarchical-Latent-Variable-Encoder-Decoder-Model-for-Generating-Dialogues" class="headerlink" title="3. A Hierarchical Latent Variable Encoder-Decoder Model for Generating Dialogues"></a>3. A Hierarchical Latent Variable Encoder-Decoder Model for Generating Dialogues</h1><p>Serban, I. V., Sordoni, A., Lowe, R., Charlin, L., Pineau, J., Courville, A., &amp; Bengio, Y. (2016, May 20). A Hierarchical Latent Variable Encoder-Decoder Model for Generating Dialogues. <em>arXiv.org</em>.</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fho0oianddj30sx0fjmyt.jpg" alt=""></p>
+<h1 id="4sequence-to-backward-and-forward-sequences-a-content-introducing-approach-to-generative-short-text-conversation"><a href="#4-Sequence-to-Backward-and-Forward-Sequences-A-Content-Introducing-Approach-to-Generative-Short-Text-Conversation" class="headerlink" title="4.Sequence to Backward and Forward Sequences: A Content-Introducing Approach to Generative Short-Text Conversation"></a>4.Sequence to Backward and Forward Sequences: A Content-Introducing Approach to Generative Short-Text Conversation</h1><p>Mou, L., Song, Y., Yan, R., Jin, Z., Zhang, L., &amp; Li, G. (2016). Sequence to Backward and Forward Sequences: A Content-Introducing Approach to Generative Short-Text Conversation (pp. 1–10). Presented at the COLING.</p>
+<p>本文提出，先用PMI方法从query中抽取一个关键词，本文特指名词，然后利用这个关键词和seq2BF模型，去生成回复。seq2BF是指从句子中间的某个位置向两侧生成，最终得到完整的句子，而不是seq2seq那种从初始到末尾的生成。如下图所示</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fhoyq6bnjsj31000o6gow.jpg" alt=""></p>
+<p>这样的好处在于，一方面能针对query中的重点信息生成回复，避免了无意义回答，同时seq式的语言生成模块能保证语句的流畅可理解。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;1-deep-reinforcement-learning-for-dialogue-generation&quot;&gt;&lt;a href=&quot;#1-Deep-reinforcement-learning-for-dialogue-genera
+    
+    </summary>
+    
+      <category term="DeepLearning" scheme="http://github.com/categories/DeepLearning/"/>
+    
+    
+      <category term="DeepLearning" scheme="http://github.com/tags/DeepLearning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BOT从入门到不放弃之end2end</title>
     <link href="http://github.com/2017/07/15/end-to-end-memory-network/"/>
     <id>http://github.com/2017/07/15/end-to-end-memory-network/</id>
     <published>2017-07-15T12:21:42.000Z</published>
-    <updated>2017-07-16T07:43:15.000Z</updated>
+    <updated>2017-07-20T07:51:30.000Z</updated>
     
-    <content type="html"><![CDATA[<p>这是一个<a href="http://blog.csdn.net/u011274209/article/details/53384232?ref=myread" target="_blank" rel="external">memory network</a>的改进版本，用于端到端的生成任务，前面的链接有讲memory network的工作原理，本文主要解释MemN2N的结构和一些细节。</p>
-<p>Sukhbaatar, S. (2015). End-To-End Memory Networks, 1–11.</p>
+    <content type="html"><![CDATA[<p>end2end类型的对话系统，给定一句输入，输出端进行answer selection。</p>
 <a id="more"></a>
-<h1 id="memn2n"><a href="#MemN2N" class="headerlink" title="MemN2N"></a>MemN2N</h1><p>end-to-end memory network，简称MemN2N，下面左右两图分别是单层和多层的MemN2N。</p>
+<h1 id="memn2n"><a href="#MemN2N" class="headerlink" title="MemN2N"></a>MemN2N</h1><p>Sukhbaatar, S. (2015). End-To-End Memory Networks, 1–11.</p>
+<p>这是一个<a href="http://blog.csdn.net/u011274209/article/details/53384232?ref=myread" target="_blank" rel="external">memory network</a>的改进版本，用于端到端的生成任务，前面的链接有讲memory network的工作原理，本文主要解释MemN2N的结构和一些细节。</p>
+<p>end-to-end memory network，简称MemN2N，下面左右两图分别是单层和多层的MemN2N。</p>
 <p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fhku2l9qchj319w0jen0o.jpg" alt=""></p>
 <h2 id="单层"><a href="#单层" class="headerlink" title="单层"></a>单层</h2><p>先拿单层进行说明，我们有一系列的$x_i$作为输出，构建记忆模块$m_i$，构建方法是用embedding矩阵$A$对$x_i$进行向量化表示；然后再用矩阵$B$对输入$q$向量化，表示为$u$，然后通过内积求出输入与记忆的关联：<br>$$<br>p_i = Softmax(u^Tm_i)<br>$$<br>$x_i$还要通过矩阵C向量化得到输出模块$c_i$，输出$o$可以表示为<br>$$<br>o=\sum_ip_ic_i<br>$$<br>最终的输出是<br>$$<br>\hat{a}=Softmax(W(o+u))<br>$$</p>
 <h2 id="多层"><a href="#多层" class="headerlink" title="多层"></a>多层</h2><p>如果扩展到多层，则参考图(b)，下一层的输入是<br>$$<br>u^{k+1}=u^k+o^k<br>$$<br>每一层都有自己的$A^k$和$C^k$，用于对x向量化。文章提出了两种权重设置：</p>
@@ -46,19 +104,84 @@
 <ul>
 <li>加入一些噪声（10%的空白）记忆</li>
 </ul>
+<h1 id="1-dialog-based-language-learning"><a href="#1-Dialog-based-Language-Learning" class="headerlink" title="1. Dialog-based Language Learning"></a>1. Dialog-based Language Learning</h1><p>Weston, J. (2016, April 21). Dialog-based Language Learning. <em>arXiv.org</em>.</p>
+<p>本文在<a href="https://liangguirong5.github.io/2017/07/15/end-to-end-memory-network/" target="_blank" rel="external">MemN2N</a>的基础上，提出了10种对话任务(见下图)，和三种训练方式：imitation learning，reward-based imitation，forward prediction。</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fhls2xviifj30h10ie43a.jpg" alt=""></p>
+<h2 id="数据集构建"><a href="#数据集构建" class="headerlink" title="数据集构建"></a>数据集构建</h2><p>文中的试验数据集是bAbI和MovieQA, 下载地址<a href="http://fb.ai/babi。" target="_blank" rel="external">http://fb.ai/babi。</a></p>
+<p>针对上面的十个任务需要分别构建不同的数据集合，每个任务在构建数据集合的时候都分别设置三个$\pi_{acc}$(0.5,0.1,0.01)，这个参数表示回答正确的概率。</p>
+<h2 id="模型学习"><a href="#模型学习" class="headerlink" title="模型学习"></a>模型学习</h2><p>基模型还是MemN2N，只是输出层最后的softmax变了，</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fhlt2xme6rj30ce01vt8r.jpg" alt=""></p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fhlt36kkqtj30cb022dfw.jpg" alt=""></p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fhlt3cexhvj30bj01uq2y.jpg" alt=""></p>
+<p>新加的$y_1…y_C$表示的是候选集合C中的每一项。文中的C是bAbI任务训练集合中所有出现过的actions，对于MovieQA就是他的KB的全部单词。</p>
+<ul>
+<li>imitation learning：有监督学习，默认训练集中的answer就是标准回答，进行训练。</li>
+<li>reward-based imitation：好的回复产生+1的reward，不好的回复reward为0，简单的策略就是对好的回复采用imitation learning，不好的直接弃之不理。</li>
+</ul>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fhlstlrgecj30fx0bvjsf.jpg" alt=""></p>
+<ul>
+<li>forward prediction：把输出层更改成下图的样子。</li>
+</ul>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fhltkizzxyj30dq0cqt9x.jpg" alt=""></p>
+<p>具体来讲，是给定question和ans，想要预测ans对应teacher的response，我理解的response就是reward为正还是0，</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhm069qsp2j30j2024q33.jpg" alt=""></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fhm09i7qlyj30b0019mx6.jpg" alt=""></p>
+<p>其中，yi是student的候选回复，$\beta$是d维向量表示student实际选择的action</p>
+<ul>
+<li>reward-based imitation + forward prediction: 两种方法相结合</li>
+</ul>
+<h2 id="results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhm1m2cqpfj30tn0c643u.jpg" alt=""></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fhm1mm5dw0j30t90bjdkm.jpg" alt=""></p>
+<h1 id="2learning-through-dialogue-interactions-by-asking-questions"><a href="#2-LEARNING-THROUGH-DIALOGUE-INTERACTIONS-BY-ASKING-QUESTIONS" class="headerlink" title="2.LEARNING THROUGH DIALOGUE INTERACTIONS BY ASKING QUESTIONS"></a>2.LEARNING THROUGH DIALOGUE INTERACTIONS BY ASKING QUESTIONS</h1><p>Li, J., &amp; Weston, J. (2017). LEARNING THROUGH DIALOGUE INTERACTIONS BY ASKING QUESTIONS, 1–16.</p>
+<p>代码 <a href="https://github.com/facebook/MemNN/tree/master/AskingQuestions">https://github.com/facebook/MemNN/tree/master/AskingQuestions</a></p>
+<p>本文研究了基于交互的生成式对话方法，证明了bot在反问后，聊天质量明显提升。</p>
+<p>主要借鉴的是前面的    Jason Weston. Dialog-based language learning. arXiv preprint arXiv:1604.06045, 2016.</p>
+<p>数据集采用WikiMovies dataset，是一个roughly 100k questions over 75k entities based on questions with answers in the open movie dataset (OMDb)</p>
+<p>文章希望通过交互式的反问解决一下三类常见错误：bot不理解问题；不能把现有的知识和问题建立关联；缺乏回答问题必备的知识</p>
+<h2 id="the-tasks"><a href="#The-Tasks" class="headerlink" title="The Tasks"></a>The Tasks</h2><h3 id="1-question-clarification"><a href="#1-QUESTION-CLARIFICATION" class="headerlink" title="1 QUESTION CLARIFICATION"></a>1 QUESTION CLARIFICATION</h3><p>文章具体指问题中夹杂拼写错误的词，解决方法是bot或者请求重新提问，或者反问Do you mean [correct] ?</p>
+<p>1.Question Paraphrase &amp; 2.Question Verification</p>
+<h3 id="2-knowledge-operation"><a href="#2-KNOWLEDGE-OPERATION" class="headerlink" title="2 KNOWLEDGE OPERATION"></a>2 KNOWLEDGE OPERATION</h3><p>bot尝试去寻找相关的知识回答，可以反问问题是否与<em>*</em>相关？也可以直接让提问者指出相关的KB知识。</p>
+<p>3.ask for revelvant knowloge &amp; 4.knowledge verification</p>
+<h3 id="3-knowledge-acquisition"><a href="#3-KNOWLEDGE-ACQUISITION" class="headerlink" title="3 KNOWLEDGE ACQUISITION"></a>3 KNOWLEDGE ACQUISITION</h3><p>KB不完整，只能请求提问者给出答案，训练bot使得下次碰到相同的问题能回答正确答案。</p>
+<p>5.missing question entity 6. missing answer entity 7. missing relation entity 8. missing triple 9.missing everything</p>
+<h2 id="traintest-regima"><a href="#Train-Test-Regima" class="headerlink" title="Train/Test Regima"></a>Train/Test Regima</h2><p>模型训练的目标有两个：</p>
+<p>​    检验这种交互式的能否带来效果提升；</p>
+<p>​    学习到什么时候应该反问</p>
+<p>文章采用线下有监督，线上强化学习的方法分别实现这两个目标。</p>
+<h3 id="1-offline"><a href="#1-offline" class="headerlink" title="1. offline"></a>1. offline</h3><p>训练集TrainQA, TrainAQ, and TrainMix，测试集 TestQA, TestAQ, and TestModelAQ，这样组合可以有9种，然后对于前面提到的9个任务分别训练对应的模型，每种模型又分别在前面9种组合的train、test数据上进行训练。举例说明，在QA上训练，AQ上测试，就是观察一个训练中从来不发问的student在测试时每次必问的表现；在AQ上训练、QA上测试亦是如此。需要注意的是，TrainMix是一半QA一半AQ，TestModelAQ是要保证反问的问题必须要和问题相关。</p>
+<h3 id="2-online-rl"><a href="#2-online-RL" class="headerlink" title="2. online RL"></a>2. online RL</h3><p>每次提问都会有cost，cost的大小反映了teacher的耐心程度，取值范围是[0,2]</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fhkhr74qc5j30qa04gt9e.jpg" alt=""></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fhmmk0skvjj30eb028mxd.jpg" alt=""></p>
+<p>其中，$a_1$表示是否提问，$a_2$表示最终的回答。</p>
+<h1 id="3learning-end-to-end-goal-oriented-dialog"><a href="#3-Learning-End-to-End-Goal-Oriented-Dialog" class="headerlink" title="3.Learning End-to-End Goal-Oriented Dialog"></a>3.Learning End-to-End Goal-Oriented Dialog</h1><p>Bordes, A., &amp; Weston, J. (2017). Learning End-to-End Goal-Oriented Dialog (pp. 1–15). Presented at the ICLR.</p>
+<p>借用<a href="http://blog.csdn.net/abcjennifer/article/details/53428053#end-to-end-generative-dialogue" target="_blank" rel="external">另一篇博文</a>的话来评论本文：</p>
+<blockquote>
+<p>评论：数据较弱，方法不实用。</p>
+<p>本文就是End-to-End Memory Network的一个应用，基于End-to-End Memory Network的实验，最终也是answer selection(而不是answer generation). 数据为以餐馆预订为目的地bAbI数据集，模型定义得非常个性化，难以迁移。</p>
+</blockquote>
+<h1 id="4-conversational-contextual-cues-the-case-of-personalization-and-history-for-response-ranking"><a href="#4-Conversational-Contextual-Cues-The-Case-of-Personalization-and-History-for-Response-Ranking" class="headerlink" title="4. Conversational Contextual Cues: The Case of Personalization and History for Response Ranking"></a>4. Conversational Contextual Cues: The Case of Personalization and History for Response Ranking</h1><p>Al-Rfou, R. (2016). Conversational Contextual Cues: The Case of Personalization and History for Response Ranking, 1–10.</p>
+<p>网络结构如下图所示，并不是生成式的，而是answer selection的方法，对Reddit 上1.33亿个conversation进行模型训练，输入的几项分别是：</p>
+<p>input: dialog[i], context: dialog[0:i-1], author: 该评论的作者</p>
+<p>正样本：response=dialog[i+1]</p>
+<p>负样本：response=随机其他comment</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fhnxgdo4vuj31he0lygpf.jpg" alt=""></p>
+<p>另外，文章还提出了multi-loss的方法，旨在度量以上网络中每个feature的有效性。分别对组合{response, input}, {response, context}, {response, author}求一个hidden layer, 将这3个hiddenlayer{h1, h2, h3} concatenate成一个总hidden layer h4, 将{h1, h2, h3, h4}分别得到的分类loss加和作为网络总loss进行优化，但最后prediction的时候只采用h4的输出结果。</p>
+<h1 id="5-end-to-end-lstm-based-dialog-control-optimized-with-supervised-and-reinforcement-learning"><a href="#5-End-to-end-LSTM-based-dialog-control-optimized-with-supervised-and-reinforcement-learning" class="headerlink" title="5. End-to-end LSTM-based dialog control optimized with supervised and reinforcement learning"></a>5. End-to-end LSTM-based dialog control optimized with supervised and reinforcement learning</h1><p>Williams, J. D., &amp; Zweig, G. (2016, June 4). End-to-end LSTM-based dialog control optimized with supervised and reinforcement learning. <em>arXiv.org</em>.</p>
+<p>本文用dl和rl训练下图模型，模型其实非常简单，先对query进行NER，然后存储下识别好的entity，同事送给lstm以entity的type和values，lstm的输出是所有回复的模板的概率分布，用RL就从中采样，用DL就取最大，得到的answer模板是没有填充实体value的，这时候需要用写好的规则去填充，然后判断是回复给对话者还是进行api call。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhq9t47j9lj31go0istc3.jpg" alt=""></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fhqegimc0mj30pq05iq3o.jpg" alt=""></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;这是一个&lt;a href=&quot;http://blog.csdn.net/u011274209/article/details/53384232?ref=myread&quot;&gt;memory network&lt;/a&gt;的改进版本，用于端到端的生成任务，前面的链接有讲memory network的工作原理，本文主要解释MemN2N的结构和一些细节。&lt;/p&gt;
-&lt;p&gt;Sukhbaatar, S. (2015). End-To-End Memory Networks, 1–11.&lt;/p&gt;
+      &lt;p&gt;end2end类型的对话系统，给定一句输入，输出端进行answer selection。&lt;/p&gt;
     
     </summary>
     
-      <category term="DeepLearning" scheme="http://github.com/categories/DeepLearning/"/>
+      <category term="bot" scheme="http://github.com/categories/bot/"/>
     
     
-      <category term="DeepLearning" scheme="http://github.com/tags/DeepLearning/"/>
+      <category term="bot" scheme="http://github.com/tags/bot/"/>
     
   </entry>
   
