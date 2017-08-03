@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://github.com/"/>
-  <updated>2017-07-22T11:52:37.000Z</updated>
+  <updated>2017-08-03T15:15:06.000Z</updated>
   <id>http://github.com/</id>
   
   <author>
@@ -16,13 +16,64 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>BOT从入门到不放弃之seq2seq</title>
-    <link href="http://github.com/2017/07/18/BOT%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E4%B8%8D%E6%94%BE%E5%BC%83%E4%B9%8Bseq2seq/"/>
-    <id>http://github.com/2017/07/18/BOT从入门到不放弃之seq2seq/</id>
-    <published>2017-07-18T01:47:39.000Z</published>
-    <updated>2017-07-22T11:52:37.000Z</updated>
+    <title>BOT从入门到放弃之multi-agent</title>
+    <link href="http://github.com/2017/08/02/BOT%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83%E4%B9%8Bmulti-agent/"/>
+    <id>http://github.com/2017/08/02/BOT从入门到放弃之multi-agent/</id>
+    <published>2017-08-02T07:19:58.000Z</published>
+    <updated>2017-08-03T15:15:06.000Z</updated>
     
-    <content type="html"><![CDATA[<p>基于翻译模型的对话系统，一般都是非任务型、数据驱动、闲聊式，第一篇文章用强化学习解决无限环，2、3两文在encoder和decoder之间维护了另一个RNN，3则是还引入了一个隐变量z，思想是来自VAE。4则是使用了他们组之前的一个工作：前后向seq2seq模型。</p>
+    <content type="html"><![CDATA[<a id="more"></a>
+<h1 id="1-deal-or-no-deal-end-to-end-learning-for-negotiation-dialogue"><a href="#1-Deal-or-No-Deal-End-to-End-Learning-for-Negotiation-Dialogue" class="headerlink" title="1. Deal or No Deal? End-to-End Learning for Negotiation Dialogue"></a>1. Deal or No Deal? End-to-End Learning for Negotiation Dialogue</h1><p> Lewis, M., Yarats, D., Dauphin, Y. N., Parikh, D., &amp; Batra, D. (2017). (pp. 1–11). Presented at the EMNLP.</p>
+<p>本文提出了一个全新的任务：两个agent之间进行协商，协商目标是最大化自身的收益，协商的内容是指定好的一系列物品和对应的价值，具体如下图</p>
+<p>¨<img src="https://ws2.sinaimg.cn/large/006tKfTcly1fi6wij47etj31kw0sods5.jpg" alt=""></p>
+<p>对于同样的物品不同的agent有不同的价值，文章设置了三种物品，每个agent的goal用六个数字表示，六个数字就是三个物品的个数和对应的价值，然后用一个GRU对这个向量进行编码，从而作为一个特征向量参与到之后的序列生成中，如下图</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fi6x3aznhvj30ro0aotaj.jpg" alt=""></p>
+<p>其中input encoder就是生成句子的部分，而output decoder则是在对话结束后生成最终的决策。决策就是最后每个agent都得到几个物品，采用枚举法对所有的可能求概率，概率最大的方案就是最终的决策。</p>
+<p>此外，本文由提出了加入强化学习的goal-based training，用最终的协商结果最为reward来优化agent网络的参数，</p>
+<h1 id="2-multi-agent-cooperation-and-the-emergence-of-natural-language"><a href="#2-Multi-agent-cooperation-and-the-emergence-of-natural-language" class="headerlink" title="2. Multi-agent cooperation and the emergence of (natural) language"></a>2. Multi-agent cooperation and the emergence of (natural) language</h1><p>Lazaridou, A., Peysakhovich, A., &amp; Baroni, M. (2017).  (pp. 1–11). Presented at the ICLR.</p>
+<p>本文是facebook和deepmind的工作。通过训练两个agent，一个作为sender，对两个图像中被标记的一个生成单个symbol的描述，然后另一个作为receiver的输入是两个图像以及sender的描述，输出sender描述的是哪一张图像，结果为真即认为两个agent学到了他们能交流的语言。图像不是直接输入，而是先送到预训练好的VGG网络，用VGG的softmax层或者倒数第二个全连接层的输出作为图像的表示。模型结构很简单，如下图所示。</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fi5fao593xj31js0psqa8.jpg" alt=""></p>
+<p>作者构造了两种sender，第一种是全连接网络对图像进行表示，第二种额外加了卷积层。模型的训练只有最终成败作为监督信号进行参数更新。最终的结果如下图所示。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fi5ffsghvaj30tw0ne0wr.jpg" alt=""></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fi5fl6dpdfj316u0f4n15.jpg" alt=""></p>
+<p>上表的纯度，是根据生成symbol对图片聚类，而每个图片有真实的标签，表示该图片的大类，因此能计算类内纯度作为评价指标。为了更好的观察sender给出的描述在语义上的效果，作者把相同的object的fc向量表示进行average，得到每个object的向量表示，然后用t-SNE可视化，同样的symbol用相同的颜色表示，结果如下图。</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fi5fxi1ddtj30uq0uq0wt.jpg" alt=""></p>
+<p>可以看出，距离相近的大多颜色相同，但是效果仍不明显。</p>
+<p>为了验证我们学到的是两张图是狗与猫的区别，而不是一些其他因素，我们对sender输入吉娃娃和猫，对receiver输入泰迪和猫，希望sender描述吉娃娃后，receiver能成功选中泰迪。基于这样的思想，构建大量此类的image pair，再次训练，结果如下。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fi5g281p81j31g40cg0w5.jpg" alt=""></p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fi5g18qnafj30vs0uqn1j.jpg" alt=""></p>
+<p>可以看到纯度略有提升，而且可视化结果更加明显了，这表明两个agent的确学到了对于图片的语义描述。</p>
+<p>最后，这种agent之间的沟通还不能被人类理解，因此要对描述的生成加入自然语言的引导，也就是一边训练agent之间的交流，一边对sender的embedding层进行外加softmax训练，使其能针对图片选择正确的单词，而不是agent才能理解的symbols。这两种训练方式等概率进行切换，同时两种训练方式共享embedding层，最终能达到一定程度的人类可理解的、agent之间可交流的效果。</p>
+<h1 id="3-curiosity-driven-exploration-by-self-supervised-prediction"><a href="#3-Curiosity-driven-Exploration-by-Self-supervised-Prediction" class="headerlink" title="3. Curiosity-driven Exploration by Self-supervised Prediction"></a>3. Curiosity-driven Exploration by Self-supervised Prediction</h1><p> Pathak, D., Agrawal, P., Efros, A. A., &amp; Darrell, T. (2017). (pp. 1–12). Presented at the ICML.</p>
+<p>在强化学习中，尤其是agent完成游戏任务，reward不是实时获得的，一般最终游戏胜利或者失败才会产生一个reward，本文提出了基于好奇心的reward机制，当模型去探索一些新鲜的状态，这就可以产生一个reward去进行鼓励，则么判断状态是否‘新鲜’可以通过估计当前状态和动作会产生什么状态，和实际产生了什么状态，估计与实际的差越大说明模型对于这个新状态掌握的越少，需要进行激励，鼓励模型对该状态进行探索，也就是好奇心。同时这个新的状态应该是对action相关的，例如模型不需要对树叶不同时刻随风摆动的新状态进行探索，因为这个action无关，实现方案如下图。</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fi6xmq752fj31fu0kutby.jpg" alt=""></p>
+<p>通过学习一个估计的a去逼近真实的a，这样能学到状态的高层表达，这个高层表达理想上是和a直接相关的，解决了树叶问题。然后再通过估计的s与真实的s的高层表达做差，得到了内部reward。内部reward和外部reward相结合就是模型的reward，从而指导参数的更新。</p>
+<p>最终的结果显示，单单是用内部reward就能让模型在游戏中取得很好的表现，充分表明了这种自监督的学习方式的有效性。</p>
+<h1 id="4-a-roadmap-towards-machine-intelligence"><a href="#4-A-Roadmap-towards-Machine-Intelligence" class="headerlink" title="4. A Roadmap towards Machine Intelligence"></a>4. A Roadmap towards Machine Intelligence</h1><p>Mikolov, T., Joulin, A., &amp; Baroni, M. (2016).</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;1-deal-or-no-deal-end-to-end-learning-for-negotiation-dialogue&quot;&gt;&lt;a href=&quot;#1-Deal-or-No-Deal-End-to-End-Learning-fo
+    
+    </summary>
+    
+      <category term="bot" scheme="http://github.com/categories/bot/"/>
+    
+    
+      <category term="DeepLearning" scheme="http://github.com/tags/DeepLearning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BOT从入门到放弃之chatBOT</title>
+    <link href="http://github.com/2017/07/18/BOT%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83%E4%B9%8BchatBOT/"/>
+    <id>http://github.com/2017/07/18/BOT从入门到放弃之chatBOT/</id>
+    <published>2017-07-18T01:47:39.000Z</published>
+    <updated>2017-08-02T07:23:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>chatbot一般都是非任务型、数据驱动、闲聊式，第一篇文章用强化学习解决无限环，2、3两文在encoder和decoder之间维护了另一个RNN，3相较于2还引入了一个隐变量z，思想是来自VAE。4则是使用了他们组之前的一个工作：前后向seq2seq模型。</p>
 <a id="more"></a>
 <h1 id="1-deep-reinforcement-learning-for-dialogue-generation"><a href="#1-Deep-reinforcement-learning-for-dialogue-generation" class="headerlink" title="1. Deep reinforcement learning for dialogue generation"></a>1. Deep reinforcement learning for dialogue generation</h1><p>Li, J., &amp; Monroe, W. (2016). Deep Reinforcement Learning for Dialogue Generation, 1–11.</p>
 <p>传统的seq2seq倾向于回复generic response，也就是无意义的安全回答，li 2015提出可以最大化互信息(MMI)来解决这一问题，但是仍不能解决多轮对话中的infinite loop问题，如下图</p>
@@ -61,7 +112,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;基于翻译模型的对话系统，一般都是非任务型、数据驱动、闲聊式，第一篇文章用强化学习解决无限环，2、3两文在encoder和decoder之间维护了另一个RNN，3则是还引入了一个隐变量z，思想是来自VAE。4则是使用了他们组之前的一个工作：前后向seq2seq模型。&lt;/p&gt;
+      &lt;p&gt;chatbot一般都是非任务型、数据驱动、闲聊式，第一篇文章用强化学习解决无限环，2、3两文在encoder和decoder之间维护了另一个RNN，3相较于2还引入了一个隐变量z，思想是来自VAE。4则是使用了他们组之前的一个工作：前后向seq2seq模型。&lt;/p&gt;
     
     </summary>
     
@@ -73,14 +124,14 @@
   </entry>
   
   <entry>
-    <title>BOT从入门到不放弃之end2end</title>
-    <link href="http://github.com/2017/07/15/end-to-end-memory-network/"/>
-    <id>http://github.com/2017/07/15/end-to-end-memory-network/</id>
+    <title>BOT从入门到放弃之task-oriented</title>
+    <link href="http://github.com/2017/07/15/BOT%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83%E4%B9%8Btask-oriented/"/>
+    <id>http://github.com/2017/07/15/BOT从入门到放弃之task-oriented/</id>
     <published>2017-07-15T12:21:42.000Z</published>
-    <updated>2017-07-22T12:09:41.000Z</updated>
+    <updated>2017-08-02T07:35:11.000Z</updated>
     
-    <content type="html"><![CDATA[<p>end2end类型的对话系统，给定一句输入，输出端进行answer selection。</p>
-<p>本文首先在第一部分介绍了end2end memory网络结构，文章2是在MemN2N网络的基础上，引入了三种学习方式：模仿学习、强化学习、提前预测式学习；文章3提出了一种交互式的对话方法，让bot进行反问，学习什么时候该反问，论证了反问会带来效果提升；文章4是我目前没发觉到值得学习之处的一篇ICLR2017；文章5是google提出的加入用户模型（画像）的一种bot；文章6提出了一个比较严谨的任务型bot框架，采用深度学习和强化学习结合的方法训练。</p>
+    <content type="html"><![CDATA[<p>task-oriented类型的对话系统，是有明确的任务导向的，一般用于订酒店之类的任务。</p>
+<p>本文首先在第一部分介绍了end2end memory网络结构，文章2是在MemN2N网络的基础上，引入了三种学习方式：模仿学习、强化学习、提前预测式学习；文章3提出了一种交互式的对话方法，让bot进行反问，学习什么时候该反问，论证了反问会带来效果提升；文章4是我目前没发觉到值得学习之处的一篇ICLR2017；文章5是google提出的加入用户模型（画像）的一种bot；文章6提出了一个比较严谨的任务型bot框架，采用深度学习和强化学习结合的方法训练。7则是基于检索式的对话，8、9是深度强化学习任务驱动的对话系统。</p>
 <a id="more"></a>
 <h1 id="1-memn2n"><a href="#1-MemN2N" class="headerlink" title="1. MemN2N"></a>1. MemN2N</h1><p>Sukhbaatar, S. (2015). End-To-End Memory Networks, 1–11.</p>
 <p>这是一个<a href="http://blog.csdn.net/u011274209/article/details/53384232?ref=myread" target="_blank" rel="external">memory network</a>的改进版本，用于端到端的生成任务，前面的链接有讲memory network的工作原理，本文主要解释MemN2N的结构和一些细节。</p>
@@ -133,7 +184,7 @@
 </ul>
 <h2 id="results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhm1m2cqpfj30tn0c643u.jpg" alt=""></p>
 <p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fhm1mm5dw0j30t90bjdkm.jpg" alt=""></p>
-<h1 id="3learning-through-dialogue-interactions-by-asking-questions"><a href="#3-LEARNING-THROUGH-DIALOGUE-INTERACTIONS-BY-ASKING-QUESTIONS" class="headerlink" title="3.LEARNING THROUGH DIALOGUE INTERACTIONS BY ASKING QUESTIONS"></a>3.LEARNING THROUGH DIALOGUE INTERACTIONS BY ASKING QUESTIONS</h1><p>Li, J., &amp; Weston, J. (2017). LEARNING THROUGH DIALOGUE INTERACTIONS BY ASKING QUESTIONS, 1–16.</p>
+<h1 id="3-learning-through-dialogue-interactions-by-asking-questions"><a href="#3-LEARNING-THROUGH-DIALOGUE-INTERACTIONS-BY-ASKING-QUESTIONS" class="headerlink" title="3. LEARNING THROUGH DIALOGUE INTERACTIONS BY ASKING QUESTIONS"></a>3. LEARNING THROUGH DIALOGUE INTERACTIONS BY ASKING QUESTIONS</h1><p>Li, J., &amp; Weston, J. (2017). LEARNING THROUGH DIALOGUE INTERACTIONS BY ASKING QUESTIONS, 1–16.</p>
 <p>代码 <a href="https://github.com/facebook/MemNN/tree/master/AskingQuestions">https://github.com/facebook/MemNN/tree/master/AskingQuestions</a></p>
 <p>本文研究了基于交互的生成式对话方法，证明了bot在反问后，聊天质量明显提升。</p>
 <p>主要借鉴的是前面的    Jason Weston. Dialog-based language learning. arXiv preprint arXiv:1604.06045, 2016.</p>
@@ -171,12 +222,19 @@
 <p>本文用dl和rl训练下图模型，模型其实非常简单，先对query进行NER，然后存储下识别好的entity，同事送给lstm以entity的type和values，lstm的输出是所有回复的模板的概率分布，用RL就从中采样，用DL就取最大，得到的answer模板是没有填充实体value的，这时候需要用写好的规则去填充，然后判断是回复给对话者还是进行api call。</p>
 <p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhq9t47j9lj31go0istc3.jpg" alt=""></p>
 <p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fhqegimc0mj30pq05iq3o.jpg" alt=""></p>
+<h1 id="7-sequential-matching-network-a-new-architecture-for-multi-turn-response-selection-in-retrieval-based-chatbots"><a href="#7-Sequential-Matching-Network-A-New-Architecture-for-Multi-turn-Response-Selection-in-Retrieval-Based-Chatbots" class="headerlink" title="7. Sequential Matching Network: A New Architecture for Multi-turn Response Selection in Retrieval-Based Chatbots"></a>7. Sequential Matching Network: A New Architecture for Multi-turn Response Selection in Retrieval-Based Chatbots</h1><p>Wu, Y., Wu, W., Xing, C., Li, Z., &amp; Zhou, M. (2017).  Presented at the ACL.</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fi5e7h3etsj319e0jowkc.jpg" alt=""></p>
+<h1 id="8-a-network-based-end-to-end-trainable-task-oriented-dialogue-system"><a href="#8-A-Network-based-End-to-End-Trainable-Task-oriented-Dialogue-System" class="headerlink" title="8. A Network-based End-to-End Trainable Task-oriented Dialogue System"></a>8. A Network-based End-to-End Trainable Task-oriented Dialogue System</h1><p>Wen, T.-H., &amp; Young, S. (2017). Presented at the EACL.</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fi5ezd5ux2j31140p80xb.jpg" alt=""></p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fi5ezq9i6zj315g0pe0ya.jpg" alt=""></p>
+<h1 id="9-latent-intention-dialogue-models"><a href="#9-Latent-Intention-Dialogue-Models" class="headerlink" title="9. Latent Intention Dialogue Models"></a>9. Latent Intention Dialogue Models</h1><p>Wen, T.-H., Miao, Y., Blunsom, P., &amp; Young, S. (2017). Presented at the ICML.</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fi5f0vtrjrj31i80ua46f.jpg" alt=""></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;end2end类型的对话系统，给定一句输入，输出端进行answer selection。&lt;/p&gt;
-&lt;p&gt;本文首先在第一部分介绍了end2end memory网络结构，文章2是在MemN2N网络的基础上，引入了三种学习方式：模仿学习、强化学习、提前预测式学习；文章3提出了一种交互式的对话方法，让bot进行反问，学习什么时候该反问，论证了反问会带来效果提升；文章4是我目前没发觉到值得学习之处的一篇ICLR2017；文章5是google提出的加入用户模型（画像）的一种bot；文章6提出了一个比较严谨的任务型bot框架，采用深度学习和强化学习结合的方法训练。&lt;/p&gt;
+      &lt;p&gt;task-oriented类型的对话系统，是有明确的任务导向的，一般用于订酒店之类的任务。&lt;/p&gt;
+&lt;p&gt;本文首先在第一部分介绍了end2end memory网络结构，文章2是在MemN2N网络的基础上，引入了三种学习方式：模仿学习、强化学习、提前预测式学习；文章3提出了一种交互式的对话方法，让bot进行反问，学习什么时候该反问，论证了反问会带来效果提升；文章4是我目前没发觉到值得学习之处的一篇ICLR2017；文章5是google提出的加入用户模型（画像）的一种bot；文章6提出了一个比较严谨的任务型bot框架，采用深度学习和强化学习结合的方法训练。7则是基于检索式的对话，8、9是深度强化学习任务驱动的对话系统。&lt;/p&gt;
     
     </summary>
     

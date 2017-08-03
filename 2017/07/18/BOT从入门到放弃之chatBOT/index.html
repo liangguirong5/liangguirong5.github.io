@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="caption," />
+  <meta name="keywords" content="bot," />
 
 
 
@@ -95,19 +95,28 @@
 
 
 
-<meta name="description" content="引言本文转载自paperweekly：
-第二十二期的PaperWeekly对Image Captioning进行了综述。今天这篇文章中，我们会介绍一些近期的工作。（如果你对Image Captioning这个任务不熟悉的话，请移步二十二期PaperWeekly 第二十二期—Image Caption任务综述）">
+<meta name="description" content="chatbot一般都是非任务型、数据驱动、闲聊式，第一篇文章用强化学习解决无限环，2、3两文在encoder和decoder之间维护了另一个RNN，3相较于2还引入了一个隐变量z，思想是来自VAE。4则是使用了他们组之前的一个工作：前后向seq2seq模型。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ImageCaption从入门到放弃之一_任务综述">
-<meta property="og:url" content="http://github.com/2017/03/01/ImageCaption从入门到放弃之一_任务综述/index.html">
+<meta property="og:title" content="BOT从入门到放弃之chatBOT">
+<meta property="og:url" content="http://github.com/2017/07/18/BOT从入门到放弃之chatBOT/index.html">
 <meta property="og:site_name" content="RichardBai's Note">
-<meta property="og:description" content="引言本文转载自paperweekly：
-第二十二期的PaperWeekly对Image Captioning进行了综述。今天这篇文章中，我们会介绍一些近期的工作。（如果你对Image Captioning这个任务不熟悉的话，请移步二十二期PaperWeekly 第二十二期—Image Caption任务综述）">
-<meta property="og:updated_time" content="2017-04-03T12:11:06.000Z">
+<meta property="og:description" content="chatbot一般都是非任务型、数据驱动、闲聊式，第一篇文章用强化学习解决无限环，2、3两文在encoder和decoder之间维护了另一个RNN，3相较于2还引入了一个隐变量z，思想是来自VAE。4则是使用了他们组之前的一个工作：前后向seq2seq模型。">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1fhmv0sauq5j31ds0nik0g.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fhmv6tfy4kj30i004gglu.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1fhmv8y83sej30is03st8z.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fhmvc49kwij30ne02qaah.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1fhmvdfipevj30ig02cweo.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fhn19kmxigj31j80nyaea.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1fhmzkck9crj30lg02ymxi.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fhmzru8mbej30pi04udgc.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fhnzcd6p83j30u10fi0un.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fho0oianddj30sx0fjmyt.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fhoyq6bnjsj31000o6gow.jpg">
+<meta property="og:updated_time" content="2017-08-02T07:23:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ImageCaption从入门到放弃之一_任务综述">
-<meta name="twitter:description" content="引言本文转载自paperweekly：
-第二十二期的PaperWeekly对Image Captioning进行了综述。今天这篇文章中，我们会介绍一些近期的工作。（如果你对Image Captioning这个任务不熟悉的话，请移步二十二期PaperWeekly 第二十二期—Image Caption任务综述）">
+<meta name="twitter:title" content="BOT从入门到放弃之chatBOT">
+<meta name="twitter:description" content="chatbot一般都是非任务型、数据驱动、闲聊式，第一篇文章用强化学习解决无限环，2、3两文在encoder和decoder之间维护了另一个RNN，3相较于2还引入了一个隐变量z，思想是来自VAE。4则是使用了他们组之前的一个工作：前后向seq2seq模型。">
+<meta name="twitter:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1fhmv0sauq5j31ds0nik0g.jpg">
 
 
 
@@ -135,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="http://github.com/2017/03/01/ImageCaption从入门到放弃之一_任务综述/"/>
+  <link rel="canonical" href="http://github.com/2017/07/18/BOT从入门到放弃之chatBOT/"/>
 
 
 
 
 
-  <title>ImageCaption从入门到放弃之一_任务综述 | RichardBai's Note</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>BOT从入门到放弃之chatBOT | RichardBai's Note</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -270,7 +279,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://github.com/2017/03/01/ImageCaption从入门到放弃之一_任务综述/">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2017/07/18/BOT从入门到放弃之chatBOT/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Richard Bai">
@@ -286,7 +295,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ImageCaption从入门到放弃之一_任务综述</h1>
+          <h1 class="post-title" itemprop="name headline">BOT从入门到放弃之chatBOT</h1>
         
 
         <div class="post-meta">
@@ -298,8 +307,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-01T20:29:52+08:00">
-                2017-03-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-18T09:47:39+08:00">
+                2017-07-18
               </time>
             
 
@@ -321,8 +330,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Caption/" itemprop="url" rel="index">
-                    <span itemprop="name">Caption</span>
+                  <a href="/categories/bot/" itemprop="url" rel="index">
+                    <span itemprop="name">bot</span>
                   </a>
                 </span>
 
@@ -339,9 +348,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/01/ImageCaption从入门到放弃之一_任务综述/#comments" itemprop="discussionUrl">
+                <a href="/2017/07/18/BOT从入门到放弃之chatBOT/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/03/01/ImageCaption从入门到放弃之一_任务综述/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/07/18/BOT从入门到放弃之chatBOT/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -371,48 +380,41 @@
       
 
       
-        <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>本文转载自paperweekly：</p>
-<p>第二十二期的PaperWeekly对Image Captioning进行了综述。今天这篇文章中，我们会介绍一些近期的工作。（如果你对Image Captioning这个任务不熟悉的话，请移步二十二期<a href="http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&amp;mid=2247484014&amp;idx=1&amp;sn=4a053986f5dc8abb45097fed169465fa&amp;chksm=96e9ddeea19e54f83b717d63029a12715c238de8d6af261fa64af2d9b949480e685b8c283dda&amp;scene=21#wechat_redirect" target="_blank" rel="external">PaperWeekly 第二十二期—Image Caption任务综述</a>）</p>
+        <p>chatbot一般都是非任务型、数据驱动、闲聊式，第一篇文章用强化学习解决无限环，2、3两文在encoder和decoder之间维护了另一个RNN，3相较于2还引入了一个隐变量z，思想是来自VAE。4则是使用了他们组之前的一个工作：前后向seq2seq模型。</p>
 <a id="more"></a>
-<p>Image Captioning的模型一般是encoder-decoder的模型。模型对$p(S|I)$进行建模，$S$是描述，$I$是图片。模型的训练目标是最大化log似然：$\max_\theta\sum_i \log P(S_i|I_i, \theta)$。</p>
-<p>然而使用最大似然训练有两个问题：</p>
-<p>1、虽然训练时最大化后验概率，但是在评估时使用的测度则为BLEU，METEOR，ROUGE，CIDER等。这里有训练loss和评估方法不统一的问题。而且log似然可以认为对每个单词都给予一样的权重，然而实际上有些单词可能更重要一些（比如说一些表示内容的单词）。</p>
-<p>2、第二个问题为Exposure bias。训练的时候，每个时刻的输入都是来自于真实的caption。而生成的时候，每个时刻的输入来自于前一时刻的输出；所以一旦有一个单词生成的不好，错误可能会接着传递，使得生成的越来越糟糕。</p>
-<p>如何解决这两个问题呢？很显而易见的想法就是尽量使得训练和评估时的情形一样。我们可以在训练的时候不优化log似然，而是直接最大化CIDER（或者BLEU，METEOR，ROUGE等）。并且，在训练时也和测试时一样使用前一时刻的输入，而不是全使用ground truth输入。</p>
-<p>然而这有什么难点呢？第一，CIDER或者这一些metric并不是可直接求导。（这就是为什么在分类问题中，我们把0-1 error近似成log loss，hinge loss的原因）。其次从前一时刻输出获得后一时刻的输入涉及到采样操作，这也是不可微的。为了能够解决这些不可微的问题，人们就想到了Reinforcement learning。</p>
-<h1 id="rl基本概念"><a href="#RL基本概念" class="headerlink" title="RL基本概念"></a><strong>RL基本概念</strong></h1><p>RL中有一些比较重要的基本概念：状态（state），行为（action），回报（reward）和决策（policy）。决策是一个状态到动作的函数，一般是需要学习的东西。拿打游戏的例子介绍RL最简单。如果说是玩flappy bird，RL要学习的就是在什么位置跳，能使得最后得到的分数越高。在这个例子里，最后的分数就是回报，位置就是状态，跳或者不跳就是行为，而什么时候跳就是学到的策略。</p>
-<p>如果放在Image captioning中，状态就是你看到的图片和已生成的单词，而动作就是下一个单词生成什么，回报就是CIDER等metric。</p>
-<h2 id="相关文献"><a href="#相关文献" class="headerlink" title="相关文献"></a><strong>相关文献</strong></h2><p>最近已经有很多工作将RL用在NLP相关的问题上。[1]第一次将REINFORCE算法用在image caption和seq2seq问题上。[5]将使用了更先进的RL算法 — Actor-critic — 来做machine translation上。[2,4]将[1]的算法进行稍许改进（仍旧是REINFORCE算法），使用在了image captioning上。[3]将REINFORCE用在序列生成GAN中，解决了之前序列生成器输出为离散不可微的问题。[6]将RL用在自然对话系统中。这篇文章中我们主要介绍[1,2,4]。</p>
-<h2 id="rl算法背景"><a href="#RL算法背景" class="headerlink" title="RL算法背景"></a><strong>RL算法背景</strong></h2><p>这三篇文章使用的是REINFORCE算法，属于增强学习中Policy Gradient的一种。我们需要将deterministic的策略形式 $a=\pi(s,\theta)$转化为概率形式，$p(a) = \pi(a|s, \theta)$。Policy Gradient就是对参数$\theta$求梯度的方法。</p>
-<p>直观的想，如果我们希望最后的决策能获得更高的reward，最简单的就是使得高reward的行为有高概率，低reward的行为有低概率。所以REINFORCE的更新目标为</p>
-<p>$$\max_{\theta} \sum R(a,s)\log \pi(a|s, \theta)$$</p>
-<p>$R(s,a)$是回报函数。有了目标，我们可以通过随机梯度下降来更新$\theta$来获得更大的回报。</p>
-<p>然而这个方法有一个问题，训练时梯度的方差过大，导致训练不稳定。我们可以思考一下，如果reward的值为100到120之间，现在的方法虽然能更大地提高reward为120的行为的概率，但是也还是会提升低reward的行为的概率。所以为了克服这个问题，又有了REINFORCE with baseline。</p>
-<p>$$\max_{\theta} \sum (R(a,s) - b(s))\log \pi(a|s, \theta)$$</p>
-<p>$b(s)$在这里就是baseline，目的是通过给回报一个基准来减少方差。假设还是100到120的回报，我们将baseline设为110，那么只有100回报的行为就会被降低概率，而120回报的行为则会被提升概率。</p>
-<h1 id="三篇paper"><a href="#三篇paper" class="headerlink" title="三篇paper"></a><strong>三篇paper</strong></h1><p>第一篇是FAIR在ICLR2016发表的[1]。这篇文章是第一个将RL的算法应用的离散序列生成的文章。文章中介绍了三种不同的方法，这里我们只看最后一种算法，Mixed Incremental Cross-Entropy Reinforce。</p>
-<p>大体的想法就是用REINFORCE with baseline来希望直接优化BLEU4分数。具体训练的时候，他们先用最大似然方法做预训练，然后用REINFORCE finetune。在REINFORCE阶段，生成器不再使用任何ground truth信息，而是直接从RNN模型随机采样，最后获得采样的序列的BLEU4的分数r作为reward来更新整个序列生成器。</p>
-<p>这里他们使用baseline在每个时刻是不同的；是每个RNN隐变量的一个线性函数。这个线性函数也会在训练中更新。他们的系统最后能比一般的的cross extropy loss，和scheduled sampling等方法获得更好的结果。</p>
-<p>他们在github开源了基于torch的代码，<a href="https://github.com/facebookresearch/MIXER">https://github.com/facebookresearch/MIXER</a></p>
-<p>第二篇论文是今年CVPR的投稿。这篇文章在[1]的基础上改变了baseline的选取。他们并没有使用任何函数来对baseline进行建模，而是使用了greedy decoding的结果的回报作为baseline。他们声称这个baseline减小了梯度的variance。</p>
-<p>这个baseline理解起来也很简单：如果采样得到句子没有greedy decoding的结果好，那么降低这句话的概率，如果比greedy decoding还要好，则提高它的概率。</p>
-<p>这个方法的好处在于避免了训练一个模型，并且这个baseline也极易获得。有一个很有意思的现象是，一旦使用了这样的训练方法，beam search和greedy decoding的结果就几乎一致了。</p>
-<p>目前这篇文章的结果是COCO排行榜上第一名。他们使用CIDEr作为优化的reward，并且发现优化CIDEr能够使所有其他metric如BLEU，ROUGE，METEOR都能提高。</p>
-<p>他们的附录中有一些captioning的结果。他们发现他们的模型在一些非寻常的图片上表现很好，比如说有一张手心里捧着一个长劲鹿的图。</p>
-<p>第三篇论文[4]也是这次CVPR的投稿。这篇文章则是在$R(a,s)$这一项动了手脚。</p>
-<p>前两篇都有一个共同特点，对所有时刻的单词，他们的$R(a,s)$都是一样的。然而这篇文章则给每个时刻的提供了不同的回报。</p>
-<p>其实这个动机很好理解。比如说，定冠词a，无论生成的句子质量如何，都很容易在句首出现。假设说在一次采样中，a在句首，且最后的获得回报减去baseline后为负，这时候a的概率也会因此被调低，但是实际上大多数情况a对最后结果的好坏并没有影响。所以这篇文章采用了在每个时刻用$Q(w_{1:t})$来代替了原来一样的$R$。</p>
-<p>这个$Q$的定义为，</p>
-<p>$Q\theta(w{1:t}) = \mathbb{E}{w{t+1:T}}[R(w{1:t}, w{t+1:T})]$</p>
-<p>也就是说，当前时刻的回报，为固定了前t个单词的期望回报。考虑a的例子，由于a作为句首生成的结果有好有坏，最后的Q值可能接近于baseline，所以a的概率也就不会被很大地更新。实际使用中，这个Q值可以通过rollout来估计：固定前t个词后，随机采样K个序列，取他们的平均回报作为Q值。文中K为3。这篇文章中的baseline则跟[1]中类似。</p>
-<p>从实验结果上，第三篇并没有第二篇好，但是很大一部分原因是因为使用的模型和特征都比较老旧。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h1><p>将RL用在序列生成上似乎是现在新的潮流。但是现在使用的大多数的RL方法还比较简单，比如本文中的REINFORCE算法可追溯到上个世纪。RL本身也是一个很火热的领域，所以可以预计会有更多的论文将二者有机地结合。</p>
-<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a><strong>参考文献</strong></h1><p>[1] Ranzato, Marc’Aurelio, Sumit Chopra, Michael Auli, and Wojciech Zaremba. “Sequence level training with recurrent neural networks.” arXiv preprint arXiv:1511.06732 (2015).</p>
-<p>[2] Rennie, Steven J., Etienne Marcheret, Youssef Mroueh, Jarret Ross, and Vaibhava Goel. “Self-critical Sequence Training for Image Captioning.” arXiv preprint arXiv:1612.00563 (2016).</p>
-<p>[3] Yu, Lantao, Weinan Zhang, Jun Wang, and Yong Yu. “Seqgan: sequence generative adversarial nets with policy gradient.” arXiv preprint arXiv:1609.05473 (2016).</p>
-<p>[4] Liu, Siqi, Zhenhai Zhu, Ning Ye, Sergio Guadarrama, and Kevin Murphy. “Optimization of image description metrics using policy gradient methods.” arXiv preprint arXiv:1612.00370 (2016).</p>
-<p>[5] Bahdanau, Dzmitry, Philemon Brakel, Kelvin Xu, Anirudh Goyal, Ryan Lowe, Joelle Pineau, Aaron Courville, and Yoshua Bengio. “An actor-critic algorithm for sequence prediction.” arXiv preprint arXiv:1607.07086 (2016).</p>
-<p>[6] Li, Jiwei, Will Monroe, Alan Ritter, Michel Galley, Jianfeng Gao, and Dan Jurafsky. “Deep reinforcement learning for dialogue generation.” arXiv preprint arXiv:1606.01541 (2016).</p>
+<h1 id="1-deep-reinforcement-learning-for-dialogue-generation"><a href="#1-Deep-reinforcement-learning-for-dialogue-generation" class="headerlink" title="1. Deep reinforcement learning for dialogue generation"></a>1. Deep reinforcement learning for dialogue generation</h1><p>Li, J., &amp; Monroe, W. (2016). Deep Reinforcement Learning for Dialogue Generation, 1–11.</p>
+<p>传统的seq2seq倾向于回复generic response，也就是无意义的安全回答，li 2015提出可以最大化互信息(MMI)来解决这一问题，但是仍不能解决多轮对话中的infinite loop问题，如下图</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fhmv0sauq5j31ds0nik0g.jpg" alt=""></p>
+<p>为此，作者提出了加入RL的seq2seq模型，状态是前两轮的对话pi和qi，动作是本轮产生的回答，policy就是seq2seq网络，reward有三部分：</p>
+<ul>
+<li>易于回答：不想让bot成为话题终结者，因此人工构造了枯燥回复集S，定义</li>
+</ul>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhmv6tfy4kj30i004gglu.jpg" alt=""></p>
+<ul>
+<li><p>信息流：不想产生无限环，因此要让同一个agent接连两次的回复尽可能不相似， 不能总是同一句话反复说。</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fhmv8y83sej30is03st8z.jpg" alt=""></p>
+</li>
+<li><p>语义连贯：当前agent的回复应该和另一agent的提问紧密相关，这样不仅能做到所答即所问，还能避免产生I don’t know等安全回复。做法是计算互信息，作为reward</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhmvc49kwij30ne02qaah.jpg" alt=""></p>
+</li>
+</ul>
+<p>最终的reward是</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fhmvdfipevj30ig02cweo.jpg" alt=""></p>
+<h2 id="simulation"><a href="#simulation" class="headerlink" title="simulation"></a>simulation</h2><p>本文作者训练了两个agent，进行你问我答的对话生成，</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhn19kmxigj31j80nyaea.jpg" alt=""></p>
+<p>首先用有监督的方法预训练模型，借鉴<a href="https://liangguirong5.github.io/2017/03/16/ImageCaption从入门到放弃之三-强化学习/" target="_blank" rel="external">sequence level training with recurrent neural network</a>那篇文章的思想，把reward设置为互信息的大小，然后退火的方式训练模型，最终梯度的更新公式如下</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fhmzkck9crj30lg02ymxi.jpg" alt=""></p>
+<p>PS: 我觉得这里等号右边缺少了求期望操作，或者等号变成约等号。</p>
+<p>前面是模型预训练，接下来是用之前构造的reward进行强化学习训练，梯度更新公式如下</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhmzru8mbej30pi04udgc.jpg" alt=""></p>
+<h1 id="2-building-end-to-end-dialogue-systems-using-generative-hierarchical-neural-network-models"><a href="#2-Building-End-To-End-Dialogue-Systems-Using-Generative-Hierarchical-Neural-Network-Models" class="headerlink" title="2. Building End-To-End Dialogue Systems Using Generative Hierarchical Neural Network Models"></a>2. Building End-To-End Dialogue Systems Using Generative Hierarchical Neural Network Models</h1><p>Iulian V Serban, A. S. Y. B. A. C. J. P. (2016). Building End-To-End Dialogue Systems Using Generative Hierarchical Neural Network Models (pp. 1–8).</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fhnzcd6p83j30u10fi0un.jpg" alt=""></p>
+<h1 id="3-a-hierarchical-latent-variable-encoder-decoder-model-for-generating-dialogues"><a href="#3-A-Hierarchical-Latent-Variable-Encoder-Decoder-Model-for-Generating-Dialogues" class="headerlink" title="3. A Hierarchical Latent Variable Encoder-Decoder Model for Generating Dialogues"></a>3. A Hierarchical Latent Variable Encoder-Decoder Model for Generating Dialogues</h1><p>Serban, I. V., Sordoni, A., Lowe, R., Charlin, L., Pineau, J., Courville, A., &amp; Bengio, Y. (2016, May 20). A Hierarchical Latent Variable Encoder-Decoder Model for Generating Dialogues. <em>arXiv.org</em>.</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fho0oianddj30sx0fjmyt.jpg" alt=""></p>
+<h1 id="4sequence-to-backward-and-forward-sequences-a-content-introducing-approach-to-generative-short-text-conversation"><a href="#4-Sequence-to-Backward-and-Forward-Sequences-A-Content-Introducing-Approach-to-Generative-Short-Text-Conversation" class="headerlink" title="4.Sequence to Backward and Forward Sequences: A Content-Introducing Approach to Generative Short-Text Conversation"></a>4.Sequence to Backward and Forward Sequences: A Content-Introducing Approach to Generative Short-Text Conversation</h1><p>Mou, L., Song, Y., Yan, R., Jin, Z., Zhang, L., &amp; Li, G. (2016). Sequence to Backward and Forward Sequences: A Content-Introducing Approach to Generative Short-Text Conversation (pp. 1–10). Presented at the COLING.</p>
+<p>本文提出，先用PMI方法从query中抽取一个关键词，本文特指名词，然后利用这个关键词和seq2BF模型，去生成回复。seq2BF是指从句子中间的某个位置向两侧生成，最终得到完整的句子，而不是seq2seq那种从初始到末尾的生成。如下图所示</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fhoyq6bnjsj31000o6gow.jpg" alt=""></p>
+<p>这样的好处在于，一方面能针对query中的重点信息生成回复，避免了无意义回答，同时seq式的语言生成模块能保证语句的流畅可理解。</p>
 
       
     </div>
@@ -442,7 +444,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/caption/" rel="tag"># caption</a>
+            <a href="/tags/bot/" rel="tag"># bot</a>
           
         </div>
       
@@ -455,8 +457,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/26/贝叶斯优化/" rel="next" title="贝叶斯优化">
-                <i class="fa fa-chevron-left"></i> 贝叶斯优化
+              <a href="/2017/07/15/BOT从入门到放弃之task-oriented/" rel="next" title="BOT从入门到放弃之task-oriented">
+                <i class="fa fa-chevron-left"></i> BOT从入门到放弃之task-oriented
               </a>
             
           </div>
@@ -465,8 +467,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/09/NIPS 2016 Tutorial Generative Adersarial Networks/" rel="prev" title="NIPS 2016 Tutorial Generative Adersarial Networks">
-                NIPS 2016 Tutorial Generative Adersarial Networks <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/02/BOT从入门到放弃之multi-agent/" rel="prev" title="BOT从入门到放弃之multi-agent">
+                BOT从入门到放弃之multi-agent <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -630,7 +632,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#rl基本概念"><span class="nav-number">2.</span> <span class="nav-text">RL基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#相关文献"><span class="nav-number">2.1.</span> <span class="nav-text">相关文献</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rl算法背景"><span class="nav-number">2.2.</span> <span class="nav-text">RL算法背景</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三篇paper"><span class="nav-number">3.</span> <span class="nav-text">三篇paper</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文献"><span class="nav-number">5.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-deep-reinforcement-learning-for-dialogue-generation"><span class="nav-number">1.</span> <span class="nav-text">1. Deep reinforcement learning for dialogue generation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#simulation"><span class="nav-number">1.1.</span> <span class="nav-text">simulation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-building-end-to-end-dialogue-systems-using-generative-hierarchical-neural-network-models"><span class="nav-number">2.</span> <span class="nav-text">2. Building End-To-End Dialogue Systems Using Generative Hierarchical Neural Network Models</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-a-hierarchical-latent-variable-encoder-decoder-model-for-generating-dialogues"><span class="nav-number">3.</span> <span class="nav-text">3. A Hierarchical Latent Variable Encoder-Decoder Model for Generating Dialogues</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4sequence-to-backward-and-forward-sequences-a-content-introducing-approach-to-generative-short-text-conversation"><span class="nav-number">4.</span> <span class="nav-text">4.Sequence to Backward and Forward Sequences: A Content-Introducing Approach to Generative Short-Text Conversation</span></a></li></ol></div>
             
 
           </div>
@@ -803,9 +805,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://github.com/2017/03/01/ImageCaption从入门到放弃之一_任务综述/';
-          this.page.identifier = '2017/03/01/ImageCaption从入门到放弃之一_任务综述/';
-          this.page.title = 'ImageCaption从入门到放弃之一_任务综述';
+          this.page.url = 'http://github.com/2017/07/18/BOT从入门到放弃之chatBOT/';
+          this.page.identifier = '2017/07/18/BOT从入门到放弃之chatBOT/';
+          this.page.title = 'BOT从入门到放弃之chatBOT';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://richardbai.disqus.com/embed.js';
