@@ -101,7 +101,7 @@
 <meta property="og:url" content="http://github.com/2017/02/20/字符编码/index.html">
 <meta property="og:site_name" content="RichardBai's Note">
 <meta property="og:description" content="计算机中，字符包括字素，类似字素的单元，可书写语言中的字母表、音节表等。例如：字母，从0到9的数字，常用标点符号，空白符，控制符等。中文的你、我、他，日文的に、ほ、ん、ご也都是字符。">
-<meta property="og:updated_time" content="2017-03-18T09:31:08.000Z">
+<meta property="og:updated_time" content="2017-09-13T01:37:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="字符编码以及python中的编码解码问题">
 <meta name="twitter:description" content="计算机中，字符包括字素，类似字素的单元，可书写语言中的字母表、音节表等。例如：字母，从0到9的数字，常用标点符号，空白符，控制符等。中文的你、我、他，日文的に、ほ、ん、ご也都是字符。">
@@ -384,6 +384,9 @@
 <p>注意：GB类汉字编码与后问的Unicode、UTF-8毫无关系。</p>
 <h1 id="标准一统unicode"><a href="#标准一统：Unicode" class="headerlink" title="标准一统：Unicode"></a>标准一统：Unicode</h1><p>Unicode是一种统一的编码，囊括了各国所有的字符，因而也会有占用过多字节的问题存在。python中的字符串就是unicode编码，如u‘I am a string’，而我们所认为的str类型实际则是字节串。什么意思呢，如果一个字符串前面不加字母u，会被python按照默认的编码方式进行编码（encode），也叫隐式编码。linux下默认的编码方式是utf-8，windows下不是。具体参见这篇文章<a href="http://selfboot.cn/2016/12/28/py_encode_decode/" target="_blank" rel="external">Python2.x 字符编码终极指南</a>。</p>
 <h1 id="发扬光大utf-8"><a href="#发扬光大：UTF-8" class="headerlink" title="发扬光大：UTF-8"></a>发扬光大：UTF-8</h1><p>utf-8是一种变字长的编码方式，解决了刚才提到的unicode的浪费内存问题，具体编码规则可以参考文章<a href="http://selfboot.cn/2014/08/28/character_encoding/#百花齐放之中文编码" target="_blank" rel="external"><strong>人机交互之字符编码</strong></a>。</p>
+<p>常见中文的utf-8表示是占用3个字节的，下面用python3来进行编码解码说明。</p>
+<p>在python3中，所有字符都是默认unicode编码，例如’ABC’ ,’中文’二者都是unicode编码，可以直接print()。而b’ABC’, b’\xe4\xb8\xad\xe6\x96\x87’则是’ABC’ ,’中文’的二进制码，用encode可以把unicode码编码成二进制码，用decode可以把二进制码，解码成自己想要的或是ASCII码或是utf-8码。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; 'ABC'.encode('ascii')</div><div class="line">b'ABC'</div><div class="line">&gt;&gt;&gt; '中文'.encode('utf-8')</div><div class="line">b'\xe4\xb8\xad\xe6\x96\x87'</div><div class="line">&gt;&gt;&gt; '中文'.encode('ascii')</div><div class="line">Traceback (most recent call last):</div><div class="line">  File "&lt;stdin&gt;", line 1, in &lt;module&gt;</div><div class="line">UnicodeEncodeError: 'ascii' codec can't encode characters in position 0-1: ordinal not in range(128)</div><div class="line">&gt;&gt;&gt; b'ABC'.decode('ascii')</div><div class="line">'ABC'</div><div class="line">&gt;&gt;&gt; b'\xe4\xb8\xad\xe6\x96\x87'.decode('utf-8')</div><div class="line">'中文'</div></pre></td></tr></table></figure>
 
       
     </div>
