@@ -930,10 +930,9 @@
     <link href="http://github.com/2017/02/02/leetcode1-20/"/>
     <id>http://github.com/2017/02/02/leetcode1-20/</id>
     <published>2017-02-02T03:43:24.000Z</published>
-    <updated>2017-10-16T09:06:26.257Z</updated>
+    <updated>2017-10-16T09:08:24.380Z</updated>
     
-    <content type="html"><![CDATA[<p>[TOC]</p>
-<h1 id="1-two-sum"><a href="#1-Two-Sum" class="headerlink" title="1. Two Sum"></a>1. Two Sum</h1><p>相似题目：15、16、18</p>
+    <content type="html"><![CDATA[<h1 id="1-two-sum"><a href="#1-Two-Sum" class="headerlink" title="1. Two Sum"></a>1. Two Sum</h1><p>相似题目：15、16、18</p>
 <p>给定一个数组，在输入一个指定的目标值后，返回数组中相加等于目标值的两个元素的下标。</p>
 <p>可以假定每个输入都有一个解，并且不能重复使用同一个的元素。</p>
 <a id="more"></a>
@@ -1019,8 +1018,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h1 id=&quot;1-Two-Sum&quot;&gt;&lt;a href=&quot;#1-Two-Sum&quot; class=&quot;headerlink&quot; title=&quot;1. Two Sum&quot;&gt;&lt;/a&gt;1. Two Sum&lt;/h1&gt;&lt;p&gt;相似题目：15、16、18&lt;/p&gt;
+      &lt;h1 id=&quot;1-Two-Sum&quot;&gt;&lt;a href=&quot;#1-Two-Sum&quot; class=&quot;headerlink&quot; title=&quot;1. Two Sum&quot;&gt;&lt;/a&gt;1. Two Sum&lt;/h1&gt;&lt;p&gt;相似题目：15、16、18&lt;/p&gt;
 &lt;p&gt;给定一个数组，在输入一个指定的目标值后，返回数组中相加等于目标值的两个元素的下标。&lt;/p&gt;
 &lt;p&gt;可以假定每个输入都有一个解，并且不能重复使用同一个的元素。&lt;/p&gt;
     
