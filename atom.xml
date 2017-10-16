@@ -130,9 +130,10 @@
     <link href="http://github.com/2017/08/02/BOT%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83%E4%B9%8Bmulti-agent/"/>
     <id>http://github.com/2017/08/02/BOT从入门到放弃之multi-agent/</id>
     <published>2017-08-02T07:19:58.000Z</published>
-    <updated>2017-09-11T01:06:34.000Z</updated>
+    <updated>2017-10-16T09:04:18.124Z</updated>
     
-    <content type="html"><![CDATA[<a id="more"></a>
+    <content type="html"><![CDATA[<p>通过多个agent之间的交互来模拟自然语言生成等语言任务。</p>
+<a id="more"></a>
 <h1 id="1-deal-or-no-deal-end-to-end-learning-for-negotiation-dialogue"><a href="#1-Deal-or-No-Deal-End-to-End-Learning-for-Negotiation-Dialogue" class="headerlink" title="1. Deal or No Deal? End-to-End Learning for Negotiation Dialogue"></a>1. Deal or No Deal? End-to-End Learning for Negotiation Dialogue</h1><p> Lewis, M., Yarats, D., Dauphin, Y. N., Parikh, D., &amp; Batra, D. (2017). (pp. 1–11). Presented at the EMNLP.</p>
 <p>本文提出了一个全新的任务：两个agent之间进行协商，协商目标是最大化自身的收益，协商的内容是指定好的一系列物品和对应的价值，具体如下图</p>
 <p>¨<img src="https://ws2.sinaimg.cn/large/006tKfTcly1fi6wij47etj31kw0sods5.jpg" alt=""></p>
@@ -164,8 +165,7 @@
     
     <summary type="html">
     
-      &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h1 id=&quot;1-deal-or-no-deal-end-to-end-learning-for-negotiation-dialogue&quot;&gt;&lt;a href=&quot;#1-Deal-or-No-Deal-End-to-End-Learning-fo
+      &lt;p&gt;通过多个agent之间的交互来模拟自然语言生成等语言任务。&lt;/p&gt;
     
     </summary>
     
