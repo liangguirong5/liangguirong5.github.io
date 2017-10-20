@@ -370,10 +370,10 @@
   
   <entry>
     <title>Tecent第一届社交广告高校算法大赛——萌新经验分享</title>
-    <link href="http://github.com/2017/07/01/Tecent%E7%AC%AC%E4%B8%80%E8%8A%82%E7%A4%BE%E4%BA%A4%E5%B9%BF%E5%91%8A%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E2%80%94%E2%80%94%E8%90%8C%E6%96%B0%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
-    <id>http://github.com/2017/07/01/Tecent第一节社交广告算法竞赛——萌新经验分享/</id>
+    <link href="http://github.com/2017/07/01/Tecent%E7%AC%AC%E4%B8%80%E5%B1%8A%E7%A4%BE%E4%BA%A4%E5%B9%BF%E5%91%8A%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E2%80%94%E2%80%94%E8%90%8C%E6%96%B0%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
+    <id>http://github.com/2017/07/01/Tecent第一届社交广告算法竞赛——萌新经验分享/</id>
     <published>2017-06-30T16:38:37.000Z</published>
-    <updated>2017-10-20T06:34:29.446Z</updated>
+    <updated>2017-10-20T06:38:36.679Z</updated>
     
     <content type="html"><![CDATA[<p><a href="http://algo.tpai.qq.com/home/information/index.html" target="_blank" rel="external">赛题详情</a>是对腾讯的社交广告进行cvr预测，下面讲一下我们两只萌新是怎么进行赛题求解的。</p>
 <a id="more"></a>
