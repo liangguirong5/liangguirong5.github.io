@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://github.com/2017/07/01/Tecent%E7%AC%AC%E4%B8%80%E8%8A%82%E7%A4%BE%E4%BA%A4%E5%B9%BF%E5%91%8A%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E2%80%94%E2%80%94%E8%90%8C%E6%96%B0%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/</loc>
+    <lastmod>2017-10-20T06:34:29.446Z</lastmod>
+    <data>
+        <display>
+        <title>Tecent第一届社交广告高校算法大赛——萌新经验分享</title>
+        <pubTime>2017-06-30T16:38:37.000Z</pubTime>
+        
+        <tag>Algorithm</tag>
+         
+         
+           
+             
+              <breadCrumb title="Competition" url="http://github.com/categories/Competition/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://github.com/2017/02/02/leetcode1-20/</loc>
     <lastmod>2017-10-16T09:08:24.380Z</lastmod>
     <data>
@@ -66,7 +86,7 @@
 
     
   <url>
-    <loc>http://github.com/2017/09/11/%E5%AF%B9%E8%AF%9D%E7%B3%BB%E7%BB%9F%E7%BB%BC%E8%BF%B0/</loc>
+    <loc>http://github.com/2017/09/11/BOT%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83%E4%B9%8B%E9%98%B6%E6%AE%B5%E6%80%A7%E7%BB%BC%E8%BF%B0/</loc>
     <lastmod>2017-09-11T01:11:11.000Z</lastmod>
     <data>
         <display>
@@ -119,26 +139,6 @@
            
              
               <breadCrumb title="bot" url="http://github.com/categories/bot/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://github.com/2017/07/01/Tecent%E7%AC%AC%E4%B8%80%E8%8A%82%E7%A4%BE%E4%BA%A4%E5%B9%BF%E5%91%8A%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E2%80%94%E2%80%94%E8%90%8C%E6%96%B0%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/</loc>
-    <lastmod>2017-07-01T01:53:06.000Z</lastmod>
-    <data>
-        <display>
-        <title>Tecent第一届社交广告高校算法大赛——萌新经验分享</title>
-        <pubTime>2017-06-30T16:38:37.000Z</pubTime>
-        
-        <tag>Algorithm</tag>
-         
-         
-           
-             
-              <breadCrumb title="Competition" url="http://github.com/categories/Competition/"/>
           
         </display>
     </data>
@@ -262,30 +262,6 @@
            
              
               <breadCrumb title="DeepLearning" url="http://github.com/categories/DeepLearning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://github.com/2017/03/09/NIPS%202016%20Tutorial%20Generative%20Adersarial%20Networks/</loc>
-    <lastmod>2017-03-18T09:30:28.000Z</lastmod>
-    <data>
-        <display>
-        <title>NIPS 2016 Tutorial Generative Adersarial Networks</title>
-        <pubTime>2017-03-09T12:29:52.000Z</pubTime>
-        
-        <tag>生成模型</tag>
-         
-        <tag>GAN</tag>
-         
-        <tag>Tutorial</tag>
-         
-         
-           
-             
-              <breadCrumb title="GAN" url="http://github.com/categories/GAN/"/>
           
         </display>
     </data>

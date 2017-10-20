@@ -17,8 +17,8 @@
   
   <entry>
     <title>BOT从入门到放弃之阶段性综述</title>
-    <link href="http://github.com/2017/09/11/%E5%AF%B9%E8%AF%9D%E7%B3%BB%E7%BB%9F%E7%BB%BC%E8%BF%B0/"/>
-    <id>http://github.com/2017/09/11/对话系统综述/</id>
+    <link href="http://github.com/2017/09/11/BOT%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83%E4%B9%8B%E9%98%B6%E6%AE%B5%E6%80%A7%E7%BB%BC%E8%BF%B0/"/>
+    <id>http://github.com/2017/09/11/BOT从入门到放弃之阶段性综述/</id>
     <published>2017-09-11T02:19:58.000Z</published>
     <updated>2017-09-11T01:11:11.000Z</updated>
     
@@ -373,10 +373,9 @@
     <link href="http://github.com/2017/07/01/Tecent%E7%AC%AC%E4%B8%80%E8%8A%82%E7%A4%BE%E4%BA%A4%E5%B9%BF%E5%91%8A%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E2%80%94%E2%80%94%E8%90%8C%E6%96%B0%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
     <id>http://github.com/2017/07/01/Tecent第一节社交广告算法竞赛——萌新经验分享/</id>
     <published>2017-06-30T16:38:37.000Z</published>
-    <updated>2017-07-01T01:53:06.000Z</updated>
+    <updated>2017-10-20T06:34:29.446Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="http://algo.tpai.qq.com/home/information/index.html" target="_blank" rel="external">赛题详情</a>是对腾讯的社交广告进行cvr预测，决赛第一名有30万奖金，作为第18名的渣渣只能拿到一个腾讯的绿色通道。</p>
-<p>下面讲一下我们两只萌新是怎么进行赛题求解的。</p>
+    <content type="html"><![CDATA[<p><a href="http://algo.tpai.qq.com/home/information/index.html" target="_blank" rel="external">赛题详情</a>是对腾讯的社交广告进行cvr预测，下面讲一下我们两只萌新是怎么进行赛题求解的。</p>
 <a id="more"></a>
 <h2 id="1-数据分析与预处理"><a href="#1-数据分析与预处理" class="headerlink" title="1. 数据分析与预处理"></a>1. 数据分析与预处理</h2><p>首先我们对数据进行原始特征的分析，发现不同日期虽然点击量不同，但是转化率大致接近，除了最后几天因为回流时间的影响，导致转化率偏低，因此时间特征我们抛弃了日期，而选择了小时。同时，我们对26-30这几天的数据进行了数据清洗，清洗标准是，统计不同广告主报回流的平均时间，然后用这个时间加上当前数据的点击时间，来预计回流时间，对回流时间超过30号24点的数据进行清洗，这样可以去除肯定错误的一些数据。处理后发现，这样的数据主要集中在30号，因为大部分广告主的回流时间都在集中在24小时内，只有30号受此影响较大。</p>
 <h2 id="2-特征工程与特征选择"><a href="#2-特征工程与特征选择" class="headerlink" title="2. 特征工程与特征选择"></a>2. 特征工程与特征选择</h2><h3 id="21-特征工程"><a href="#2-1-特征工程" class="headerlink" title="2.1 特征工程"></a>2.1 特征工程</h3><p>在自己构造的特征方面，我们主要列出以下几个有明显提升的特征：</p>
@@ -473,8 +472,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;a href=&quot;http://algo.tpai.qq.com/home/information/index.html&quot;&gt;赛题详情&lt;/a&gt;是对腾讯的社交广告进行cvr预测，决赛第一名有30万奖金，作为第18名的渣渣只能拿到一个腾讯的绿色通道。&lt;/p&gt;
-&lt;p&gt;下面讲一下我们两只萌新是怎么进行赛题求解的。&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;http://algo.tpai.qq.com/home/information/index.html&quot;&gt;赛题详情&lt;/a&gt;是对腾讯的社交广告进行cvr预测，下面讲一下我们两只萌新是怎么进行赛题求解的。&lt;/p&gt;
     
     </summary>
     
@@ -596,76 +594,6 @@
       <category term="caption" scheme="http://github.com/tags/caption/"/>
     
       <category term="seq2seq" scheme="http://github.com/tags/seq2seq/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>NIPS 2016 Tutorial Generative Adersarial Networks</title>
-    <link href="http://github.com/2017/03/09/NIPS%202016%20Tutorial%20Generative%20Adersarial%20Networks/"/>
-    <id>http://github.com/2017/03/09/NIPS 2016 Tutorial Generative Adersarial Networks/</id>
-    <published>2017-03-09T12:29:52.000Z</published>
-    <updated>2017-03-18T09:30:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文是根据NIPS2016的tutorial翻译、总结的中文文档。</p>
-<a id="more"></a>
-<p>主要包括以下几个方面：</p>
-<ol>
-<li>生成模型的研究价值</li>
-<li>生成模型的原理以及GAN同其他生成模型的区别</li>
-<li>GAN的工作原理</li>
-<li>GAN的前沿进展</li>
-</ol>
-<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>GAN是生成模型的一种，本文所指的生成模型，是根据服从$P_{data}$分布的样本集合，学习出这种分布的估计。学出来的分布称为$P_{model}$，也就是我们模型学出来的分布。一种生成模型的训练目标是去尽可能“精确”地估计数据的分布，如下图。</p>
-<p><img src="https://ww3.sinaimg.cn/large/006tNc79ly1fdhtpqamgkj30v8072gm0.jpg" alt=""></p>
-<p>另一种则是学着数据样本（按照$P_{model}$）去产生新的“样本”，我们的GAN模型倾向于执行这种任务。</p>
-<p><img src="https://ww3.sinaimg.cn/large/006tNc79ly1fdhtqgeqp3j30ve0ayjtz.jpg" alt=""></p>
-<h1 id="1生成模型的研究价值"><a href="#1-生成模型的研究价值" class="headerlink" title="1.生成模型的研究价值"></a>1.生成模型的研究价值</h1><p>为什么要研究生成模型呢？特别是那种只能产生更多样本的，毕竟，世界上从来不缺少更多的图片。</p>
-<p>其实，生成模型的重要性有以下几点：</p>
-<ol>
-<li><p>训练生成模型或是从生成模型采样，有助于评价我们表示、操作高维概率分布的能力，而这种能力恰恰是许多科学的基础。（私以为这点有点虚。。。）</p>
-</li>
-<li><p>生成模型可以被正整合强化学习当中（关键应用）</p>
-<p>强化学习可以分为有模型和无模型的两类，有模型的就有一个生成模型，它生成的时序数据可以用于模拟未来，进而进行决策。具体来讲，给定当前状态和采取的动作，由生成模型去预测下一时刻状态的条件概率分布。我们的agent可以给生成模型几个候选的动作去查询，进而选择一个产生能期望状态且概率最大的动作去执行。</p>
-<p>生成模型还可以被用于生成一个虚拟的环境供强化学习训练、指导RL的exploration，GAN可以用于inverse RL。</p>
-</li>
-<li><p>生成模型可以用缺失的数据训练，也能用有缺失的数据作为输入进行概率预测。GAN用于半监督学习就是典型的例子。</p>
-</li>
-<li><p>生成模型，特别是GANs，适合于multi-modal输出，也是就一个输入对应于多个正确答案。</p>
-<p><img src="https://ww2.sinaimg.cn/large/006tNc79ly1fdhyqbksyaj30vu0ds75s.jpg" alt=""></p>
-</li>
-<li><p>许多任务的内在，都是需要产生样本的真实分布。例如下图最左面的一张为高分辨率原图，经过下采样可以产生低分辨率图像。不同的方法去对低分辨率图像进行还原，右面三张依次是插值法、神经网络MSE训练、GAN网络的效果。GAN的效果比MSE好，是因为它知道这个答案有多个解，只选其一即可，而MSE一般是取平均。</p>
-<p><img src="https://ww4.sinaimg.cn/large/006tNc79ly1fdhyuw4uhdj30yq0fgaea.jpg" alt=""></p>
-</li>
-<li><p>辅助艺术创作、image to image translation，不多说，上图：</p>
-<p><img src="https://ww4.sinaimg.cn/large/006tNc79ly1fdhzahf37kj316c0jyjxa.jpg" alt=""></p>
-</li>
-</ol>
-<h1 id="2生成模型的原理以及gan同其他生成模型的区别"><a href="#2-生成模型的原理以及GAN同其他生成模型的区别" class="headerlink" title="2.生成模型的原理以及GAN同其他生成模型的区别"></a>2.生成模型的原理以及GAN同其他生成模型的区别</h1><h2 id="21-最大似然估计"><a href="#2-1-最大似然估计" class="headerlink" title="2.1 最大似然估计"></a>2.1 最大似然估计</h2><p>$$<br>θ^* =argmax_\theta\Sigma log p_{model}(x^{(i)};\theta)<br>$$</p>
-<h2 id="22-生成模型分类树"><a href="#2-2-生成模型分类树" class="headerlink" title="2.2 生成模型分类树"></a>2.2 生成模型分类树</h2><p><img src="https://ww2.sinaimg.cn/large/006tNc79ly1fdi1w0nejej30yy0piq75.jpg" alt=""></p>
-<h2 id="23-explicit-desity-models"><a href="#2-3-explicit-desity-models" class="headerlink" title="2.3 explicit desity models"></a>2.3 explicit desity models</h2><p>这是一种直接最大化似然函数的模型，只需要把样本带入到概率公式中然后取似然相加求和，通过梯度法最大化即可。存在一个难点：保证computational tractability.</p>
-<h3 id="231-tractable-explicit-models"><a href="#2-3-1-Tractable-explicit-models" class="headerlink" title="2.3.1 Tractable explicit models"></a>2.3.1 Tractable explicit models</h3><ol>
-<li><p>Fully visible belief networks</p>
-<p><img src="https://ww2.sinaimg.cn/large/006tNc79ly1fdi29zevfmj30j403udg1.jpg" alt=""></p>
-</li>
-<li><p>Nonlinear independent components analysis</p>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文是根据NIPS2016的tutorial翻译、总结的中文文档。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="GAN" scheme="http://github.com/categories/GAN/"/>
-    
-    
-      <category term="生成模型" scheme="http://github.com/tags/%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B/"/>
-    
-      <category term="GAN" scheme="http://github.com/tags/GAN/"/>
-    
-      <category term="Tutorial" scheme="http://github.com/tags/Tutorial/"/>
     
   </entry>
   

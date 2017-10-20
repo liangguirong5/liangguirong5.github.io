@@ -95,19 +95,16 @@
 
 
 
-<meta name="description" content="赛题详情是对腾讯的社交广告进行cvr预测，决赛第一名有30万奖金，作为第18名的渣渣只能拿到一个腾讯的绿色通道。
-下面讲一下我们两只萌新是怎么进行赛题求解的。">
+<meta name="description" content="赛题详情是对腾讯的社交广告进行cvr预测，下面讲一下我们两只萌新是怎么进行赛题求解的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tecent第一届社交广告高校算法大赛——萌新经验分享">
 <meta property="og:url" content="http://github.com/2017/07/01/Tecent第一节社交广告算法竞赛——萌新经验分享/index.html">
 <meta property="og:site_name" content="RichardBai's Note">
-<meta property="og:description" content="赛题详情是对腾讯的社交广告进行cvr预测，决赛第一名有30万奖金，作为第18名的渣渣只能拿到一个腾讯的绿色通道。
-下面讲一下我们两只萌新是怎么进行赛题求解的。">
-<meta property="og:updated_time" content="2017-07-01T01:53:06.000Z">
+<meta property="og:description" content="赛题详情是对腾讯的社交广告进行cvr预测，下面讲一下我们两只萌新是怎么进行赛题求解的。">
+<meta property="og:updated_time" content="2017-10-20T06:34:29.446Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tecent第一届社交广告高校算法大赛——萌新经验分享">
-<meta name="twitter:description" content="赛题详情是对腾讯的社交广告进行cvr预测，决赛第一名有30万奖金，作为第18名的渣渣只能拿到一个腾讯的绿色通道。
-下面讲一下我们两只萌新是怎么进行赛题求解的。">
+<meta name="twitter:description" content="赛题详情是对腾讯的社交广告进行cvr预测，下面讲一下我们两只萌新是怎么进行赛题求解的。">
 
 
 
@@ -371,8 +368,7 @@
       
 
       
-        <p><a href="http://algo.tpai.qq.com/home/information/index.html" target="_blank" rel="external">赛题详情</a>是对腾讯的社交广告进行cvr预测，决赛第一名有30万奖金，作为第18名的渣渣只能拿到一个腾讯的绿色通道。</p>
-<p>下面讲一下我们两只萌新是怎么进行赛题求解的。</p>
+        <p><a href="http://algo.tpai.qq.com/home/information/index.html" target="_blank" rel="external">赛题详情</a>是对腾讯的社交广告进行cvr预测，下面讲一下我们两只萌新是怎么进行赛题求解的。</p>
 <a id="more"></a>
 <h2 id="1-数据分析与预处理"><a href="#1-数据分析与预处理" class="headerlink" title="1. 数据分析与预处理"></a>1. 数据分析与预处理</h2><p>首先我们对数据进行原始特征的分析，发现不同日期虽然点击量不同，但是转化率大致接近，除了最后几天因为回流时间的影响，导致转化率偏低，因此时间特征我们抛弃了日期，而选择了小时。同时，我们对26-30这几天的数据进行了数据清洗，清洗标准是，统计不同广告主报回流的平均时间，然后用这个时间加上当前数据的点击时间，来预计回流时间，对回流时间超过30号24点的数据进行清洗，这样可以去除肯定错误的一些数据。处理后发现，这样的数据主要集中在30号，因为大部分广告主的回流时间都在集中在24小时内，只有30号受此影响较大。</p>
 <h2 id="2-特征工程与特征选择"><a href="#2-特征工程与特征选择" class="headerlink" title="2. 特征工程与特征选择"></a>2. 特征工程与特征选择</h2><h3 id="21-特征工程"><a href="#2-1-特征工程" class="headerlink" title="2.1 特征工程"></a>2.1 特征工程</h3><p>在自己构造的特征方面，我们主要列出以下几个有明显提升的特征：</p>
@@ -598,7 +594,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
