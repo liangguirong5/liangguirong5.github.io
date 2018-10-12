@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="C++," />
+  <meta name="keywords" content="DeepLearning," />
 
 
 
@@ -95,16 +95,13 @@
 
 
 
-<meta name="description" content="什么是初始化列表初始化列表是构造函数的一个组成部分，可以有可以没有，因此构造函数包括：函数体、参数列表、函数名以及初始化列表。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++之初始化列表">
-<meta property="og:url" content="http://github.com/2017/02/03/C-之初始化列表/index.html">
+<meta property="og:title" content="雅思口语预测-Part2">
+<meta property="og:url" content="http://github.com/2018/10/12/IELTS_SPEAKING_PART23/index.html">
 <meta property="og:site_name" content="RichardBai's Note">
-<meta property="og:description" content="什么是初始化列表初始化列表是构造函数的一个组成部分，可以有可以没有，因此构造函数包括：函数体、参数列表、函数名以及初始化列表。">
-<meta property="og:updated_time" content="2017-02-20T10:18:28.000Z">
+<meta property="og:updated_time" content="2018-10-12T08:22:48.536Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++之初始化列表">
-<meta name="twitter:description" content="什么是初始化列表初始化列表是构造函数的一个组成部分，可以有可以没有，因此构造函数包括：函数体、参数列表、函数名以及初始化列表。">
+<meta name="twitter:title" content="雅思口语预测-Part2">
 
 
 
@@ -132,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://github.com/2017/02/03/C-之初始化列表/"/>
+  <link rel="canonical" href="http://github.com/2018/10/12/IELTS_SPEAKING_PART23/"/>
 
 
 
 
 
-  <title>C++之初始化列表 | RichardBai's Note</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>雅思口语预测-Part2 | RichardBai's Note</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -267,7 +264,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://github.com/2017/02/03/C-之初始化列表/">
+    <link itemprop="mainEntityOfPage" href="http://github.com/2018/10/12/IELTS_SPEAKING_PART23/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Richard Bai">
@@ -283,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">C++之初始化列表</h1>
+          <h1 class="post-title" itemprop="name headline">雅思口语预测-Part2</h1>
         
 
         <div class="post-meta">
@@ -295,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-03T15:31:41+08:00">
-                2017-02-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-12T16:22:48+08:00">
+                2018-10-12
               </time>
             
 
@@ -318,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C++</span>
+                  <a href="/categories/DeepLearning/" itemprop="url" rel="index">
+                    <span itemprop="name">DeepLearning</span>
                   </a>
                 </span>
 
@@ -336,9 +333,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/03/C-之初始化列表/#comments" itemprop="discussionUrl">
+                <a href="/2018/10/12/IELTS_SPEAKING_PART23/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/02/03/C-之初始化列表/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/10/12/IELTS_SPEAKING_PART23/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -368,23 +365,7 @@
       
 
       
-        <h1 id="什么是初始化列表"><a href="#什么是初始化列表" class="headerlink" title="什么是初始化列表"></a>什么是初始化列表</h1><p>初始化列表是构造函数的一个组成部分，可以有可以没有，因此构造函数包括：函数体、参数列表、函数名以及初始化列表。</p>
-<a id="more"></a>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> foo</div><div class="line">  &#123;</div><div class="line">    <span class="built_in">string</span> name;</div><div class="line">  	<span class="keyword">int</span> id;</div><div class="line">  	foo(<span class="built_in">string</span> s, <span class="keyword">int</span> i):name(s),id(i)&#123;&#125;;</div><div class="line">  &#125;;</div><div class="line"><span class="keyword">class</span> C: <span class="keyword">public</span> B2, <span class="keyword">public</span> B1, <span class="keyword">public</span> B3</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    C(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c, <span class="keyword">int</span> d):B1(a), memberB2(d), memberB1(c),B2(b)&#123;&#125;</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    B1 memberB1;</div><div class="line">    B2 memberB2;</div><div class="line">    B3 memberB3;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<h1 id="初始化列表的作用"><a href="#初始化列表的作用" class="headerlink" title="初始化列表的作用"></a>初始化列表的作用</h1><p>初始化列表的作用是对成员变量进行赋值，当然也可以在函数体里面进行赋值操作，但是对于class类型的成员变量，用初始化列表来赋值可以减少一次默认构造的过程，从而提高性能。下面两段代码解释为什么可以减少默认构造。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> Test2</div><div class="line">&#123;</div><div class="line">    Test1 test1 ;</div><div class="line">    Test2(Test1 &amp;t1)</div><div class="line">    &#123;</div><div class="line">        test1 = t1 ;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> Test2</div><div class="line">&#123;</div><div class="line">    Test1 test1 ;</div><div class="line">    Test2(Test1 &amp;t1):test1(t1)&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>分别执行如下代码</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Test1 t1 ;</div><div class="line"><span class="function">Test2 <span class="title">t2</span><span class="params">(t1)</span> </span>;</div></pre></td></tr></table></figure>
-<p>对于第一段代码，要先初始化test1，也就是先调用类Test1的默认构造函数，然后调用赋值构造函数（等号重载）；对于第二段代码，只需要直接调用类Test1的拷贝构造函数，对test2进行初始化，因此初始化列表可以减少一次默认初始化。</p>
-<h1 id="必须使用初始化列表的情况"><a href="#必须使用初始化列表的情况" class="headerlink" title="必须使用初始化列表的情况"></a>必须使用初始化列表的情况</h1><p>同时，根据上面的例子我们可以知道，当Test1类没有默认构造函数时，我们必须采用初始化列表的方式。</p>
-<h1 id="阅读更多"><a href="#阅读更多" class="headerlink" title="阅读更多"></a>阅读更多</h1><p><a href="http://www.cnblogs.com/graphics/archive/2010/07/04/1770900.html" target="_blank" rel="external">C++初始化列表</a></p>
-<p><a href="http://blog.csdn.net/jiangnanyouzi/article/details/3721091" target="_blank" rel="external">虚基类实现机制</a></p>
-<p><a href="http://www.cnblogs.com/fzhe/archive/2012/12/25/2832250.html" target="_blank" rel="external">C++的继承与派生</a></p>
-<p>PS：</p>
-<p>（1）调用虚函数时，因为是动态绑定，所以根据指针指向的对象的实际类型来决定。</p>
-<p>（2）调用非虚函数，静态绑定，所以根据表面上看到的类的类型来决定。</p>
-
+        <a id="more"></a>
       
     </div>
 
@@ -413,7 +394,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/C/" rel="tag"># C++</a>
+            <a href="/tags/DeepLearning/" rel="tag"># DeepLearning</a>
           
         </div>
       
@@ -426,8 +407,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/02/leetcode1-20/" rel="next" title="leetcode1-20">
-                <i class="fa fa-chevron-left"></i> leetcode1-20
+              <a href="/2018/10/05/IELTS_SPEAKING_PART1/" rel="next" title="IELTS SPEAKING PART-1">
+                <i class="fa fa-chevron-left"></i> IELTS SPEAKING PART-1
               </a>
             
           </div>
@@ -435,10 +416,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/05/C-之构造函数/" rel="prev" title="C++之构造函数详解">
-                C++之构造函数详解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -492,17 +469,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://ok8bcvles.bkt.clouddn.com/avatar.png"
@@ -591,22 +559,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是初始化列表"><span class="nav-number">1.</span> <span class="nav-text">什么是初始化列表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#初始化列表的作用"><span class="nav-number">2.</span> <span class="nav-text">初始化列表的作用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#必须使用初始化列表的情况"><span class="nav-number">3.</span> <span class="nav-text">必须使用初始化列表的情况</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#阅读更多"><span class="nav-number">4.</span> <span class="nav-text">阅读更多</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -774,32 +726,15 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://github.com/2017/02/03/C-之初始化列表/';
-          this.page.identifier = '2017/02/03/C-之初始化列表/';
-          this.page.title = 'C++之初始化列表';
+          this.page.url = 'http://github.com/2018/10/12/IELTS_SPEAKING_PART23/';
+          this.page.identifier = '2018/10/12/IELTS_SPEAKING_PART23/';
+          this.page.title = '雅思口语预测-Part2';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://richardbai.disqus.com/embed.js';
         s.setAttribute('data-timestamp', '' + +new Date());
         (d.head || d.body).appendChild(s);
-      </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+      </script>
     
 
   
@@ -829,6 +764,43 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 
