@@ -1,0 +1,30 @@
+menu:
+  home: /
+  archive: /archives
+  tags: /tags
+  info: /about
+  rss: /atom.xml
+
+avatar: /avatar.png
+favicon: /favicon.png
+aboutme: NLP水硕在读 | 白塔庵站街的日常
+
+social:
+  github: http://github.com/liangguirong5
+  twitter: https://twitter.com/baishuxuan
+  weibo: http://weibo.com/baishuxuan
+
+# Comment
+# e.g disqus: seansun
+disqus:
+duoshuo: liangguirong5
+
+# Search
+swift_search: true
+
+# Analytics
+# google-analytics:
+ga: UA-65933410-1
+
+# Copyright Infomation
+startyear: 2016
