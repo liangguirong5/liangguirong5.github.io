@@ -1,0 +1,232 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% "ModernCV" CV and Cover Letter
+% LaTeX Template
+% Version 1.3 (29/10/16)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Xavier Danaux (xdanaux@gmail.com) with modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important note:
+% This template requires the moderncv.cls and .sty files to be in the same 
+% directory as this .tex file. These files provide the resume style and themes 
+% used for structuring the document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt,a4paper,sans]{moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
+
+\moderncvstyle{classic} % CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue} % CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+\usepackage{multicol}
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage[hyperref]{}
+\usepackage[scale=0.9]{geometry} % Reduce document margins
+%\setlength{\hintscolumnwidth}{3cm} % Uncomment to change the width of the dates column
+%\setlength{\makecvtitlenamewidth}{10cm} % For the 'classic' style, uncomment to adjust the width of the space allocated to your name
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION SECTION
+%----------------------------------------------------------------------------------------
+
+\firstname{He} % Your first name
+\familyname{Bai} % Your last name
+
+% All information in this block is optional, comment out any lines you don't need
+%\title{Curriculum Vitae}
+\address{200 Ring Rd, Waterloo}{ON, Canada N2L 3G1}
+\mobile{(+1) 548 333 6369 }
+%\phone{(000) 111 1112}
+%\fax{(000) 111 1113}
+\email{he.bai@uwaterloo.ca}
+%\email{asinha@mt.iitr.ac.in}
+\homepage{richardbaihe.github.io}{www.richardbaihe.github.io} % The first argument is the url for the clickable link, the second argument is the url displayed in the template - this allows special characters to be displayed such as the tilde in this example
+%\extrainfo{\href{https://github.com/richardbaihe}{Github: richardbaihe}}
+
+
+%\photo[70pt][0.4pt]{pictures/picture} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
+%\quote{"A witty and playful quotation" - John Smith}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	COVER LETTER
+%----------------------------------------------------------------------------------------
+
+% To remove the cover letter, comment out this entire block
+
+%\recipient{HR Department}{Corporation\\123 Pleasant Lane\\12345 City, State} % Letter recipient
+%\date{\today} % Letter date
+%\opening{Dear Sir or Madam,} % Opening greeting
+%\closing{Sincerely yours,} % Closing phrase
+%\enclosure[Attached]{curriculum vit\ae{}} % List of enclosed documents
+%
+%\makelettertitle % Print letter title
+%
+%\lipsum[1-2] % Dummy text
+%\lipsum[4] % Dummy text
+%
+%\makeletterclosing % Print letter signature
+%
+%\newpage
+
+%----------------------------------------------------------------------------------------
+%	CURRICULUM VITAE
+%----------------------------------------------------------------------------------------
+
+\makecvtitle % Print the CV title
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Education}
+\cventry{Start from 09/2019}{University of Waterloo}{\newline Computer Science}{PhD}{\newline Supervisor: Ming Li}{}
+
+\cventry{09/2017--07/2019}{Institute of Automation, Chinese Academy of Sciences}{\newline Pattern Recognition and Intelligent System}{Master of Science}{\newline Supervisor: Yu Zhou, Chengqing Zong}{} 
+
+%\cventry{09/2013--07/2017}{Harbin Institute of Technology}{\newline Control Science and Engineering}{Bachelor of Engineering}{\newline GPA: 4.07 /4.30. Rank: top 10\%}{}
+
+% Arguments not required can be left empty
+%\cventry{2016}{D.A.V. Public School, Bistupur}{\newline Mathematics and Computer Science}{Class 12}{}{GPA -- 94.00\%}  % 
+%\cventry{2014}{A.D.L.S. Sunshine School, Sakchi}{\newline Mathematics and Computer Science}{Class 10}{}{GPA -- 95.20\%}  %
+%\section{%Masters Thesis}
+
+%\cvitem{Title}{\emph{Money Is The Root Of All Evil -- Or Is It?}}
+%\cvitem{Supervisors}{Professor James Smith \& Associate Professor Jane Smith}
+%\cvitem{Description}{This thesis explored the idea that money has been the cause of untold anguish and suffering in the world. I found that it has, in fact, not.}
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Research}
+
+\cventry{}{Segment-aware Transformer}{Ming Li}{University of Waterloo}{}{
+\begin{itemize}
+	\item Introducing a segment-aware transformer for language modeling and understanding.
+	\item Achieving the SOTA results in language modeling, and a new pre-trained model SegaBERT.
+\end{itemize}
+}
+
+\cventry{}{Multi-turn Spoken Language Understanding}{Chengqing Zong}{Chinese Academy of Sciences}{}{
+\begin{itemize}
+	\item Proposing a self-supervised dialogue coherence task for multi-turn spoken language understanding.
+	\item Model trained with our proposed method get significant improvement on KVRET dataset.
+\end{itemize}
+}
+
+\cventry{}{Cross-lingual Spoken Language Understanding}{Mei-yuh Hwang}{Mobvoi}{}{
+\begin{itemize}
+	\item Transferring Chinese spoken language understanding dataset into English with reinforcement learning controlled machine translation method.
+\end{itemize}
+}
+
+
+\section{Internship}
+
+%\subsection{%Vocational}
+
+
+\cventry{07/2018--10/2018}{Research Intern}{\textsc{IBM Research}}{}{}{
+\begin{itemize}
+\item Chinese Openai-GPT model pre-training.
+\item Matching based neural dialogue gengeration with GAN.
+\end{itemize}}
+\cventry{06/2018--07/2018}{Summer Intern}{\textsc{Alibaba Group, Alime }}{}{}{
+\begin{itemize}
+\item Query rewriting and contextual queries assignment.
+\end{itemize}}
+\cventry{09/2017--03/2018}{Research Intern}{\textsc{Mobvoi}}{}{}{
+\begin{itemize}
+\item Language transferring for spoken language understanding.
+\item Paraphrase generation.
+\end{itemize}}
+
+\cventry{07/2016--09/2016}{Summer Intern}{\textsc{Unisound}}{}{}{
+\begin{itemize}
+\item Implementing the seq2seq based chit-chat bot with C++.
+\end{itemize}}
+
+% \cventry{May 2018--July 2018}{Data Science Intern}{\textsc{Antriex IT Services}}{}{}{Developed various Trading strategies involving Bollinger Bands and other technical trade indicators with the help of TA-Lib library.
+% \begin{itemize}
+% \item Implemented research papers based on \textsc{Finance and Quant trading}.
+% \item Wrote a \textsc{MLP classifier} to generate trade signals that increased the accuracy by 1.02\%.
+% \item Implemented LSTM for stock price prediction.
+% \end{itemize}}
+
+%------------------------------------------------
+
+%\cventry{2011--2012}{Summer Intern}{\textsc{Lehman Brothers}}{Los Angeles}{}{Rated "truly distinctive" for Analytical Skills and Teamwork.}
+
+%------------------------------------------------
+
+
+
+\section{Publications}
+
+\cvitem{$\bullet$}{\textbf{He Bai}, Peng Shi, Jimmy Lin, Luchen Tan, Kun Xiong, Wen Gao, Ming Li.
+ \textbf{Segatron: Segment-aware Transformer for Language Modeling and Understanding.} \textit{arXiv preprint arXiv:2004.14996.~(under review)}}
+ 
+\cvitem{$\bullet$}{\textbf{He Bai}, Peng Shi, Jimmy Lin, Luchen Tan, Kun Xiong, Wen Gao, Jie Liu, Ming Li. \textbf{Semantics of the Unwritten: The Effect of End of Paragraph and Sequence Tokens on Text Generation.} \textit{arXiv preprint arXiv:2004.02251.~(under review)}}
+
+\cvitem{$\bullet$}{Peng Shi, \textbf{He Bai}, Jimmy Lin.\textbf{Cross-Lingual Training of Neural Models for Document Ranking.} \textit{To appear in Findings of \textbf{EMNLP}~(Conference on Empirical Methods in Natural Language Processing) 2020. Online.}} 
+
+\cvitem{$\bullet$}{\textbf{He Bai}, Yu Zhou, Jiajun Zhang and Chengqing Zong. \textbf{Memory Consolidation for Contextual Spoken Language Understanding with Dialogue Logistic Inference.} \textit{In Proceedings of \textbf{ACL}~(Annual Meeting of the Association for Computational Linguistics) 2019. Florence, Italy, July.}}
+
+\cvitem{$\bullet$}{\textbf{He Bai}, Yu Zhou, Jiajun Zhang, Liang Zhao, Mei-Yuh Hwang and Chengqing Zong. \textbf{Source Critical Reinforcement Learning for Transferring Spoken Language Understanding to a New Language.} \textit{In Proceedings of \textbf{COLING}~(International Conference on Computational Linguistics) 2018. Santa Fe, New Mexico, USA, August.}}
+
+% \cventry{}{Multi-turn Spoken Language Understanding}{Yu Zhou}{Chinese Academy of Sciences}{}{
+% 	\begin{itemize}
+% 		\item Improving spoken language understanding performance with contextual information by multi-task training.
+% \end{itemize}}
+
+
+% \section{Service}
+% \cvitem{Reviewer}{EMNLP 2019, ACL2020, AAAI 2020, COLING 2020}
+% \cvitem{June 2019}{Sub-reviewer, }
+
+\section{Service}
+\cvitem{Reviewer}{EMNLP 2019, ACL2020, AAAI 2020, COLING 2020}
+
+\section{Insterests}
+\cvitem{Research}{Natural language processing, Representation Learning}
+\cvitem{Personal}{Traveling, Music}
+
+%----------------------------------------------------------------------------------------
+%	INTERESTS SECTION
+%----------------------------------------------------------------------------------------
+
+%\section{Interests}
+
+%\renewcommand{\listitemsymbol}{-~} % Changes the symbol used for lists
+
+%\cvlistdoubleitem{Cycling}{Hiking}
+%\cvlistdoubleitem{Sketching}{Gaming}
+%\cvlistitem{Quizzing}
+%----------------------------------------------------------------------------------------
+
+%\section{References}
+%
+%\begin{multicols}{2}
+%\cventry{}{K.S Suresh}{\newline Assistant Professor}{\newline Metallurgical and Materials Engg., IIT Roorkee}{\newline suresfmt@iitr.ac.in}{}
+%\columnbreak
+%\cventry{}{Anu Chandra}{\newline CEO}{\newline Ryelore AI}{\newline anu@ryelore.com}{ }
+%\end{multicols}
+
+%\cventry{}{Arpit Gupta}{\newline VP Engineering}{\newline Antriex IT Services}{\newline arpit.gupta@antmex.com}{}
+
+%\cventry{}{B.S.S Daniel}{\newline Professor}{\newline Metallurgical and Materials Engg., IIT Roorkee}{\newline s4danfmt@iitr.ac.in}{ }
+\end{document}
